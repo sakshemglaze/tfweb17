@@ -1,0 +1,91 @@
+<section class="search-bar">
+    <div class="search-contents py-4">
+        <h1 class="text-white text-center"><strong><b>LARGEST ONLINE B2B PORTAL </b></strong></h1>
+        <div class="container mt-2">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <form [formGroup]="searchFormFroup" class="search-form{{ classPara ? classPara : '' }}"
+                        id="homepageSearch" inViewport (inViewportAction)="searchInViewportAction($event)">
+
+                        <div class="input-group mb-3 w-100 position-relative">
+                            <span class="input-group-text bg-white" id="basic-addon1"><img
+                                    src="assets/images/location-3.png" width="16" height="17" alt="" class="me-lg-3 me-2 img-fluid" />
+
+                                <select area-label="state" name="location" formControlName="location" #locationSelect
+                                    class="form-select no-border" (change)="onChangeLocation(locationSelect.value)">
+                                    <option class="dropdown-item" *ngFor="let area of areas; let i = index"
+                                        value="{{ area }}">
+                                        {{ area }}
+                                    </option>
+                                </select>
+                            </span>
+
+                            <!-- <input type="text" class="form-control border-rounded-end"
+                                placeholder="What are you looking for.." /> -->
+
+                            <input #search autofocus type="text" class="form-control border-rounded-end"
+                                placeholder="What are you looking for.."
+                                (keyup.enter)="onSelectSearchText('search', '')" />
+
+                            <div class="submit-button">
+                                <!-- <img src="assets/images/Voice-icon.png" alt="" class="me-lg-3 me-1 img-fluid"
+                                    width="15" /> -->
+                                <button class="btn-primary-gradiant w-100 h-100 px-2 px-lg-5"
+                                    (click)="onSelectSearchText('search', '')">
+                                    <!-- <img ngSrc="assets/images/search-icon.png" width="18" class="me-lg-2" alt="" /> -->
+                                    <div class="d-lg-inline">Search</div>
+                                </button>
+                            </div>
+
+                            <ul class="search-result"
+                                *ngIf="this.homeSearchService && this.homeSearchService.searchResults">
+                            <!--<li *ngIf="this.homeSearchService.searchResults['subCatNames'] &&
+                                this.homeSearchService.searchResults['subCatNames'].length>0">
+                                    <strong>Sub Category</strong>
+                                </li> -->
+                               <li *ngFor=" let subcategory of
+                                    this.homeSearchService.searchResults['subCatNames'] " (click)="
+                                    onSelectSearchText('subcategory', subcategory)">
+                                    {{ subcategory.subCategoryName }}
+                                </li>
+<!--
+                                <li *ngFor="
+                                let keyword of this.homeSearchService.searchResults['keywords']
+                              " (click)="onSelectSearchText('keyword', keyword)">{{ keyword }}
+                                </li>
+                            
+                                 <li *ngIf="this.homeSearchService.searchResults['productNames'] &&
+                                this.homeSearchService.searchResults['productNames'].length>0">
+                                    <strong>Products</strong>
+                                </li> -->
+                                <li style="background-image: -moz-linear-gradient(-40deg, rgb(189, 56, 56) 0%, rgb(13, 88, 140) 100%);
+                                background-image: -webkit-linear-gradient(-40deg, rgb(189, 56, 56) 0%, rgb(13, 88, 140) 100%);
+                                background-image: -ms-linear-gradient(-40deg, rgb(189, 56, 56) 0%, rgb(13, 88, 140) 100%); color: #fff;"><strong>&nbsp;&nbsp;Products</strong></li>
+                                <li *ngFor=" let product of
+                                    this.homeSearchService.searchResults['productNames'] " (click)="
+                                    onSelectSearchText('product', product)">
+                                    {{ product.productName }}
+                                </li>
+
+  <!--                               <li *ngIf="this.homeSearchService.searchResults['sellerNames'] &&
+                                this.homeSearchService.searchResults['sellerNames'].length>0">
+                                    <strong>Company</strong>
+                                </li> -->
+                                <li style="background-image: -moz-linear-gradient(-40deg, rgb(189, 56, 56) 0%, rgb(13, 88, 140) 100%);
+                                background-image: -webkit-linear-gradient(-40deg, rgb(189, 56, 56) 0%, rgb(13, 88, 140) 100%);
+                                background-image: -ms-linear-gradient(-40deg, rgb(189, 56, 56) 0%, rgb(13, 88, 140) 100%); color: #fff;"><strong>&nbsp;&nbsp;Company</strong></li>
+                                <li *ngFor=" let seller of
+                                    this.homeSearchService.searchResults['sellerNames'] " (click)="
+                                    onSelectSearchText('seller', seller)">
+                                    {{ seller }}
+                               </li>
+                             
+                            </ul>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

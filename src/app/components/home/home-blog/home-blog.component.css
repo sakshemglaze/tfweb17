@@ -1,0 +1,15 @@
+.blog-desc {
+    /* font-size: 0.8rem;
+      text-decoration: none;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;  
+      overflow: hidden; */
+    height: 70px;
+    overflow: hidden;
+  }
+  
+  
+  .btn-auto {
+    margin: 0 auto;
+  }

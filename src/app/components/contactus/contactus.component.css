@@ -1,0 +1,128 @@
+.mt35 {
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.pt1_20 {
+    padding-top: 20px;
+}
+
+.container__box h1 {
+    color: #0d588c;
+}
+
+.container__box h1 span {
+    color: #bd3838;
+}
+
+.container__box .bg_box {
+
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px 20px;
+}
+
+.container__box .bg_box strong {
+    display: block;
+}
+
+.container__box .bg_box ul {
+    position: relative;
+}
+
+.container__box .bg_box ul li {
+    font-size: 19px;
+    padding-left: 12%;
+    line-height: 35px;
+}
+
+.container__box .bg_box ul li a {
+    display: block;
+    text-decoration: none;
+    color: #2a2ee8;
+    line-height: 31px;
+    padding-top: 4px;
+    font-size: 22px;
+    font-weight: normal;
+}
+
+.container__box .bg_box ul li img {
+    position: absolute;
+    left: 0px;
+    margin-top: 0px;
+}
+
+.container__box .bg_box ul li .text_11 p {
+    float: left;
+    width: 15%;
+    line-height: normal;
+}
+
+.container__box .bg_box ul li .text_11 a {
+    padding: 0px;
+    color: #000;
+    font-size: 18px;
+}
+
+.container__box .bg_box ul li .text_11 span {
+    float: left;
+    line-height: initial;
+    padding-right: 20px;
+}
+
+.container__box .bg_box ul li .text_11 {
+    width: 100%;
+    display: table;
+}
+
+.container__box .bg_box p {
+    font-size: 18px;
+    margin: 0px;
+    color: #000;
+}
+
+.container__box .bg_box span {
+    font-size: 16px;
+    color: #979393;
+    font-weight: 400;
+}
+
+@media(max-width: 767px) {
+    .container__box .bg_box ul li img {
+        position: absolute;
+        left: 0px;
+        margin-top: 5px;
+        width: 40px;
+    }
+
+    .container__box .bg_box ul li {
+        font-size: 14px;
+        padding-left: 44px;
+        line-height: 40px;
+    }
+
+    .container__box .bg_box ul li a {
+        display: block;
+        text-decoration: none;
+        color: #2a2ee8;
+        line-height: 24px;
+        padding-top: 12px;
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+    .container__box .bg_box ul li .text_11 a {
+        font-size: 13px;
+    }
+
+    .right_box_img img {
+        margin-top: 20px;
+    }
+}
+
+@media(max-width: 480px) {
+    .container__box .bg_box ul li .text_11 p {
+        width: 25%;
+    }
+}

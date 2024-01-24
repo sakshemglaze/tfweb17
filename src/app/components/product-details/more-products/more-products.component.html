@@ -1,0 +1,25 @@
+
+<div class="row">
+    <div class="col-lg-3" *ngFor="let product of products;let i= index;">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body text-center">
+                <span class="border1 p-3 text-center w-100 d-block rounded-10">
+                    <app-traders-img [id]="
+                product && product.images && product.images.length > 0
+                  ? product.images[0].id
+                  : null" [prodName]="product.altText ? product.altText : product.productName" target="_blank"
+                        [class]="'img-fluid'"></app-traders-img>
+                    <!-- <img src="assets/images/product3.png" class="img-fluid" alt="" /> -->
+                </span>
+                <div class="single-line"><h3 class="mt-1 fs-5">
+                    <a [href]="this.urlService.getProductUrl(product.productName,product.id)"
+                    class="border-bottom-1 text-blue">{{product.productName}}
+                </a></h3> </div>
+                <hr />
+                <button (click)="openPostRequirement(product.productName)"  class="btn-outline-gradiant btn btn-sm mt-1" >
+                    <img src="assets/images/mail-solid.png" alt="" /> Send Enquiry
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,141 @@
+
+<header class="container-fluid shadow-sm border-bottom bg-white sticky-top inner_header1 ">
+    <div class="d-flex align-items-center position-relative flex-wrap">
+
+     
+        <span class="inner_menu_icon" onclick="openNav()">&#9776; </span>
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <ul class="navigation">
+            <li class="has-sub-menu">
+              <a>For Buyer</a>
+              <ul style="list-style-type: none;">
+                <li><a href="browse-sellers">Browse Sellers</a></li>
+                <li><a href="buyer-faq">Buyer FAQ </a></li>ß
+              </ul>
+            </li>
+            <li class="has-sub-menu">
+              <a>For Seller </a>
+              <ul style="list-style-type: none;">
+                <li><a href="register-your-business">Sell Your Products</a></li>
+                <!--<li>Latest Buy Leads</li> -->
+                <li><a href="seller-faq">Seller FAQ</a></li>
+              </ul>
+            </li>
+            <li class="has-sub-menu">
+              <a>Need Help </a>
+              <ul style="list-style-type: none;">
+                <li><a href="feedback">Send Feedback</a></li>
+                <li><a href="feedback">Raise a Complaint</a></li>
+                <!--<li><a href="advertise-with-us">Advertise with Us</a></li>
+                <li><a routerLink="">Email Us</a></li>-->
+                <li><a href="contact-us">Contact Us</a></li>
+                <!--  <li>Chat with Us</li> -->
+              </ul>
+            </li>
+          </ul>
+        </div>
+    
+
+
+      <!--<H1 class="inner_logo_2">-->
+        <a href="/" title="TradersFind" aria-label="TradersFind - Largest B2B online Portal">
+          <img src="assets/images/TradersFind.webp" alt="TradersFind" class="order-1 inner_header_logo" width="110" height="70" Rel="Nofollow" />
+        </a>
+      
+      <form [formGroup]="searchFormFroup" id="homepageSearch" inViewport
+            (inViewportAction)="searchInViewportAction($event)"
+            class="w-100 position-relative ms-auto mw-600 order-3 order-md-2 mt-md-0 ddd">
+        <div class="input-group input-group-lg w-100 position-relative ms-auto mw-600 order-3 order-md-2 mt-md-0">
+          <input #search autofocus type="text" class="form-control " placeholder="What are you looking for.."
+                 (keyup.enter)="onSelectSearchText('bkeyword', '')"  style="height: 45px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+
+          <div class="submit-button">
+            <!-- <img src="assets/images/Voice-icon.png" alt="" class="me-lg-3 me-1 img-fluid" width="15" /> -->
+            <button class="btn-primary-gradiant w-100 h-100 px-2 px-lg-5"
+                    (click)="onSelectSearchText('bkeyword', '')">
+              <img src="assets/images/search-icon.png" width="18" class="me-lg-2" alt="" />
+              <div class="d-none d-lg-inline">Search</div>
+            </button>
+          </div>
+
+          <!-- Search List -->
+          <ul class="search-result" *ngIf="this.homeSearchService && this.homeSearchService.searchResults">
+             
+            <!-- <li *ngIf="this.homeSearchService.searchResults['productNames'] &&
+        this.homeSearchService.searchResults['productNames'].length>0">
+            
+          </li> -->
+            <li *ngFor=" let subcategory of
+            this.homeSearchService.searchResults['subCatNames'] " (click)="
+            onSelectSearchText('subcategory', subcategory)">
+              {{ subcategory.subCategoryName }}
+            </li>
+            
+           <!-- <li *ngFor="
+          let keyword of this.homeSearchService.searchResults['keywords']
+        " (click)="onSelectSearchText('keyword', keyword)">{{ keyword }}
+            </li> -->
+          <li style="background-image: -moz-linear-gradient(-40deg, rgb(189, 56, 56) 0%, rgb(13, 88, 140) 100%);
+          background-image: -webkit-linear-gradient(-40deg, rgb(189, 56, 56) 0%, rgb(13, 88, 140) 100%);
+          background-image: -ms-linear-gradient(-40deg, rgb(189, 56, 56) 0%, rgb(13, 88, 140) 100%); color: #fff;"><strong>Products</strong></li>
+            <li *ngFor=" let product of
+            this.homeSearchService.searchResults['productNames'] " (click)="
+            onSelectSearchText('product', product)">
+              {{ product.productName }}
+            </li>
+
+     <!--     <li *ngIf="this.homeSearchService.searchResults['sellerNames'] &&
+        this.homeSearchService.searchResults['sellerNames'].length>0">
+            
+          </li> . -->
+          <li style="background-image: -moz-linear-gradient(-40deg, rgb(189, 56, 56) 0%, rgb(13, 88, 140) 100%);
+          background-image: -webkit-linear-gradient(-40deg, rgb(189, 56, 56) 0%, rgb(13, 88, 140) 100%);
+          background-image: -ms-linear-gradient(-40deg, rgb(189, 56, 56) 0%, rgb(13, 88, 140) 100%); color: #fff;">
+            <strong>Company</strong> </li>
+            <li *ngFor=" let seller of
+            this.homeSearchService.searchResults['sellerNames'] " (click)="
+            onSelectSearchText('seller', seller)">
+              {{ seller }}
+            </li>
+
+            <!-- <li *ngIf="this.homeSearchService.searchResults['subCatNames'] &&
+        this.homeSearchService.searchResults['subCatNames'].length>0">
+            <strong>Company</strong>
+          </li> -->
+           
+          </ul>
+
+        </div>
+      </form>
+
+      <div class="sidemenu align-items-center order-4 inner_header">
+        <a href="https://api.whatsapp.com/send?phone=971569773623&text=Browsed TradersFind" class="mx-4" title="Whatsapp_chat" aria-label="Chat with Tradersfind support team" target="_blank">
+          <img src="assets/images/whatsapp-chat.webp" alt="Whatsapp_chat" style="height: 46px;"></a>
+        <div class="login-button-top d-flex align-items-center mw-200" *ngIf="!this.storageService.getItem('login')">
+          <img src="assets/images/user.png" alt="" />
+          <a href="login" class="border-end-black px-3 me-3 lh-sm nowrap">Sign In </a>
+          <a href="register-your-business">Join Free</a>
+        </div>
+                
+        <div class="login-button-top" *ngIf="this.userName !=''">
+          <img src="assets/images/user.png" alt="User" width="16" height="16" />
+          <span class="dropdown">
+            <button class=" px-2 lh-sm">Hello! {{this.userName}} &nbsp; </button>
+            <label>
+              <input type="checkbox">
+              <ul>
+                <!--<li>My Profile</li>-->
+                <li><a (click)="this.SignOut()">Sign Out</a></li>
+              </ul>
+            </label>
+          </span>
+        </div>
+
+      </div>
+
+
+
+    </div>
+  </header>
+

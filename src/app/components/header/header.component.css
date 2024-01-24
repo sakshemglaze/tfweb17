@@ -1,0 +1,28 @@
+.google-icon {
+    background: url(/assets/images/google_icon.png) no-repeat;
+}
+
+.fb-icon {
+    background: url(/assets/images/fb_icon.png) no-repeat;
+}
+.social-icon {
+    list-style: none;
+    padding: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+.social-icon li {
+    display: inline-flex;
+}
+.social-icon li a i {
+    width: 24px;
+    height: 24px;
+    display: block;
+    margin-right: 10px;
+}
+.sms-icon {
+    background: url(/assets/images/sms-icon.png) no-repeat;
+}
+.whatsapp-icon {
+    background: url(/assets/images/whatsapp_icon.png) no-repeat;
+}

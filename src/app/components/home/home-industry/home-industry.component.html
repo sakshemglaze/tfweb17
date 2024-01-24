@@ -1,0 +1,34 @@
+
+<div class="categories card-shadow rounded-10">
+    <div class="d-flex align-items-center ps-2 mb-3">
+      <img src="assets/images/Category-icon2.png" alt="Industry" width="19" height="12"  />
+      <h4 class="mb-0 ms-3 fw-semibold">Categories</h4>
+    </div>
+      
+    <ul>
+      <li class="has-category" *ngFor="let category of industry | slice : 0 : 6">
+        <h5>
+        <a [href]="getIndustryUrl(category[0], category[1])" [title]="category[0]">
+          <span><img [src]="category[2]" alt="I" width="30" height="30" /></span>&nbsp; 
+          {{ category[0].length > 200 ?category[0].substring(0,200): category[0] }}<span
+            *ngIf="category[0].length > 200">...</span>
+        </a>  </h5>
+        <!-----------
+         <ul>
+          <li *ngFor="let subcategory of category.productsSubcategories">
+            <a href=""></a>
+          </li>
+        </ul> 
+        ----------------->
+      </li>
+  
+      <li class="has-category"> <h5>
+        <a routerLink="industry">
+          <span><img src="assets/images/browse-icon.png" alt="" width="30" height="30" /></span>
+          &nbsp;All Categories
+        </a> </h5>
+  
+      </li>
+    </ul> 
+  </div>
+  

@@ -1,0 +1,138 @@
+
+<app-header-sub></app-header-sub>
+<section class="hidden-content container-fluid ">
+    <div class="row">
+      <div class="col-lg-12">
+        <app-banner-adv [bannerPosition]="'IndustryAll'" [renderServerSide]="false" [image]="'na'"> 
+      </app-banner-adv> 
+      </div>
+    </div>
+  
+  </section>
+
+<section class="p-3">
+    <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">TradersFind </a></li>
+            <li class="breadcrumb-item"><a href="industry">Industry </a></li>
+            <li class="breadcrumb-item active" aria-current="page" *ngIf="industryDetails">
+              {{industryDetails.industryName}}
+            </li>
+        </ol>
+    </nav>
+</section>
+
+
+
+
+<section class="container-fluid " *ngIf="industryDetails">
+    <div class="row gy-4">
+        <div class="col-ld-12 text-center">
+            <h1 class="border-center fs-1">{{industryDetails.industryName}}</h1>
+        </div>
+        <div class="col-lg-12">
+            <br>
+        </div>
+
+
+
+        <div class="col-lg-4" *ngFor="let cat of $any(findActive(industryDetails.productsCategories)); let i=index;">
+            <div class="card border-0 category-hover" *ngIf="cat.productsSubcategories">
+                <div class="card-body">
+                    <h2 class="mb-3 fw-semibold fs-4"><a
+                            [href]="getUrl(cat.id, cat.categoryName)">{{cat.categoryName}}</a></h2>
+                    <div class="d-flex align-items-start">
+
+                        <app-traders-img [id]="cat.image ? cat.image.id : null" class="me-3 rounded-10 img-fluid"
+                            height="70" width="70" alt=""></app-traders-img>
+
+                        <ul class="list-style-disc ms-4">
+                            <li *ngFor="let subcat of $any(findActive(cat.productsSubcategories) | slice : 0 : 5)"><a
+                                    [href]="getSubCatUrl(subcat.id, cat.categoryName, subcat.subCategoryName)">
+                                    {{subcat.subCategoryName}}</a></li>
+                            <a [href]="getUrl(cat.id, cat.categoryName)"> + View All</a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-grey2 mt-5">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="p-md-4 my-3">
+          <div class="card border-0 shadow-lg">
+            <div class="card-header text-center bg-gradiant">
+              <h5 class="mb-0 py-1 fs-3">
+                INQUIRE FOR YOUR BUYING REQUIREMENT
+              </h5>
+            </div>
+            <div class="card-body p-md-5">
+              <h4 class="text-uppercase mb-5 fw-semibold">
+                Tell us about your requirement
+              </h4>
+              <form *ngIf="this.requirementService.prodDetailFrom"
+              [ngClass]="!this.requirementService.isFormvalid?'was-validated':''"
+              [formGroup]="this.requirementService.prodDetailFrom">
+              <div class="row">
+               
+                <div class="col-lg-6">
+                  <label for="" class="form-label fw-semibold fs-5">Describe in few words *</label>
+                  <textarea name="" formControlName="description" class="form-control" id="" cols="30" rows="6"
+                    placeholder="Please include product name, order quantity, usage, special request if any in your inquery."></textarea>
+                  <button class="p-0 text-blue bg-transparent border-0 mt-3 fs-5">
+                    + Add Attachment
+                  </button>
+                </div>
+                <div class="col-lg-6">
+                  <div class="row gy-4">
+                    <div class="col-lg-6">
+                      <label for="" class="form-label fw-semibold fs-5">Email ID *</label>
+                      <input type="text" formControlName="enquirerEmail" class="form-control" placeholder="Email ID" />
+                    </div>
+                    <div class="col-lg-6">
+                      <label for="" class="form-label  fs-4">Mobile Number *</label>
+                      <div class="input-group">
+                        <select formControlName="noCode" class="form-control mxw-50">
+                          <option *ngFor="let opt of this.requirementService.countries"
+                            value="{{opt.code}}">{{ opt.code }}- {{ opt.name }}
+                          </option>
+                        </select>
+                        <!--</div>
+                  <div class="col-lg-6">-->
+                        <input type="text" formControlName="mobileNo" class="form-control"
+                          placeholder="Mobile number" width="" />
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked />
+                        <label class="form-check-label" for="flexCheckChecked">
+                          I agree to
+                          <a href="https://www.tradersfind.com/term-and-conditions" target="_blank" class="text-decoration-underline">terms and conditions</a>
+                        </label>
+                      </div>
+                    </div>
+                    <app-loadp *ngIf="requirementService.spannerval" style="height: 50%; width: 60%; margin-left: -5px;"></app-loadp>
+                    <div class="col-lg-12">
+                      <button (click)="this.requirementService.onClickSubmitRequirement()"
+                                class="btn-primary-gradiant px-md-5 py-2 rounded-10 fs-5 fwbold mt-3 mb-3">Send
+                                inquiry detail</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <app-otp *ngIf="this.requirementService.isVerification"
+            [countryCode]="this.requirementService.prodDetailFrom.value.noCode"
+            [mobileNo]="this.requirementService.prodDetailFrom.value.mobileNo"></app-otp>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

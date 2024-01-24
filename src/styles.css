@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+/* styles.css */
+
+
+
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+  background: #bd3838;
+}
+
+.no-border {
+  border: 0;
+  box-shadow: none;
+}
+
+
+.modal.fade {
+  position: absolute;
+  z-index: 9999 !important;
+}
+
+.p-toast.p-component.p-toast-top-right {
+  top: 101px;
+}

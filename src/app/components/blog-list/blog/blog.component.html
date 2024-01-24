@@ -1,0 +1,64 @@
+
+<app-header-sub></app-header-sub>
+<div *ngIf="blog" class="container blog-page-container"><!-- common-padding-top -->
+    <section class="search-breadcrumb">
+        <div class="row">
+            <div class="mt-4 col-md-12 col-sm-12 col-xs-12 search-banner">
+                <a href="/">Home</a> >
+                <a href="/blog">Blogs</a> >
+                <a [href]="this.urlService.getBlogUrl(blog.title)">{{blog.title}}</a>
+            </div>
+        </div>
+    </section>
+    
+    <div class="row">
+        <div class="col-lg-8 mt-4  card-shadow rounded-2 bg-white p-2">
+            <div class="pageheader front_blog22">
+                <div class="row col-md-12">
+                    <h1 style="font-size: x-large;">{{blog.title}}</h1>
+                </div>
+                <div class="blogDate">
+                    <p>{{blog.createdDate | date: 'dd MMM yyyy'}}</p>
+                </div>
+            </div>
+            
+            <div class="blogContent blogContent2">
+
+                <div *ngIf="blog.image != null && blog.image.imageContent ">
+                    <!--<img [src]="blog.image.imageContent" [alt]="blog.altText ? blog.altText : 'blog image'"
+                        class="img-fluid w-100"> -->
+                    <app-traders-img [width]="'100'" [id]="blog.image ? blog.image.id : null"> </app-traders-img>
+                </div>
+                <div *ngIf="blog.image == null || blog.image == 'null' || blog.image == '' ">
+                    <img class="img-fluid w-100" src="assets/images/YP-logo@2x.png"
+                        [alt]="blog.altText ? blog.altText : 'blog image'" class="img-hw">
+                </div>
+                <div>
+
+                </div>
+                <p [innerHTML]="blog.description"></p>
+            </div>
+        </div>
+        <div class="col-lg-4 mt-4">
+            <div class="blogHeading ">
+                <!--<button class="btn btn-large" href="#">BLOGS</button>-->
+            </div>
+            <div *ngIf="latestBlogs" class="popularBlogs card-shadow rounded-2 bg-white p-2">
+                <div class="blog" *ngFor="let blg of latestBlogs| slice:0:4;let i=index ">
+                  <a [href]="this.urlService.getBlogUrl(blg.title)" style="cursor: pointer;">
+
+                    <img *ngIf="blg.image != null && blg.image.imageContent" src="{{blg.image.imageContent}}"
+                         [alt]="blog.altText ? blog.altText : 'blog image'" class="img-fluid ">
+                    <img *ngIf="blg.image == null || blg.image == 'null' || blg.image == '' "
+                         src="assets/images/YP-logo@2x.png" class="img-fluid"
+                         [alt]="blog.altText ? blog.altText : 'blog image'">
+                    <h5 class="mb-0">{{blg.title}}</h5>
+                    <!-- <p class="line-clamp" [innerHTML]="blg.description | slice:0:250"></p></p>-->
+                   
+                  </a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>

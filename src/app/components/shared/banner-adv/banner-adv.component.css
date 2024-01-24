@@ -1,0 +1,18 @@
+.he17{
+    height: 170px;
+}
+@media screen and (max-width: 768px){
+    .he17{
+        height: 100px;
+    }
+}
+@media screen and (max-width: 480px){
+    .he17{
+        height: 45px;
+    }
+}
+/* your-component.component.css */
+.hidden-content {
+    display: none;
+  }
+  

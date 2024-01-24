@@ -1,0 +1,252 @@
+
+<app-header-sub></app-header-sub>
+<section class="hidden-content container-fluid ">
+  <app-banner-adv [bannerPosition]="'IndustryAll'" [renderServerSide]="false" [image]="'na'"> 
+      </app-banner-adv>
+  <!--<img src="assets/images/industry.webp" class="img-fluid w-100" alt="">-->
+</section>
+
+
+<section class="p-3">
+  <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">TradersFind </a></li>
+
+      <li class="breadcrumb-item active" aria-current="page">
+        Industry
+      </li>
+    </ol>
+  </nav>
+</section>
+
+<section class="container-fluid ">
+  <!-- <div class="row gy-4">
+    <div class="col-ld-12 text-center">
+      <h1 class="border-center fs-1">Products & Services Directory</h1>
+    </div>
+  </div>
+ 
+   -->
+  <!-- third row -->
+  <div class="text-center" [ngStyle]="popular_categories ? {'display': 'none'}:{'visibility': 'block'}">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div class="row  gy-4 bg-white" *ngFor="let category of $any(findActive(popular_categories) | paginate
+  : {
+      id: 'industry_listing_pagination',
+      itemsPerPage: 12,
+      currentPage: page,
+      totalItems: totalLength
+    })">
+   
+    <div class="col-lg-12">
+      <h3 class="text-center fwbold text-uppercase text-black-50"><a
+          [href]="getIndustryUrl(category.industryName, category.id)">{{category.industryName}}</a></h3>
+    </div>
+    <div class="col-lg-3 text-center">
+
+      <img *ngIf="category.image" [src]="category.image.imageContent" class="img-fluid" alt="" width="70%" />
+    </div>
+
+    <div class="col-lg-9">
+      <div class="row gy-4">
+        <div class="col-lg-4" *ngFor="
+        let cat of $any(
+          findActive(category.productsCategories) | slice : 0 : 6
+        );
+        let item = index
+      ">
+          <div class="d-flex align-items-center gap-3" >
+            <app-traders-img [id]="cat.image ? cat.image.id : null"></app-traders-img>
+
+            <div class="inddetails">
+              <h4 class="fs-6 fwbold"><a [href]="getUrl(cat.id, cat.categoryName)"
+                  [title]="cat.categoryName">{{cat.categoryName}}</a></h4>
+              <ul class="mt-4 text-black-50">
+                <li *ngFor="
+                let subcat of $any(
+                  findActive(cat.productsSubcategories) | slice : 0 : 3
+                );
+                let item = index
+              "><a [href]="getSubCatUrl(subcat.id, cat.categoryName,subcat.subCategoryName)"
+                    [title]="subcat.subCategoryName">{{subcat.subCategoryName}}</a></li>
+
+                <li><a [href]="getUrl(cat.id, cat.categoryName)"> + View All</a>
+                  
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="col-lg-12">
+      <div class="row bg-grey">
+        <div class="col-lg-12 position-relative sub_category_list2 ">
+
+          <ul class="sub_category_list">
+
+            <li *ngFor="
+            let rcat of $any(
+              category.productsCategories | slice : 0: 4
+            );
+            let item = index
+          ">
+              <a [href]="getUrl(rcat.id, rcat.categoryName)"
+                class="align-items-center flex-row d-flex gap-3 flex-wrap flex-md-nowrap  justify-content-md-start">
+                <div class="pro_image">
+                  <app-traders-img [id]="rcat.image ? rcat.image.id : null" alt=""></app-traders-img>
+
+                </div>
+                <h2 class="fs-6 fw-normal">{{rcat.categoryName}}</h2>
+
+              </a>
+            </li>
+
+          </ul>
+
+
+
+
+          <a [href]="getIndustryUrl(category.industryName, category.id)" class="btn-primary-gradiant subcatbtn">
+            View
+            More
+          </a>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+  <br />
+  <br />
+
+  <pagination-controls id="industry_listing_pagination" (pageChange)="getNext($event)" [responsive]="true"
+    [maxSize]="20"></pagination-controls>
+
+
+</section>
+
+
+<section class="container-fluid mt-4">
+  <div class="row gy-4">
+    <!-- <div class="col-ld-12 text-center">
+      <h1 class="border-center fs-1">Building & Construction</h1>
+    </div>
+
+    <div class="col-lg-12">
+      <br />
+    </div> -->
+
+    <!-- <div class="col-lg-4" *ngFor="let category of popular_categories; let i = index">
+      <a [href]="getUrl(category.id, category.industryName)">
+        <div class="card border-0 category-hover">
+          <div class="card-body">
+            <h2 class="mb-3 fw-semibold fs-4">
+              {{ category.industryName }}
+            </h2>
+            <div class="d-flex align-items-start">
+              <img [src]="category.image.imageContent" class="me-3 rounded-10 img-fluid" width="150" alt="" />
+              <ul class="list-style-disc ms-4">
+                <li *ngFor="
+                    let subCategory of $any(
+                      category.productsCategories | slice : 0 : 5
+                    );
+                    let item = index
+                  ">
+                  <a href="#">{{ subCategory.categoryName }}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div> -->
+
+    <div class="col-12">
+      <hr />
+    </div>
+  </div>
+</section>
+<section class="bg-grey2 mt-5">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="p-md-4 my-3">
+          <div class="card border-0 shadow-lg">
+            <div class="card-header text-center bg-gradiant">
+              <h5 class="mb-0 py-1 fs-3">
+                INQUIRE FOR YOUR BUYING REQUIREMENT
+              </h5>
+            </div>
+            <div class="card-body p-md-5">
+              <h4 class="text-uppercase mb-5 fw-semibold">
+                Tell us about your requirement
+              </h4>
+              <form *ngIf="this.requirementService.prodDetailFrom"
+              [ngClass]="!this.requirementService.isFormvalid?'was-validated':''"
+              [formGroup]="this.requirementService.prodDetailFrom">
+              <div class="row">
+                <div class="col-lg-6">
+                  <label for="" class="form-label fw-semibold fs-5">Describe in few words *</label>
+                  <textarea name=""  formControlName="description" class="form-control" id="" cols="30" rows="6"
+                    placeholder="Please include product name, order quantity, usage, special request if any in your inquery."></textarea>
+                  <button class="p-0 text-blue bg-transparent border-0 mt-3 fs-5">
+                    + Add Attachment
+                  </button>
+                </div>
+                <div class="col-lg-6">
+                  <div class="row gy-4">
+                    <div class="col-lg-6">
+                      <label for="" class="form-label fw-semibold fs-5">Email ID*</label>
+                      <input type="text" formControlName="enquirerEmail" class="form-control" placeholder="Email ID" />
+                    </div>
+                    <div class="input-group">
+                      <select formControlName="noCode" class="form-control mxw-50">
+                        <option *ngFor="let opt of this.requirementService.countries"
+                          value="{{opt.code}}">{{ opt.code }}- {{ opt.name }}
+                        </option>
+                      </select>
+                      <!--</div>
+                <div class="col-lg-6">-->
+                      <input type="text" formControlName="mobileNo" class="form-control"
+                        placeholder="Mobile number" width="" />
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked />
+                        <label class="form-check-label" for="flexCheckChecked">
+                          I agree to
+                          <a href="https://www.tradersfind.com/term-and-conditions" target="_blank" class="text-decoration-underline">terms and conditions</a>
+                        </label>
+                      </div>
+                    </div>
+                    <app-loadp *ngIf="requirementService.spannerval" style="height: 50%; width: 60%; margin-left: -5px;"></app-loadp>
+                    <div class="col-lg-12">
+                      <button (click)="this.requirementService.onClickSubmitRequirement()"
+              class="btn-primary-gradiant px-md-5 py-2 rounded-10 fs-5 fwbold mt-3 mb-3">Send Inquiry</button>
+            
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          
+            <app-otp *ngIf="this.requirementService.isVerification"
+            [countryCode]="this.requirementService.prodDetailFrom.value.noCode"
+            [mobileNo]="this.requirementService.prodDetailFrom.value.mobileNo"></app-otp>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

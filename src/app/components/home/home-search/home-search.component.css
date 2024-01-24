@@ -1,0 +1,62 @@
+.autofill-dropdown {
+    position: absolute;
+    top: 40px;
+    background: white;
+    z-index: 1;
+    cursor: pointer;
+    max-height: 1000px;
+    overflow-y: auto;
+}
+
+.autofill-item {
+    background-color: white;
+}
+
+.autofill-item .cate:hover {
+    background-color: #efefef;
+}
+
+.sel-head {
+    font-size: 14px;
+    background-color: var(--primary-light-color);
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+.cate {
+    padding: 4px;
+    font-size: 16px;
+}
+
+.search-result {
+    position: absolute;
+    background-color: white;
+    left: 0;
+    right: 0;
+    top: 110%;
+    z-index: 100;
+    border-radius: 10px !important;
+    display: block;
+    box-shadow: 1px 5px 15px #737373;
+    max-height: 400px;
+    overflow: auto;
+    -webkit-border-radius: 10px !important;
+    -moz-border-radius: 10px !important;
+    -ms-border-radius: 10px !important;
+    -o-border-radius: 10px !important;
+}
+
+.search-result li {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    border-bottom: 1px solid #d0cece;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+}
+
+.search-result li:hover {
+    background-color: #f1f1f1;
+}

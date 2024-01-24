@@ -1,0 +1,31 @@
+
+<ng-template #otpModal let-modal>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="modal.close();"></button>
+            </div>
+            <div class="modal-body text-center pt-0">
+                <div class="logo mb-2"><img src="assets/images/otp-logo.webp" width="120px" /></div>
+                <hr>
+                <h2 class="fs-3 fwbold text-danger">Dear Valued Customer,</h2>
+                <p class="fs-6 mt-2">Welcome to TradersFind, one of the largest B2B and B2C marketplace in United Arab
+                    Emirates where we connect buyers and sellers with each other on a single platform.</p>
+                <div class="mt-2 fs-5 text-info fwbold">Please enter below the received verification code</div>
+                <div class="mb-3 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="otpcode" placeholder="Enter OTP">
+                </div>
+                <button type="button"
+                    class="btn-primary-gradiant px-md-5 py-2 rounded-10 fs-5 fwbold mb-3 mt-2 text-center"
+                    (click)="verifyOtp(otpcode)">
+                    Verify OTP
+                </button>
+                <!--<div class="mt-2 fs-5 text-dark fwbold">Kindly enter the verification code in the given space on the
+                    website.</div>-->
+                <div class="fs-5 mt-2">Thanks for using <a class="text-info fwbold fs-5">TradersFind.</a></div>
+            </div>
+
+        </div>
+    </div>
+</ng-template>

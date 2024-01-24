@@ -1,0 +1,10 @@
+.spinner-show {
+    visibility: visible;
+}
+
+.spinner-hide {
+    visibility: hidden;
+}
+.hidden-content {
+    display: none;
+  }

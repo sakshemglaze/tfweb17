@@ -1,0 +1,247 @@
+<ng-container>
+    <div carouselSlide *ngFor="let product of products">
+        <!--? '3px solid #ddd': isTitaniumPackageProduct? '4px solid #ddd': '1px solid #ddd'-->
+        <div class="cardproduct card-shadow rounded-10 bg-white" [ngStyle]="{
+            border: isActivePackage?
+            product.rating + 'px solid #ddd'
+            : '0.5px solid #ddd'
+          }">
+            <div class="swiper swiper4">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <div class="container">
+
+
+                            <!--class="startlisting" -->
+                            <div class="row border-bottom">
+                                <div class="col-md-5 position-relative star-listing2">
+                                  <div class="" style="margin-top: 10px;width: 100%; float: left;"
+                                       *ngIf="this.product.seller && this.product.seller.isVerifiedSeller">
+                                    <div style="margin: auto; display: table;">
+                                      <img src="assets/images/verified2.png" width="74" height="27" alt="Verified_Product"
+                                           *ngIf="this.product.seller && this.product.seller.isVerifiedSeller" style="float: left; width: 60px;">
+                                      <img src="\assets\images\Star_listing.png" width="80" height="27" alt="Start_Listing"
+                                           *ngIf="product.isFeatured" style="width: 70px; float: left; padding-left: 10px;">
+                                    </div>
+                                  </div>
+                                  
+                                   <div class="border-end p-3 pt-5 h-100 border_img border_img2 ">
+                                     <app-traders-img [id]="
+                                product && product.images && product.images.length > 0
+                                  ? product.images[0].id: null" [imageContent]="product && product.images && 
+                                  product.images[0].imageContent === null? null: ''"
+                                            [prodName]="product.altText ? product.altText : product.productName"
+                                            target="_blank" [class]="'img-fluid'"></app-traders-img> 
+                                        <div class="d-flex mt-3 d-center">
+                                            <font size=-1>
+                                                <p class="me-3 mb-0 text-red"
+                                                *ngIf="product && (product.price || product.maxPrice)">
+
+                                                <span
+                                                    *ngIf=" product.price && (product.maxPrice==null || product.maxPrice=='' )">
+                                                    <strong>Price:</strong>
+                                                    {{product.price}}</span>
+                                                <span
+                                                    *ngIf="product.maxPrice && (product.price == null || product.price == '')"><strong>Price:</strong>
+                                                    {{product.maxPrice}}</span>
+                                                <span
+                                                    *ngIf="product.price && product.price != '' && product.maxPrice && product.maxPrice != ''"><strong>Price:</strong>
+                                                    {{product.price}} - {{product.maxPrice}}</span>
+                                                <span *ngIf="product.currency">{{product.currency}}
+                                                    /Piece</span>
+                                                <span *ngIf="!product.currency">AED/Piece</span>
+                                                <button (click)="openPostRequirement(product.productName)"
+                                    class="btn-outline-gradiant btn btn-sm w-100 d-center">
+                                             Get latest price</button>
+                                            </p>
+                                                <span *ngIf="product && (!product.price && !product.maxPrice)">
+                                                <button (click)="openPostRequirement(product.productName)"
+                                        class="btn-outline-gradiant btn btn-sm w-100 d-center">
+                                                 Ask price</button> </span>
+                                                
+                                            </font>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7 position-relative p-3">
+                                    <span class="position-absolute end-8 bottom-8" *ngIf="product.rating">
+                                        &nbsp;&nbsp;&nbsp;&nbsp; <app-ratings [rate]="product.rating"></app-ratings>
+                                    </span>
+                                    <div class="single-line">
+                                        <a [href]="
+                                        this.urlService.getProductUrl(product.productName, product.id)"
+                           target="_blank" title="{{product.sellerCompanyName}}" class="fs-5 mb-0">
+                                            <h2 class="fs-5" style="color:rgb(216, 71, 119);">
+                                                {{product.productName}}
+                                                <!--<span *ngIf="product.productName.length > 30">...</span>-->
+                                            </h2>
+                                        </a>
+                                    </div>
+
+
+
+                                    <div class="two-lines small">
+                                        <ul class="two-line-containers">
+                                            <span *ngIf="product.productDescription">
+                                                <li
+                                                    *ngFor="let spec of $any(specList(product.specifications) | slice:0:2); let i=index;">
+                                                    <span><b>{{spec.SpecificationName}} :</b>
+                                                        {{spec.SpecValue}}</span>
+                                                </li>
+                                            </span>
+                                            <span *ngIf="!product.productDescription">
+                                                <li
+                                                    *ngFor="let spec of $any(specList(product.specifications) | slice:0:4); let i=index;">
+                                                    <span><b>{{spec.SpecificationName}} :</b>
+                                                        {{spec.SpecValue}}</span>
+                                                </li>
+                                            </span>
+                                        </ul>
+                                    </div>
+                                    <br>
+                                    <div class="two-lines small">
+                                        <span *ngIf="product.productDescription">
+                                            <p class="about_text2">
+                                                <b>Description : </b>{{product.productDescription}}
+                                            </p>
+                                        </span>
+
+                                    </div>
+                                    <a [href]="
+                                    this.urlService.getProductUrl(product.productName, product.id)
+                                      "target="_blank" title="{{ product.sellerCompanyName }}"
+                                        class="text-blue small" style="padding-left: 82px;">View
+                                        more </a>
+
+                                    <div class="d-flex mt-1 small about_text2">
+                                        <!--<img src="assets/images/house.png" alt="Location_seller" width="18" height="19" class="me-3 w-18" />-->
+                                        <b>Company :</b>
+                                        <h3>
+                                            <a [href]="product.seller? this.urlService.getSellerUrl(product.seller.sellerUrl ? product.seller.sellerUrl :product.seller.sellerCompanyName ,product.seller.id):'#'
+                                            "target="_blank" title="{{ product.sellerCompanyName }}" style="color: palevioletred;"> <span
+                                                    class="single-line"
+                                                    *ngIf="product && product.seller && product.seller.sellerCompanyName">
+
+                                                    {{ product.seller.sellerCompanyName.length > SAWidth
+                                                    ? product.seller.sellerCompanyName.substring(0, SAWidth)
+                                                    : product.seller.sellerCompanyName
+                                                    }} 
+                                                </span>
+                                            </a>
+                                        </h3>
+
+                                    </div>
+                                    <div class="d-flex small mt-1 about_text2">
+                                        <!--<img src="assets/images/location-3.svg" width="18" height="19" alt="Seller_Location" class="me-3 w-18" />-->
+                                        <b>Office : </b>
+                                        <a 
+                                            target="_blank">
+                                            <span
+                                                *ngIf="product.seller && (product.seller.country || product.seller.state ||product.seller.city)"
+                                                class="service-area single-line">
+                                                {{ product.seller.city ? product.seller.city + ", " : "" }}
+                                                {{ product.seller.state ? product.seller.state + ", " : "" }}
+                                                {{ product.seller.country ? product.seller.country : "" }}</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="d-flex small mt-1 about_text2">
+                                        <!--<img src="assets/images/service_area.png" width="18" height="19" alt="Service_area" class="me-3 w-18" />-->
+                                        <b>Service Area : </b>
+                                        <a  target="_blank">
+                                            <span *ngIf="product.seller &&
+                                    product.seller.mainMarkets &&
+                                    product.seller.mainMarkets.length > 0 &&
+                                    (product.seller.mainMarkets.length[0] != '' ||
+                                      product.seller.mainMarkets.length[0] != null)
+                                  " class="service-area single-line">{{ product.seller.mainMarkets.join(", ") }}
+                                            </span>
+                                            <span *ngIf=" product.seller &&
+                                    (!product.seller.mainMarkets ||
+                                      (product.seller.mainMarkets &&
+                                        product.seller.mainMarkets.length == 0) ||
+                                      (product.seller.mainMarkets &&
+                                        product.seller.mainMarkets.length > 0 &&
+                                        (product.seller.mainMarkets[0] == null ||
+                                          product.seller.mainMarkets[0] == ''))) &&
+                                    (product.seller.country ||
+                                      product.seller.state ||
+                                      product.seller.city)
+                                  " class="service-area single-line">
+                                                {{ product.seller.city ? product.seller.city + ", " : "" }}
+                                                {{ product.seller.state ? product.seller.state + ", " : "" }}
+                                                {{ product.seller.country ? product.seller.country : "" }}</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="d-flex small mt-1 single-line">
+                                        <!--<img src="assets/images/brand.webp" *ngIf="product.seller && product.seller.Brands" width="18" height="19" alt="Brand" class="me-3 w-18" />-->
+                                        
+                                            <span *ngIf="product && product.brand" class="single-line"> <b>Brands : </b> {{product.brand}}
+                                            </span> &nbsp;
+                                    </div>
+                                    <div class="d-flex small mt-1" *ngIf="product.Category">
+                                        <!--<img src="assets/images/brand.webp" width="18" height="19" alt="Brand" class="me-3 w-18" />-->
+                                        <b>Other Category : </b>
+                                        <span class="single-line"> {{product.seller.Category}}
+                                        </span>
+                                    </div>
+                                    <!--<a >View complete details</a>-->
+                                </div>
+                            </div>
+                            <div class="row gx-2 mb-5 mt-1 gy-3 gy-md-2">
+                                <div class="col-md-4">
+                                    <button class="btn btn-sm btn-light w-100 d-center" (click)="product.seller? 
+                        this.maskingService.onClickPhoneNum(
+                          product.seller,
+                          'sellerVirtualContactPhone',
+                          this.urlService.getProductUrl(product.productName, product.id),
+                          product
+                        ): ''" title="Seller_Phone" href="#">
+                                        <img src="assets/images/phone.png" width="18" height="17" class="w-18 me-2"
+                                            alt="Phone" />
+                                        {{product.seller?
+                                        this.maskingService.getMaskedNumber(
+                                        product.seller,
+                                        "sellerVirtualContactPhone"
+                                        ):''
+                                        }}
+                                    </button>
+                                </div>
+                                <div class="col-md-4" *ngIf="product.seller">
+                                    <a [href]="
+                            this.urlService.getProductToWhatsapp(
+                              product.productName,
+                              product.id,
+                              product.seller
+                            )
+                          " target="_blank" class="whatsappbtn btn btn-sm w-100">
+                                        Connect on whatsapp
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                     <!-- <a href="post-buy-requirements">  -->
+                                    <button (click)="openPostRequirement(product.productName)"
+                                        class="btn-outline-gradiant btn btn-sm w-100 d-center">
+                                        <img src="assets/images/mail-black.png" width="14" height="12"
+                                            class="me-2 w-18" alt="Mail_" />
+                                         
+                                        Send Inquiry
+                                    </button>
+                                    <!-- </a>  -->
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="swiper-pagination swiper-pagination4"></div>
+            </div>
+        </div>
+    </div>
+
+</ng-container>
+

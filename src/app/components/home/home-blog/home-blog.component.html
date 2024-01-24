@@ -1,0 +1,30 @@
+
+<section class="container-fluid">
+    <div class="row gy-4">
+      <div class="col-lg-12">
+        <h3 class="text-center border-center">LATEST BLOG</h3>
+      </div>
+  
+      <div class="col-lg-4 border_img" *ngFor="let blog of blogs | slice : 0 : 3; let i = index">
+        <a [href]="this.urlService.getBlogUrl(blog.title)">
+          <div class="blog text-center">
+            <!-- <p>{{ blog.relatedCategories[0].categoryName }}</p> -->
+            <!-- <img *ngIf="blog.image && blog.image.imageContent" src="{{blog.image.imageContent}}" class="img-fluid" [alt]=blog.title width="200" height="200"> -->
+  
+            <app-traders-img [width]="'100'" [id]="blog.image ? blog.image.id : null"></app-traders-img>
+  
+  
+            <h4 class="fs-14 px-5 mt-4"><strong>{{ blog.title }}</strong></h4>
+            <!-- <p class="px-5 blog-desc" [innerHtml]="blog.description"></p> -->
+            <p  style="color: brown;" >
+              {{ blog.createdBy}},{{ blog.createdDate | date : "mediumDate" }}
+            </p>
+          </div>
+        </a>
+      </div>
+  
+    </div>
+    <div class="text-center"> <a href="blog">
+        <button class="btn-primary-gradiant rounded-2 btn-auto">VIEW ALL</button> </a>
+    </div>
+  </section>

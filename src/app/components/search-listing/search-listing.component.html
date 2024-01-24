@@ -1,0 +1,153 @@
+
+<app-header-sub></app-header-sub>
+<section class="container-fluid mt-1">
+  <div class="row hidden-content">
+    <div class="col-lg-12; position=absolute">
+      <app-banner-adv [bannerPosition]="'Search Product Top'" [renderServerSide]="true" [image]="image" [category]="this.searchText"> 
+      </app-banner-adv> 
+    </div>
+  </div>
+</section>
+
+<section class="p-2">
+  <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">TradersFind</a></li>
+      <li class="breadcrumb-item" *ngIf="industryDetails"><a
+          [href]="getIndustryUrl(industryDetails.industryName, industryDetails.id)">{{industryDetails.industryName}}</a>
+      </li>
+
+      <li class="breadcrumb-item" *ngIf="categoryDetails"><a
+          [href]="getCategoryUrl(categoryDetails.categoryName, categoryDetails.id)">{{categoryDetails.categoryName}}</a>
+      </li>
+
+      <li class="breadcrumb-item active fwbold text-capitalize " aria-current="page">
+        {{this.searchText}} <span *ngIf="location !== 'null'"> &nbsp;>&nbsp; {{location}} </span>
+      </li>
+    </ol>
+  </nav>
+  <div style="text-align: center;">
+    <h1 class="me-2 fwbold  text-capitalize mb-0">{{this.searchText}}
+      <span *ngIf="location=='null'"> in UAE</span>
+      <span *ngIf="location != 'null'"> in {{ location }}</span>
+    </h1>
+    <small class="fwbold">({{totalLength}} products available) </small>
+  </div>
+  <div *ngIf="subcategoryDetails && this.location == 'null' && subcategoryDetails.shortDescription ">
+    <span
+      [innerHTML]="this.showMore1?
+      subcategoryDetails.shortDescription.length > shortDesc
+      ? subcategoryDetails.shortDescription.substring(0,shortDesc) : subcategoryDetails.shortDescription: subcategoryDetails.shortDescription">
+
+    </span>
+    <span *ngIf="subcategoryDetails.shortDescription.length > shortDesc"
+      style="color:brown; position: absolute;">&nbsp;<b> <a (click)="this.toggleShowMore1()">{{
+          this.showMore1 ? '... View more' : 'View less' }} </a> </b></span>
+  </div>
+</section>
+
+<section class="container-fluid mt-2">
+  <div class="row gy-2">
+    <div class="col-lg-3 col-xxl-2">
+      <div class="card card-shadow myUL border-0" *ngIf="products && filters.subCategories && filters.subCategories.length > 1">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-success btn-sm" (click)="letsApplyFilter()">Apply Filter</button>
+            </div>
+            <div class="col">
+              <button class="btn btn-danger btn-sm" (click)="letsClearFilter()">Clear Filter</button>
+            </div>
+          </div>
+          
+          <label for="subCategories"><u>Categories</u> </label>  
+          <div class="left_slide_card_body">
+            <div class="form-check" *ngFor="let fcat of filters.subCategories">
+              <input class="form-check-input" type="checkbox" [(ngModel)]="fcat.checked" (change)="getFilterSubCategory(fcat.name, $event)" />
+              <label class="form-check-label"> {{fcat.name}} </label>
+            </div>
+           
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card card-shadow border-0" *ngIf="products && filters.brandList">
+
+        <div class="card-body">
+          Brands
+          <div class="left_slide_card_body">
+            <div class="form-check" *ngFor="let b of filters.brandList">
+              <input class="form-check-input" type="checkbox" (change)="getFilterSubCategory(b.name, $event)" />
+              <label class="form-check-label"> {{b.name}} </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sticky-top" style="top:12%;"> <a href="https://wa.link/hy8kan" title="TradersFind" target="_blank">
+        <img src="assets/images/poster1.webp" class="img-fluid mt-4 w-100" alt="Poster" /></a>
+      </div>
+    </div>
+
+    <div class="col-lg-9 col-xxl-10 home-cleaning-Bg">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="shadow2 row align-items-center mx-1">
+            <div class="col-lg-8">
+              <ul class="d-flex align-items-center flex-wrap rightnav" *ngIf="filters">
+
+                <li><a
+                    [href]="this.searchTextType && categoryDetails && this.searchTextType == 'subcategory' ? this.urlService.getSubcategoryAllLocUrl(categoryDetails.categoryName, this.searchText, 'all', this.subcategoryId):'/search/'+getSearchString(this.keyword)+'?field=bkeyword'"
+                    [ngClass]="this.location== 'null'?'active':''">All UAE</a></li>
+
+                <li *ngFor="let st of uppersrcHedder">
+                  <a [href]="this.searchTextType && categoryDetails && this.searchTextType == 'subcategory' ? getSubCategoryLocUrl(categoryDetails.categoryName, this.searchText, st.name, this.subcategoryId):'search/'+ getSearchString(this.keyword) +'/'+st.name+'?field=bkeyword'"
+                    [ngClass]="this.location == st.name.toLowerCase() ?'active':''">{{st.name}}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <app-premium-product-card *ngIf="sponsoredProduct" [product]="sponsoredProduct"></app-premium-product-card>
+
+      <!-- paginate
+        : {
+            id: 'search_listing_pagination',
+            itemsPerPage: 12,
+            currentPage: page,
+            totalItems: totalLength
+          } -->
+          
+            
+          
+
+        <div *ngFor="let productsub of productsgroup | keyvalue; let ii = index;" class="row gy-4">
+        <app-product-card *ngFor="
+        let products of productsub.value | keyvalue; let j = index trackBy: trackBy" [products]="products.value" class="col-lg-6"> </app-product-card>
+        <div class="text-center my-2" *ngIf="ctr < totalLength && (page-ii) == 1 ">
+          <button id="loadm" class="btn-primary-gradiant rounded-2 btn-auto" (click)="loadmore()"> LOAD MORE RESULTS ... </button>
+        </div>
+        <section class="easysource my-4 py-2">
+          <app-post-request></app-post-request>
+          <!-- <div *ngIf="!this.showMore" #loadnextRef > &nbsp;</div>-->
+        </section>
+      </div>
+      <div class="text-center" [ngStyle]="products ? {'display': 'none'}:{'visibility': 'block'}">
+        <img src="assets/img/tfmoving.gif" width="150" height="100" alt="TradersFind results loading">
+      </div>
+      <!--<div #loadingRef *ngIf="ctr > totalLength && this.showMore">Loading more results ...</div>-->
+      
+      <!-- <pagination-controls id="search_listing_pagination" (pageChange)="getNext($event)" [responsive]="true"
+        [maxSize]="20"></pagination-controls> -->
+
+      <div *ngIf="this.subcategoryDetails" class="col-md-12 col-sm-12 col-xs-12 no-padding-yp search-product-detail">
+        <p class="search-product-text" [innerHTML]="this.keywordDescription">
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+ <!--<a [href]="bannerTop && bannerTop.link ? bannerTop.link : '/'" target="_blank">
+    <img *ngIf="bannerTop && bannerTop.imageContent" [src] = bannerTop.imageContent class="img-fluid w-100" alt="TradersFind" 
+    (click)="this.bannerService.increaseCount(bannerTop.id,'banner')"> 
+   </a>-->
+   <owl-carousel-o [options]="customOptionsSm" *ngIf="carouselLoaded">
+
+      <ng-template carouselSlide *ngFor="let b of this.AllGuestBannersTemp">
+        <!--<span *ngFor="let b of this.AllGuestBannersTemp">-->
+        <a [href]="b && b.link ? b.link : '/'" target="_blank">
+          <app-traders-img [width]="'100'" [id]="b.image ? b.image.id : null" [imageContent]="b.image && b.image.imageContentContentType? b.image.imageContentContentType : null" ></app-traders-img>
+        </a>
+      <!--</span>-->
+      </ng-template>
+
+</owl-carousel-o>
+<hr style="margin: 0.5rem 0;border: 1px solid #000">

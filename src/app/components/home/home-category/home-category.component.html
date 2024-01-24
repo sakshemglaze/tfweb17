@@ -1,0 +1,45 @@
+
+<div class="categories card-shadow rounded-10">
+    <div class="d-flex align-items-center ps-2 mb-3">
+      <img src="assets/images/Category-icon2.png" width="19" height="12" alt="Category" />
+      <h3 class="mb-0 ms-3 fw-semibold">Categories</h3>
+    </div>
+    <!--
+    <ul>
+      <li class="has-category" >
+        <h5>
+        <a href="{{getindustryUrl("House Keeping Services")}}" [title]="House Keeping Services">
+          <span><img src="assets/images/Consumer-icon.png" alt="TradersFind" /></span> 
+          {{ "House Keeping Services" > 20 ?"House Keeping Services".substring(0,20): "House Keeping Services" }}<span
+            *ngIf="House Keeping Services" > 20">...</span>
+        </a>  </h5>
+  
+    </ul> -->
+    
+    <ul>
+      <li class="has-category" *ngFor="let category of categoriesList | slice : 0 : 6">
+        <h5>
+        <a [href]="getCategory(category.id, category.categoryName)" [title]="category.categoryName">
+          <span><img src="assets/images/Consumer-icon.png" width="30" height="30" alt="TradersFind" /></span> 
+          {{ category.categoryName.length > 20 ?category.categoryName.substring(0,20): category.categoryName }}<span
+            *ngIf="category.categoryName.length > 20">...</span>
+        </a>  </h5>
+        <!-----------
+         <ul>
+          <li *ngFor="let subcategory of category.productsSubcategories">
+            <a href=""></a>
+          </li>
+        </ul> 
+        ----------------->
+      </li>
+  
+      <li class="has-category"> <h5>
+        <a routerLink="industry">
+          <span><img src="assets/images/browse-icon.png" width="19" height="12" alt="TradersFind" /></span>
+          All Categories
+        </a> </h5>
+  
+      </li>
+    </ul> 
+  </div>
+  

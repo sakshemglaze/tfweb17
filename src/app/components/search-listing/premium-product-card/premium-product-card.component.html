@@ -1,0 +1,215 @@
+
+<div class="bg-gradiant rounded-20 position-relative shadow-sm mb-4">
+    <div class="premium_listing" > 
+        <img src="assets/images/verifiedw2.png" alt="verified_image" width="80" height="30" />
+        <img src="assets/images/Premium_listing.png" alt="Premium_listing" width="80" height="30" style="margin-left: 90px;"/></div>
+      <div class="card bg-transparent border-0">
+          <div class="card-body">
+              <div class="row mt-2 gx-md-5 gy-4">
+                  <div class="col-lg-7 mt-4">
+                      <div class="d-flex flex-wrap flex-md-nowrap">
+                        <div class="text-white border_img2">
+                          <app-traders-img [id]="
+                                      product && product.images && product.images.length > 0
+                                        ? product.images[0].id
+                                        : null" [prodName]="product.altText ? product.altText : product.productName" [imageContent]="product && product.images && 
+                                      product.images[0].imageContent === null? null: ''"
+                              target="_blank" [class]="'rounded-10 me-md-4 mb-3 mb-md-0 '" ></app-traders-img>
+                              <span *ngIf="product.price && (product.maxPrice==null || product.maxPrice=='' )">
+                                <strong>Price:</strong> {{product.price}}</span>
+                                <span *ngIf="product.maxPrice && (product.price == null || product.price == '')"><strong>Price:</strong>
+                                {{product.maxPrice}}</span>
+                                <span *ngIf="product.price && product.price != '' && product.maxPrice && product.maxPrice != ''"><strong>Price:</strong>
+                                {{product.price}} - {{product.maxPrice}}</span>
+                                <span *ngIf="product.currency && (product.price || product.maxPrice)">{{product.currency}} / Piece</span>
+                          </div>
+                          <div class="text-white lh-sm ms-md-2">
+                              <h2 class="text-uppercase fwbold fs-5">
+                                  {{
+                                  product.productName.length > 100
+                                  ? product.productName.substring(0, 100)
+                                  : product.productName
+                                  }}<span *ngIf="product.productName.length > 100">...</span>
+                              </h2>
+                                                              
+                             <div class="">
+                                <ul class="mt-2 small ">
+                                <li
+                                    *ngFor="let spec of $any(specList(product.specifications) | slice:0:3); let i=index;">
+                                    <span ><b>{{spec.SpecificationName}}</b> : {{spec.SpecValue}}</span>
+                                </li>
+                               </ul>
+                             </div>
+
+                                    <div class="two-line-content mt-3" *ngIf="product.productDescription"><p class="about_text  about_text2" style="margin: auto;"><b>Description: </b>{{product.productDescription}} 
+                                      </p></div>
+                                      <a [href]="this.urlService.getProductUrl(product.productName, product.id)
+                                      " target="_blank" title="{{ product.seller.sellerCompanyName }}" class="fwbold d-block" style="padding-left: 82px; color: yellow;">
+                                      ...View more</a> 
+
+                              <div class="text-white mt-3">
+                                <span *ngIf="product.seller &&
+                                product.seller.mainMarkets &&
+                                product.seller.mainMarkets.length > 0 &&
+                                (product.seller.mainMarkets.length[0] != '' ||
+                                  product.seller.mainMarkets.length[0] != null)
+                              " class="service-area single-line">
+                              <b>Service Area : </b>{{ product.seller.mainMarkets.join(", ") }} </span>
+                                
+                              </div>
+                              <div class="text-white mt-3">
+                                <span *ngIf="product.seller.Brands" class="single-line"><b>Brand : </b> {{product.seller.Brands}}<br> </span>
+                              </div>
+                              <div clas="text-white mt-3">
+                               <!--<b>Other Category : </b>--> &nbsp;
+                              </div>
+                             <!--<div class="mt-3">
+                               <a class="text-yellow" style="color: yellow;">View complete details</a>
+                              </div>-->
+                            
+                          </div>
+                         
+                      </div>
+                  </div>
+                  <div class="col-lg-5 mt-0 text-white">
+                    <span class="verified2">
+                        <img *ngIf="product.rating===1" src="assets/images/level/lw1.png" alt="Rating1" width="15" height="20"/>
+                        <img *ngIf="product.rating===2" src="assets/images/level/lw2.png" alt="Rating2" width="15" height="20"/>
+                        <img *ngIf="product.rating===3" src="assets/images/level/lw3.png" alt="Rating3" width="15" height="20"/>
+                        <img *ngIf="product.rating===4" src="assets/images/level/lw4.png" alt="Rating4" width="15" height="20"/>
+                        <img *ngIf="product.rating===5" src="assets/images/level/lw5.png" alt="Rating5" width="15" height="20"/>
+                        
+                   </span>
+                        <h3 class="text-uppercase fwbold fs-6 mt-0"> <u><a [href]="
+                          this.urlService.getSellerUrl(product.seller.sellerUrl,product.seller.id)
+                        " target="_blank" class="text-white fs-5" title="{{ product.seller.sellerCompanyName }}">
+                              {{
+                              product.seller.sellerCompanyName.length > SAWidth
+                              ? product.seller.sellerCompanyName.substring(0, SAWidth)
+                              : product.seller.sellerCompanyName
+                              }}<span *ngIf="product.seller.sellerCompanyName.length > SAWidth">...</span>
+                          </a></u>
+                      </h3>
+                      <div class="row gx-3 mt-1 gy-4">
+                          <div class="col-6">
+                              <div class="">
+                                  <div class="card-body pt-0 text-center">
+                                      <app-traders-img [id]="
+                                      product && product.seller.logo
+                                        ? product.seller.logo.id
+                                        : null"
+                                          [prodName]="product.seller.sellerCompanyName ? product.seller.sellerCompanyName : product.productName"
+                                          target="_blank" [class]="'img-fluid rounded-10'"></app-traders-img>
+  
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-6" style="vertical-align: middle;">
+                              <div class="grid2" style="line-height:30px">
+                                  <img src="assets/images/location-white.png" alt="location" width="15" height="17" />
+                                  <a [href]="
+                                  this.urlService.getProductUrl(product.productName, product.id)
+                                " target="_blank">
+                                      <span *ngIf="
+                                    product.seller.mainMarkets &&
+                                    product.seller.mainMarkets.length > 0 &&
+                                    (product.seller.mainMarkets.length[0] != '' ||
+                                      product.seller.mainMarkets.length[0] != null)
+                                  " class="service-area text-white">{{ product.seller.mainMarkets.join(", ") }}</span>
+                                      <span *ngIf="
+                                    (!product.seller.mainMarkets ||
+                                      (product.seller.mainMarkets &&
+                                        product.seller.mainMarkets.length == 0) ||
+                                      (product.seller.mainMarkets &&
+                                        product.seller.mainMarkets.length > 0 &&
+                                        (product.seller.mainMarkets[0] == null ||
+                                          product.seller.mainMarkets[0] == ''))) &&
+                                    (product.seller.country ||
+                                      product.seller.state ||
+                                      product.seller.city)
+                                  "class="service-area ">
+                                          {{ product.seller.city ? product.seller.city + ", " : "" }}
+                                          {{ product.seller.state ? product.seller.state + ", " : "" }}
+                                          {{ product.seller.country ? product.seller.country : "" }}</span>
+                                  </a>
+                                  <img src="assets/images/crown-white.png" width="18" height="12" alt="Premium Seller" />
+                                  Premium Seller
+                                  
+                                  <img src="assets/images/phone-white.png" alt="Premium_Phone" width="16" height="16" />
+                                  <a class="btn-sm text-white" style="text-align: left;" (click)="
+                            this.maskingService.onClickPhoneNum(product.seller,'sellerVirtualContactPhone',this.urlService.getProductUrl(product.productName, product.id),product)">{{
+                                    this.maskingService.getMaskedNumber(product.seller,"sellerVirtualContactPhone")
+                                    }} </a> 
+                              </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <a [href]="
+                                this.urlService.getProductToWhatsapp(
+                                  product.productName,
+                                  product.id,
+                                  product.seller
+                                )
+                              " target="_blank" class="whatsappbtn btn btn-sm w-100">
+                              
+                                  Connect on whatsapp
+                              </a>
+                          </div>
+                          <div class="col-sm-6">
+                              <!--<button class="btn btn-sm btn-light w-100  text-black">-->
+                                <button (click)="openPostRequirement()"
+                                            class="btn-outline-gradiant btn btn-sm w-100 d-center">
+                                  <img src="assets/images/mail-solid.png" alt="Mail" width="17" height="9" /> Send
+                                  Inquiry
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+  
+                  
+                  <div class="col-lg-12" *ngIf="sellerProduct && sellerProduct.length>0">
+                        <div class="card rounded-10">
+                          <div class="card-body">
+                              <div class="row gy-4" >
+                            <owl-carousel-o [options]="carouselPremium">
+                                
+                                    <ng-template carouselSlide *ngFor ="let sProduct of sellerProduct; let i = index"> 
+                                  <div class="col-lg-12">
+                                      <div class="d-flex align-items-center">
+                                        <app-traders-img [id]="
+                                      sProduct && sProduct.images && sProduct.images.length > 0
+                                        ? sProduct.images[0].id
+                                        : null" [prodName]="sProduct.altText ? sProduct.altText : sProduct.productName" [imageContent]="sProduct && sProduct.images && 
+                                      sProduct.images[0].imageContent === null? null: ''" target="_blank"
+                                        class="pic-100px" width="100px" height="100px"> </app-traders-img>                                        
+  
+                                          <div class="ms-3 small">
+                                              <h5 class="fwbold"><small>
+                                                <a [href]="this.urlService.getProductUrl(sProduct.productName, sProduct.id)
+                                              " target="_blank" title="{{ sProduct.productName}}" class="mt-4 text-blue d-block small">
+                                              {{sProduct.productName}} </a></small></h5>
+                                          
+                                              <span *ngIf=" sProduct.price && (sProduct.maxPrice==null || sProduct.maxPrice=='' )">
+                                                <strong>Price:</strong> {{sProduct.price}}</span>
+                                                <span *ngIf="sProduct.maxPrice && (sProduct.price == null || sProduct.price == '')"><strong>Price:</strong>
+                                                {{sProduct.maxPrice}}</span>
+                                                <span *ngIf="sProduct.price && sProduct.price != '' && sProduct.maxPrice && sProduct.maxPrice != ''"><strong>Price:</strong>
+                                                {{sProduct.price}} - {{sProduct.maxPrice}}</span>
+                                                <span *ngIf="sProduct.currency">{{sProduct.currency}} / Piece</span>
+                                              <a [href]="this.urlService.getProductUrl(sProduct.productName, sProduct.id)
+                                              " target="_blank" title="{{ sProduct.productName}}" class="mt-4 text-blue d-block small">
+                                             View More </a>
+                                              
+                                          </div>
+                                      </div>
+                                  </div>
+                            </ng-template>
+                    
+                    </owl-carousel-o>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
