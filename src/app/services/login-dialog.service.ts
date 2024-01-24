@@ -32,7 +32,9 @@ export class LoginDialogService {
       onClickSubmitRequirement(contactNumber:any,loginMethod:any = LOGIN_METHOD.WHATSAPP) {
        this.isVerification = false;
         console.log('click '+ loginMethod,contactNumber);
+        alert("Temporarily not available !");
         //console.log(contactNumber);
+        /*
         this._apiSharedService
           .sendOtp(contactNumber, loginMethod)
           .subscribe(
@@ -70,7 +72,7 @@ export class LoginDialogService {
                   detail: "Please enter a valid mobile number.",
                 });
               }
-            });
+            }); */
       }
   
     showConfirm() {

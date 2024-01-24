@@ -54,10 +54,10 @@ export class IndustoryDetailComponent implements AfterViewInit {
   }
   ngAfterViewInit() {
    // Remove the CSS class to display the content on the client side
-   const hiddenContent = document.querySelector('.hidden-content');
-   if (hiddenContent) {
-     hiddenContent.classList.remove('hidden-content');
-   }
+  // const hiddenContent = document.querySelector('.hidden-content');
+   //if (hiddenContent) {
+   //  hiddenContent.classList.remove('hidden-content');
+  // }
   }
 
   geAllIndustries() {
