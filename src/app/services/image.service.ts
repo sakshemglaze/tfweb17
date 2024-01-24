@@ -7,13 +7,13 @@ import { TRADERSFIND } from '../constants/api-constants';
 export class ImageService {
 
   getImageContent(image: any) {
-    console.log(image);
+    //console.log(image);
 
    if (image && image.id && !image.imageContent ) {
      image['imageContent'] = TRADERSFIND.IMAGE_URL + image.id + '.webp';
    } else if ((image.imageContent != null) ||  (image.image != undefined)) 
    {
-     console.log("URL");
+     //console.log("URL");
      if (
        image.imageContentContentType &&
        image.imageContent &&

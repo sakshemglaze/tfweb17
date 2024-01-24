@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselModule, OwlOptions,  } from 'ngx-owl-carousel-o';
 import { ApiSharedService } from '../../services/api-shared.service';
@@ -167,7 +167,8 @@ export class HomeComponent implements OnInit,AfterViewInit{
     private _apiSharedService: ApiSharedService, 
     public Banners: BannerServiceService,
     public storageService:StorageService, 
-    private modalS:NgbModal) { }
+    private modalS:NgbModal, private el:ElementRef)
+     { }
   ngOnInit(): void {
     //window.scrollTo(0, 0);
     
@@ -176,32 +177,24 @@ export class HomeComponent implements OnInit,AfterViewInit{
     this._apiSharedService
       .getAllHeaderBanner()
       .subscribe((res) => {
-        console.log(res);
+        //console.log(res);
         this.homeBanners = res;
       });
       //console.log(this.storageService.getItem('login'))
       this._apiSharedService.getBannerByKeyword("","Header Middle").subscribe(res=>{
-        console.log(res)
+        //console.log(res)
         this.homeMidelBanner=res
       })
-      console.log(this.requirementService.productSellerForm);
+      //console.log(this.requirementService.productSellerForm);
       
   }
 
   ngAfterViewInit(): void {
     //this.modalS.dismissAll();
           //Remove the CSS class to display the content on the client side
-    const hiddenContent = document.querySelector('.hidden-content');
-    if (hiddenContent) {
-     hiddenContent.classList.remove('hidden-content');
-   }
+    const hiddenContent = this.el.nativeElement.querySelector('.hidden-content');
+    //const hiddenContent = this.el.nativeElement.querySelectorAll('.hidden-content');
+    if (hiddenContent) {    hiddenContent.classList.remove('hidden-content');   }
+    //hiddenContent.forEach((hiddenContent: HTMLElement) => { hiddenContent.removeAttribute('hidden');          });
   }
-  /*searchInViewportActionHome(event: any) {
-    if (event.visible && this.isApiAlreadyCalled) {
-      this.isApiAlreadyCalled = false;
-      this.Banners.getAllBannerByPageName(
-        "Header"
-      );
-    }
-  }*/
 }

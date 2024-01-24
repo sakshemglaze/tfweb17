@@ -36,7 +36,7 @@ export class HomeBlogComponent implements OnInit{
       .subscribe(
         (res: any) => {
           this.blogs = res.body;
-          console.log(this.blogs)
+          //console.log(this.blogs)
           this.blogs = this.blogs.filter((object: any) => {
             return object.image && object.image != null;
           });

@@ -416,9 +416,9 @@ export class ApiSharedService {
   }
 
   public sendOtp(phone: any, isWhatsapp: any): Observable<any> {
-    console.log("api - otp " + isWhatsapp + "  phone : " + phone); 
+    //console.log("api - otp " + isWhatsapp + "  phone : " + phone); 
     let payload = { phone: phone, loginmethod:isWhatsapp };
-    console.log("api shared " + payload.loginmethod);
+    //console.log("api shared " + payload.loginmethod);
     return this._apiService.post(
       LOGIN.SEND_OTP,
       payload,
@@ -430,7 +430,7 @@ export class ApiSharedService {
   }
 
   public checkUserExists(login: any): Observable<any> {
-    console.log(login);
+   // console.log(login);
     return this._apiService.get(
       LOGIN.USER_EXISTS + login,
       false,
@@ -441,7 +441,7 @@ export class ApiSharedService {
   }
 
   public otpLogin(data: any): Observable<any> {
-    console.log("otpLogin -- ");
+   // console.log("otpLogin -- ");
     return this._apiService.post(LOGIN.AUTHENTICATE_OTP, data);
   }
 
@@ -611,7 +611,7 @@ export class ApiSharedService {
 
   public getBannerByKeyword(payload: any,webpagemane: string): Observable<any> {
     const data=[payload,webpagemane]
-    console.log(data)
+   // console.log(data)
     return this._apiService.post(BANNER.BANNER_BY_KEYWORD, data);
   }
 
