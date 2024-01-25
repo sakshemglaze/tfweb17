@@ -227,6 +227,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
    // if (isPlatformBrowser(this.platformId)){
    //   console.log(this.selectedFilters)
    // } 
+   this.keywordDescription=''
   
  }
  ngAfterViewInit() {
@@ -876,17 +877,15 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
        });
    }
  
-
-
  getCategory(id: any) {
    this._apiSharedService
-     .getCategoryById(id, {
+     .getCategoryByIdNa(id, {
        size: 200,
        sort: 'categoryName',
      })
      .subscribe((res) => {
        console.log(res);
-       this.categoryDetails = res;
+       this.categoryDetails = res[0];
        this.getIndustry(this.categoryDetails.title);
        // this.all_categories = res.productsCategories;
        //console.log(this.all_categories);

@@ -199,9 +199,13 @@ export class ApiSharedService {
       false
     );
   }
-
+  
   public getCategoryById(id: any, queryparams: any): Observable<any> {
     return this._apiService.get(CATEGORY.GUEST + '/' + id, false, queryparams);
+  }
+
+  public getCategoryByIdNa(id: any, queryparams: any): Observable<any> {
+    return this._apiService.get('api/guest/products-categories-na' + '/' + id, false, queryparams);
   }
 
   public getUserByLogin(_force?: any, loginId?: any): Observable<any> {
