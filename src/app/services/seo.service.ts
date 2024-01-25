@@ -274,7 +274,7 @@ export class SeoService {
   }
 
   setSubcategorySeo(subcategory: any, location: any) {
-    console.log("Sub_Category SEO " + subcategory);
+    //console.log("Sub_Category SEO " + subcategory);
     let seo = new Seo({
       title:
         subcategory.metaTitle && subcategory.metaTitle != ""
@@ -358,7 +358,7 @@ export class SeoService {
   }
 
   setCategorySeo(category: any) {
-    console.log("Category SEO "+category);
+    //console.log("Category SEO "+category);
     let seo = new Seo({
       title:
         category.metaTitle && category.metaTitle != ""
@@ -426,7 +426,7 @@ export class SeoService {
   }
 
   setIndustrySeo(category: any) {
-    console.log("Industry SEO -"+category);
+    //console.log("Industry SEO -"+category);
     let seo = new Seo({
       title:
         category.metaTitle && category.metaTitle != ""

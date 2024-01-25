@@ -57,7 +57,7 @@ export class ProductCardComponent {
     return JSON.parse(jsonString);
   }
   ngOnInit(): void {
-    console.log(this.products)
+//    console.log(this.products)
     if (this.feature == 1) {
       if (this.deviceService.isMobile()) {
         this.DWidth = 20;
