@@ -21,6 +21,7 @@ import { PrimengModule } from '../../modules/primeng/primeng.module';
 import { state, style, trigger } from '@angular/animations';
 import { RouterLink } from '@angular/router';
 import { NoopAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
+import { ToastModule } from 'primeng/toast';
 
 
 
@@ -29,7 +30,7 @@ import { NoopAnimationsModule, provideAnimations } from '@angular/platform-brows
   selector: 'app-home',
   standalone: true,
  
-  imports: [HeaderComponent,HomeSearchComponent,NgOptimizedImage,OtpComponent,PrimengModule,HomeBlogComponent,HomeIndustryComponent,CarouselModule,CommonModule,FormsModule,ReactiveFormsModule,TradersImgComponent,RouterLink],
+  imports: [HeaderComponent,HomeSearchComponent,ToastModule,NgOptimizedImage,OtpComponent,PrimengModule,HomeBlogComponent,HomeIndustryComponent,CarouselModule,CommonModule,FormsModule,ReactiveFormsModule,TradersImgComponent,RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
  

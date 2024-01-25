@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { ApiSharedService } from './api-shared.service';
-import { MessageService } from 'primeng/api';
+import { Message, MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
 
   enum LOGIN_METHOD {
@@ -22,6 +22,7 @@ export class LoginDialogService {
     //@Input() contactNumber:any;
     loginMethod = LOGIN_METHOD.WHATSAPP;
     isVerification = false;
+    messages1:Message[]=[];
     constructor(
       //private dialog: MatDialog,
       private router: Router,
@@ -32,9 +33,7 @@ export class LoginDialogService {
       onClickSubmitRequirement(contactNumber:any,loginMethod:any = LOGIN_METHOD.WHATSAPP) {
        this.isVerification = false;
         console.log('click '+ loginMethod,contactNumber);
-        alert("Temporarily not available !");
         //console.log(contactNumber);
-        /*
         this._apiSharedService
           .sendOtp(contactNumber, loginMethod)
           .subscribe(
@@ -72,7 +71,7 @@ export class LoginDialogService {
                   detail: "Please enter a valid mobile number.",
                 });
               }
-            }); */
+            });
       }
   
     showConfirm() {

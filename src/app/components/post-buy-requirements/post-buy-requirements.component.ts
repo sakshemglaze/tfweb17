@@ -10,13 +10,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrimengModule } from '../../modules/primeng/primeng.module';
 import { state, style } from '@angular/animations';
 import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-post-buy-requirements',
   standalone: true,
   imports: [CommonModule,HeaderSubComponent,
     LoadpComponent,
-    FormsModule,
+    FormsModule,ToastModule,
     ReactiveFormsModule,
     PrimengModule,
     OtpComponent,RouterOutlet,RouterLink],

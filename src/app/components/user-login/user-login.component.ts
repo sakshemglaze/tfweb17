@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterOutlet } from '@angular/router';
-import { MessageService } from 'primeng/api';
+import { Message, MessageService } from 'primeng/api';
 import { ApiSharedService } from '../../services/api-shared.service';
 import { AuthService } from '../../services/auth.service';
 import { LoginDialogService } from '../../services/login-dialog.service';
@@ -15,6 +15,9 @@ import { HeaderSubComponent } from '../header-sub/header-sub.component';
 import { OtpComponent } from '../dialog/otp/otp.component';
 import { LoadpComponent } from '../shared/loadp/loadp.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+import { MessagesModule } from 'primeng/messages';
+import { ToastModule } from 'primeng/toast';
 
 export function countdownConfigFactory() {
   return { 
@@ -43,7 +46,7 @@ enum LOGIN_METHOD {
     OtpComponent,
     LoadpComponent,
     FormsModule,
-  RouterOutlet],
+  RouterOutlet,MessagesModule,ToastModule],
     providers:[PostRequirementServiceService,MessageService,LoginDialogService],
   templateUrl: './user-login.component.html',
   styleUrl: './user-login.component.css'
@@ -95,6 +98,9 @@ export class UserLoginComponent implements OnInit {
     gapi.load('auth2', () => {
       gapi.auth2.init({ client_id:'227820764854-0h1n442j6v4lm07nj7i5kimp8t7vv22m.apps.googleusercontent.com',});
     });
+  
+
+  
   }
   public get loginMethods(): typeof LOGIN_METHOD {
     return LOGIN_METHOD;

@@ -8,6 +8,7 @@ import { LoadpModule } from '../shared/loadp/loadp.module';
 
 
 
+
 const routes: Routes = [
   { path: "", component: UserLoginComponent }
 ];
@@ -17,6 +18,7 @@ const routes: Routes = [
   imports: [
     CommonModule,RouterModule.forChild(routes)
   ],
-  exports:[RouterModule]
+  exports:[RouterModule],
+  providers:[]
 })
 export class UserLoginModule { }

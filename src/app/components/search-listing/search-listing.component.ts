@@ -227,6 +227,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
    // if (isPlatformBrowser(this.platformId)){
    //   console.log(this.selectedFilters)
    // } 
+   this.keywordDescription=''
   
  }
  ngAfterViewInit() {
@@ -876,11 +877,9 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
        });
    }
  
-
-
  getCategory(id: any) {
    this._apiSharedService
-     .getCategoryById(id, {
+     .getCategoryByIdNa(id, {
        size: 200,
        sort: 'categoryName',
      })
