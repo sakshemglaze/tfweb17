@@ -879,7 +879,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
  
  getCategory(id: any) {
    this._apiSharedService
-     .getCategoryByIdNa(id, {
+     .getCategoryById(id, {
        size: 200,
        sort: 'categoryName',
      })
