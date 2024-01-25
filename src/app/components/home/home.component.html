@@ -13,8 +13,8 @@
       <owl-carousel-o [options]="customOptionsSm">
           <ng-template carouselSlide *ngFor="let b of homeBanners">
             <a [href]="b && b.link ? b.link : '/'" target="_blank">
-              <app-traders-img [width]="'100'" [id]="b.image ? b.image.id : null" [imageContent]="b.image && !b.image.imageContentContentType? null:b.image.imageContentContentType" ></app-traders-img>
-              <!--<img [src]="b.image ? b.image.id : null" class="img-fluid" alt="TradersFind" Rel="Nofollow" /> -->
+              <app-traders-img  [width]="'100'" [id]="b.image ? b.image.id : null" [imageContent]="b.image && !b.image.imageContentContentType? null:b.image.imageContentContentType" ></app-traders-img>
+              <!--<img [src]="b.image ? b.image.id : null" class="img-fluid" alt="TradersFind" Rel="Nofollow" /> --> 
             </a>
           </ng-template>
       </owl-carousel-o>
@@ -163,8 +163,6 @@
       </owl-carousel-o>  
   </div> 
 </section>
-
-
 
 <section class="easysource my-4 py-2">
   <div class="container">

@@ -18,9 +18,9 @@ constructor( public storageService:StorageService,
 {}
   ngOnInit(): void {
 
-    console.log("--------------------")
+//    console.log("--------------------")
     this.userName= this.storageService.getItem('login') ? this.storageService.getItem('userFname'): "" ;
-    console.log(this.userName);
+  //  console.log(this.userName);
     //throw new Error('Method not implemented.');
   }
   SignOut(){
