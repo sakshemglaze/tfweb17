@@ -44,7 +44,7 @@ export class BannerAdvComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.carouselLoaded);
+    //console.log(this.carouselLoaded);
   }
 
   ngAfterViewInit() {
@@ -60,14 +60,14 @@ export class BannerAdvComponent implements OnInit, AfterViewInit {
       this.cdr.detectChanges();
     }
 
-    console.log(this.carouselLoaded);
+    //console.log(this.carouselLoaded);
   }
       
   getAllBannerByPageName() {
     this._apiSharedService.getBannerByKeyword(this.category,this.bannerPosition).subscribe((banner) => {
         if (banner) {
           this.AllGuestBannersTemp = banner;
-          console.log(this.AllGuestBannersTemp);
+         // console.log(this.AllGuestBannersTemp);
           this.bannerTop = this.AllGuestBannersTemp[0];
         }
       });

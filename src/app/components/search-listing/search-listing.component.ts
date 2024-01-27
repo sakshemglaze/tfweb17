@@ -206,7 +206,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
    }
 
 
-   console.log(this.location);
+   //console.log(this.location);
 
    if (this.location) {
      this.homeSearchService.location = this.stringManipulation.toTitleCase(
@@ -223,7 +223,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
    }
    this.searchProducts(this.selectedFilters);
 
-   console.log(this.productsgroup);
+   //console.log(this.productsgroup);
    // if (isPlatformBrowser(this.platformId)){
    //   console.log(this.selectedFilters)
    // } 
@@ -278,7 +278,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
      
    }
    if (this.location && this.location.trim() != "" && this.location != 'null') {
-     console.log(this.location + "Location");
+     //console.log(this.location + "Location");
      if (
        !(
          this.filterDto &&
@@ -300,12 +300,12 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
      this.filterDto = {};
    }
    if (filters && this.location == 'null') {
-     console.log(filters.subCategories)
+     //console.log(filters.subCategories)
      //this.mynewsearckText=filters.subCategories
     
      //this.searchText = filters.subCategories.join('');
    
-     console.log(this.mynewsearckText);
+    // console.log(this.mynewsearckText);
      payload = {
        searchText: decodeURIComponent(this.searchText),
        searchTextType: this.searchTextType,
@@ -327,7 +327,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
     
    }
 
-   console.log(this.filterDto.productSubCategoryFilter);
+   //console.log(this.filterDto.productSubCategoryFilter);
    this.storeSubcat=this.filterDto.productSubCategoryFilter;
    // this.filterDto["searchText"] = this.searchText
    //   ? decodeURIComponent(this.searchText)
@@ -344,7 +344,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
        .getSubcategoryById(this.subcategoryId)
        .subscribe((res) => {
          this.subcategoryDetails = res;
-         console.log(this.subcategoryDetails);
+        // console.log(this.subcategoryDetails);
 
          //have to code
            
@@ -353,7 +353,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
          // this.keywordDescription = res.categoryDescriptionPage;
          if (this.location == 'null')
            this.keywordDescription = res.categoryDescriptionPage;
-         console.log(this.location);
+         //console.log(this.location);
          if (
            this.location == "dubai" &&
            res.keywordDubaiDescription != null &&
@@ -453,15 +453,15 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
        });
    }
    else if (this.searchTextType == "keyword") {
-    console.log(this.searchText)
+    //console.log(this.searchText)
      this._apiSharedService
        .getKeywordByName(this.searchText)
        .subscribe((res) => {
          if (res) {
-           console.log(res);
+           //console.log(res);
            this.keywordDetails = res;
            this.keywordDescription = res.keywordDescription;
-           console.log(this.location);
+           //console.log(this.location);
            if (
              this.location == "dubai" &&
              res.keywordDubaiDescription != null &&
@@ -585,15 +585,15 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
        .getBlindKeywordByName(this.searchText)
        .subscribe((res) => {
          
-         console.log(res)
+        // console.log(res)
          if (res) {
-           console.log("blind" + res);
+          // console.log("blind" + res);
           
            this.keywordDetails = res;
            // this.keywordDescription = res.keywordDescription;
            if (this.location == 'null')
              this.keywordDescription = res.categoryDescriptionPage;
-           console.log(this.location);
+         //  console.log(this.location);
            if (
              this.location == "dubai" &&
              res.keywordDubaiDescription != null &&
@@ -736,8 +736,8 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
 
 
 
-     console.log("search API calling start")
-     console.log(payload);
+     //console.log("search API calling start")
+     //console.log(payload);
      this._apiSharedService
        .searchProducts(
          payload,
@@ -745,7 +745,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
          { page: this.page - 1, size: this.size, }
        )
        .subscribe(async (res) => {
-       console.log(res)
+       //console.log(res)
          if (
            (res.body.products && res.body.products.length > 0) ||
            res.body.sponsoredProduct
@@ -786,7 +786,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
              //     return { name: productname, checked: false };
              //    }),
            };
-           console.log(res.body.locationProductCounts);
+           //console.log(res.body.locationProductCounts);
            this.uppersrcHedder=this.filters.states
            //console.log(this.filters);
            //console.log("--");
@@ -806,11 +806,11 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
 
          if(this.productsgroup1==null){
              this.productsgroup=[]
-             console.log(this.productsgroup1);
+            // console.log(this.productsgroup1);
          }
        
          this.productsgroup = this.productsgroup.concat(this.products.reduce((group: any, product: any, index: number) => {
-           console.log(this.productsgroup);
+        //   console.log(this.productsgroup);
            const { sellerCompanyName } = product;
            let sequenceno = null;
            
@@ -826,13 +826,13 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
            return group;
          }, {}));
        
-         console.log(this.productsgroup);
+         //console.log(this.productsgroup);
 
          this.sponsoredProduct = res.body.sponsoredProduct;
 
          this.totalLength = res.headers.get("x-total-count");
           this.loltu=res.headers.get("text-yuo");
-          console.log(this.loltu)
+         // console.log(this.loltu)
          //console.log(this.totalLength)
          //console.log(this.totalLength);
          //console.log(this.filters.brandList);
@@ -879,13 +879,13 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
  
  getCategory(id: any) {
    this._apiSharedService
-     .getCategoryByIdNa(id, {
+     .getCategoryById(id, {
        size: 200,
        sort: 'categoryName',
      })
      .subscribe((res) => {
-       console.log(res);
-       this.categoryDetails = res[0];
+      // console.log(res);
+       this.categoryDetails = res;
        this.getIndustry(this.categoryDetails.title);
        // this.all_categories = res.productsCategories;
        //console.log(this.all_categories);
@@ -903,8 +903,13 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
        sort: 'industryName'
      })
      .subscribe((res) => {
+
        console.log(res);
-       this.industryDetails = res[0];
+      
+
+       //console.log(res);
+       this.industryDetails = res;
+
 
        // this.all_categories = res.productsCategories;
        //console.log(this.all_categories);
@@ -916,8 +921,8 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
  getFilterSubCategory(catId: any, event: any) {
    // this.selected
    if( this.selectedFilters!=null){
-     console.log(this.selectedFilters)
-     console.log(this.mynewsearckText)
+     //console.log(this.selectedFilters)
+     //console.log(this.mynewsearckText)
    }
  
    if (event.target.checked){
@@ -967,7 +972,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
      
    }
    this.productsgroup1 = "hello";
-   console.log(this.totalLength,this.ctr)
+   //console.log(this.totalLength,this.ctr)
    this.mynewsearckText=null
   // this.selectedFilters=[]
  }
@@ -981,7 +986,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
      this.selectedFilters
    );
    this.productsgroup1 = null;
-   console.log(this.filterDto)
+   //console.log(this.filterDto)
     this.searchProducts(this.searchText);
    
     if (isPlatformBrowser(this.platformId)) window.scrollTo(0, 0);
@@ -1113,7 +1118,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
 
    this.itr=this.page;
    this.page++;
-   console.log(this.ctr,this.totalLength,this.page);
+   //console.log(this.ctr,this.totalLength,this.page);
    this.searchProducts(this.selectedFilters);
    this.ctr += this.size;
    this.productsgroup1="welcome"
