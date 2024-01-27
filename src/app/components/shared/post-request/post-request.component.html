@@ -63,6 +63,7 @@
               <div class="col-lg-6">
                 <div class="input-group">
                   <select formControlName="countryCode" class="form-control mxw-50">
+
                     <!--<ng-container *ngFor="let opt of this.requirementService.countries">
                        <ng-container *ngIf="opt.code === '+971' || opt.code === '+91'">
                          <option value="{{opt.code}}">{{ opt.code }} - {{ opt.name }}</option>
@@ -70,6 +71,7 @@
                        </ng-container>-->
                        <option value="+971">+971 - United Arab Emirates</option>
                        <option value="+91">+91 - India</option>
+
                  </select>
                   <input type="number" formControlName="contactNumber" class="form-control" placeholder="Mobile"
                     required="number" />

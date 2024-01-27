@@ -898,13 +898,18 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
  getIndustry(id: any) {
 
    this._apiSharedService
-     .getIndustryById(id, {
+     .getIndustryByIdNa(id, {
        size: 200,
        sort: 'industryName'
      })
      .subscribe((res) => {
+
+       console.log(res);
+      
+
        //console.log(res);
        this.industryDetails = res;
+
 
        // this.all_categories = res.productsCategories;
        //console.log(this.all_categories);

@@ -99,7 +99,6 @@ export class UserLoginComponent implements OnInit {
       gapi.auth2.init({ client_id:'227820764854-0h1n442j6v4lm07nj7i5kimp8t7vv22m.apps.googleusercontent.com',});
     });
   
-
   
   }
   public get loginMethods(): typeof LOGIN_METHOD {
