@@ -8,6 +8,7 @@ import { UrlService } from '../../services/url.service';
 import { OtpComponent } from '../dialog/otp/otp.component';
 import { LoadpComponent } from '../shared/loadp/loadp.component';
 import { HeaderSubComponent } from '../header-sub/header-sub.component';
+import { FooterComponent } from '../footer/footer.component';
 import { TradersImgComponent } from '../shared/traders-img/traders-img.component';
 import { BannerAdvComponent } from '../shared/banner-adv/banner-adv.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -19,7 +20,7 @@ import { MessageService } from 'primeng/api';
   selector: 'app-industory',
   standalone: true,
   imports: [ CommonModule,NgxPaginationModule,ReactiveFormsModule,OtpComponent,LoadpComponent, 
-    HeaderSubComponent, TradersImgComponent, NgxPaginationModule,RouterLink,BannerAdvComponent],
+    HeaderSubComponent, TradersImgComponent, NgxPaginationModule,RouterLink,BannerAdvComponent,FooterComponent],
   providers:[PostRequirementServiceService,MessageService],
   templateUrl: './industory.component.html',
   styleUrl: './industory.component.css'
@@ -93,11 +94,10 @@ export class IndustoryComponent implements OnInit, AfterViewInit {
 
    ngAfterViewInit(): void {
      // Remove the CSS class to display the content on the client side
-     const hiddenContent = this.el.nativeElement.querySelector('.hidden-content');
-     if (hiddenContent) {
-       this.renderer.removeClass(hiddenContent, 'hidden-content');
-       console.log("hello");
-     }
+    const hiddenContent = document.querySelector('.hidden-content');
+    if (hiddenContent) {
+      hiddenContent.classList.remove('hidden-content');
+    } 
   }
   
   /*getAllCategories() {

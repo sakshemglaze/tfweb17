@@ -11,11 +11,11 @@ import { PrimengModule } from '../../modules/primeng/primeng.module';
 import { state, style } from '@angular/animations';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
-
+import { FooterComponent } from '../footer/footer.component';
 @Component({
   selector: 'app-post-buy-requirements',
   standalone: true,
-  imports: [CommonModule,HeaderSubComponent,
+  imports: [FooterComponent,CommonModule,HeaderSubComponent,
     LoadpComponent,
     FormsModule,ToastModule,
     ReactiveFormsModule,

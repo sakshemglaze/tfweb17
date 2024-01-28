@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonService } from '../../services/common.service';
 import { HeaderSubComponent } from '../header-sub/header-sub.component';
-
+import { FooterComponent } from '../footer/footer.component';
 @Component({
   selector: 'app-account-activation',
   standalone: true,
-  imports: [HeaderSubComponent],
+  imports: [HeaderSubComponent,FooterComponent],
   templateUrl: './account-activation.component.html',
   styleUrl: './account-activation.component.css'
 })

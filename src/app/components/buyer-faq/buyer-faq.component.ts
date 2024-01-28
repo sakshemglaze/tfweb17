@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { HeaderSubComponent } from '../header-sub/header-sub.component';
 import { CommonModule } from '@angular/common';
-
+import { FooterComponent } from '../footer/footer.component';
 @Component({
   selector: 'app-buyer-faq',
   standalone: true,
-  imports: [ CommonModule,HeaderSubComponent],
+  imports: [FooterComponent, CommonModule,HeaderSubComponent],
   templateUrl: './buyer-faq.component.html',
   styleUrl: './buyer-faq.component.css'
 })

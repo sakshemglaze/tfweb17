@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { OtpComponent } from '../../dialog/otp/otp.component';
 import { LoadpComponent } from '../../shared/loadp/loadp.component';
 import { HeaderSubComponent } from '../../header-sub/header-sub.component';
+import { FooterComponent } from '../../footer/footer.component';
 import { BannerAdvComponent } from '../../shared/banner-adv/banner-adv.component';
 import { TradersImgComponent } from '../../shared/traders-img/traders-img.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -17,8 +18,8 @@ import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-industory-detail',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule,OtpComponent,LoadpComponent, HeaderSubComponent, TradersImgComponent,// NgxPaginationModule,
-  BannerAdvComponent],
+  imports: [CommonModule,ReactiveFormsModule,OtpComponent,LoadpComponent, HeaderSubComponent, TradersImgComponent,FooterComponent// NgxPaginationModule,
+  ,BannerAdvComponent],
   providers:[PostRequirementServiceService,MessageService],
   templateUrl: './industory-detail.component.html',
   styleUrl: './industory-detail.component.css'
@@ -54,10 +55,10 @@ export class IndustoryDetailComponent implements AfterViewInit {
   }
   ngAfterViewInit() {
    // Remove the CSS class to display the content on the client side
-  // const hiddenContent = document.querySelector('.hidden-content');
-   //if (hiddenContent) {
-   //  hiddenContent.classList.remove('hidden-content');
-  // }
+   const hiddenContent = document.querySelector('.hidden-content');
+   if (hiddenContent) {
+     hiddenContent.classList.remove('hidden-content');
+   }
   }
 
   geAllIndustries() {

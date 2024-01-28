@@ -11,7 +11,7 @@ import { HeaderComponent } from '../header/header.component';
 import { HomeSearchComponent } from './home-search/home-search.component';
 import { HomeIndustryComponent } from './home-industry/home-industry.component';
 import { BannerServiceService } from '../../services/banner-service.service';
-
+import { FooterComponent } from '../footer/footer.component';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OtpComponent } from '../dialog/otp/otp.component';
@@ -30,7 +30,7 @@ import { ToastModule } from 'primeng/toast';
   selector: 'app-home',
   standalone: true,
  
-  imports: [HeaderComponent,HomeSearchComponent,ToastModule,NgOptimizedImage,OtpComponent,PrimengModule,HomeBlogComponent,HomeIndustryComponent,CarouselModule,CommonModule,FormsModule,ReactiveFormsModule,TradersImgComponent,RouterLink],
+  imports: [FooterComponent,HeaderComponent,HomeSearchComponent,ToastModule,NgOptimizedImage,OtpComponent,PrimengModule,HomeBlogComponent,HomeIndustryComponent,CarouselModule,CommonModule,FormsModule,ReactiveFormsModule,TradersImgComponent,RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
  

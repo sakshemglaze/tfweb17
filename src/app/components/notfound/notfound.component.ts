@@ -3,11 +3,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HomeSearchComponent } from '../home/home-search/home-search.component';
 import { HeaderSubComponent } from '../header-sub/header-sub.component';
-
+import { FooterComponent } from '../footer/footer.component';
 @Component({
   selector: 'app-notfound',
   standalone: true,
-  imports: [CommonModule, HomeSearchComponent,HeaderSubComponent,],
+  imports: [FooterComponent,CommonModule, HomeSearchComponent,HeaderSubComponent,],
   templateUrl: './notfound.component.html',
   styleUrl: './notfound.component.css'
 })

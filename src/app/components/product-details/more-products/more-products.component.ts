@@ -9,11 +9,11 @@ import { PostRequirementServiceService } from '../../../services/post-requiremen
 import { UrlService } from '../../../services/url.service';
 import { TradersImgComponent } from '../../shared/traders-img/traders-img.component';
 import { MessageService } from 'primeng/api';
-
+import { FooterComponent } from '../../footer/footer.component';
 @Component({
   selector: 'app-more-products',
   standalone: true,
-  imports: [CommonModule,TradersImgComponent],
+  imports: [CommonModule,TradersImgComponent,FooterComponent],
   providers:[PostRequirementServiceService,MessageService],
   templateUrl: './more-products.component.html',
   styleUrl: './more-products.component.css'

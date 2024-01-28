@@ -6,11 +6,11 @@ import { CommonModule } from '@angular/common';
 import { HeaderSubComponent } from '../header-sub/header-sub.component';
 import { state, style } from '@angular/animations';
 import { RouterLink, RouterOutlet } from '@angular/router';
-
+import { FooterComponent } from '../footer/footer.component';
 @Component({
   selector: 'app-send-feedback',
   standalone: true,
-  imports: [CommonModule,HeaderSubComponent,FormsModule,
+  imports: [FooterComponent,CommonModule,HeaderSubComponent,FormsModule,
     ReactiveFormsModule,RouterLink,RouterOutlet],
   providers:[MessageService],
   templateUrl: './send-feedback.component.html',

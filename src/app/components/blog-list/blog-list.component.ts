@@ -7,11 +7,11 @@ import { HeaderSubComponent } from '../header-sub/header-sub.component';
 import { TradersImgComponent } from '../shared/traders-img/traders-img.component';
 import { BannerAdvComponent } from '../shared/banner-adv/banner-adv.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { FooterComponent } from '../footer/footer.component';
 @Component({
   selector: 'app-blog-list',
   standalone: true,
-  imports: [CommonModule,NgxPaginationModule,HeaderSubComponent,TradersImgComponent,BannerAdvComponent],
+  imports: [FooterComponent,CommonModule,NgxPaginationModule,HeaderSubComponent,TradersImgComponent,BannerAdvComponent],
   providers:[DatePipe],
   templateUrl: './blog-list.component.html',
   styleUrl: './blog-list.component.css'

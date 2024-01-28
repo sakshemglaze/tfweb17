@@ -22,11 +22,11 @@ import { TradersImgComponent } from '../shared/traders-img/traders-img.component
 import { RatingsComponent } from '../shared/ratings/ratings.component';
 import { LogoComponent } from '../shared/logo/logo.component';
 import { MessageService } from 'primeng/api';
-
+import { FooterComponent } from '../footer/footer.component';
 @Component({
   selector: 'app-seller-website',
   standalone: true,
-  imports: [CommonModule,LoadpComponent,ReactiveFormsModule,OtpComponent, HeaderSubComponent, TradersImgComponent, RatingsComponent,LogoComponent,MapComponent],
+  imports: [FooterComponent,CommonModule,LoadpComponent,ReactiveFormsModule,OtpComponent, HeaderSubComponent, TradersImgComponent, RatingsComponent,LogoComponent,MapComponent],
   providers:[PostRequirementServiceService,MessageService],
   templateUrl: './seller-website.component.html',
   styleUrl: './seller-website.component.css'

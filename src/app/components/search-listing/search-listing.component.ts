@@ -26,12 +26,13 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { state, style } from '@angular/animations';
 import { PostRequirementServiceService } from '../../services/post-requirement-service.service';
 import { ProductCardModule } from './product-card/product-card.module';
+import { FooterComponent } from '../footer/footer.component';
 //import { provideClientHydration } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-search-listing',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule,OtpComponent,FormsModule, HeaderSubComponent, TradersImgComponent, 
+  imports: [FooterComponent,CommonModule,ReactiveFormsModule,OtpComponent,FormsModule, HeaderSubComponent, TradersImgComponent, 
      NgxPaginationModule,
       ProductCardComponent, PremiumProductCardComponent, CarouselModule, 
      // InfiniteScrollModule,
@@ -898,7 +899,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
  getIndustry(id: any) {
 
    this._apiSharedService
-     .getIndustryByIdNa(id, {
+     .getIndustryById(id, {
        size: 200,
        sort: 'industryName'
      })
