@@ -1,0 +1,237 @@
+@font-face {
+  font-family: "Calibri";
+  src: url("/assets/fonts/Calibri.woff2") format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Calibrib";
+  src: url("/assets/fonts/Calibri.woff2") format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Calibril";
+  src: url("/assets/fonts/Calibri.woff2") format('woff');
+  font-display: swap;
+}
+
+body {
+  font-size: 15px;
+  background: #f8f8f8;
+  font-family: "Calibri";
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+}
+
+a:hover {
+  color: #873636;
+}
+
+.rounded-10 {
+  border-radius: 10px;
+}
+
+.card-shadow {
+  box-shadow: 2.6px 1.5px 5px rgb(0 0 0 / 30%);
+}
+
+
+
+.card-header {
+  background-color: #8f8f8f;
+  color: white;
+}
+
+.rounded-20 {
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.rounded-header {
+  border-top-left-radius: 20px !important;
+  border-top-right-radius: 20px !important;
+}
+
+.shadow2 {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 3px 4.85px 0.15px rgba(0, 0, 0, 0.25);
+}
+
+
+
+.w-18 {
+  width: 18px !important;
+}
+
+.rounded-top-20 {
+  border-top-left-radius: 20px !important;
+  border-top-right-radius: 20px !important;
+}
+
+.mb-10 {
+  margin-bottom: 80px;
+}
+
+.bg1 {
+  background: #f9e0e6;
+}
+
+.bg2 {
+  background: #daffd6;
+}
+
+.bg3 {
+  background: #f8fac9;
+}
+
+.bg4 {
+  background: #f92186;
+}
+
+.bg5 {
+  background: #38ed22;
+}
+
+.bg6 {
+  background: #c1c60a;
+}
+
+.bg7 {
+  background: #f8f8f8;
+}
+
+.bg8 {
+  background: #e3dfe0;
+}
+
+.bg9 {
+  background: #dfdfdf;
+}
+
+.card-body3 {
+  background: #fff;
+  border-radius: 10px;
+}
+
+.card-body3 img {
+  width: 100px;
+}
+
+.card-body2 {
+  text-align: left;
+}
+
+@media (max-width: 767px) {
+  .footer_img {
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog {
+    margin: 0px;
+  }
+
+  h3,  h4,  h5,  h6 {
+    font-size: 18px !important;
+  }
+}
+
+.front_blog img {
+  border-radius: 3px;
+}
+
+.front_blog2 p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-bottom: 0px;
+}
+
+.front_blog2 h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 18px;
+  font-weight: 600;
+  padding-top: 10px;
+}
+
+.blogContent2 img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.blogContent2 h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.front_blog22 h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.blogContent2 h2 font {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.blogContent2 h3 font {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.popularBlogs .blog img {
+  width: 30%;
+  float: left;
+  padding-right: 10px;
+}
+
+.popularBlogs .blog {
+  float: left;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0px;
+}
+
+.popularBlogs {
+  float: left;
+}
+
+.popularBlogs .blog h5 {
+  font-size: 15px !important;
+  font-weight: 600;
+  line-height: 21px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .mt10 {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  h2[_ngcontent-serverApp-c43] {
+    font-size: 34px !important;
+    padding: 42px 16px !important;
+  }
+}
+.hidden-content { display: none; }

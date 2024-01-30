@@ -2,6 +2,7 @@
     <img *ngIf="bannerTop && bannerTop.imageContent" [src] = bannerTop.imageContent class="img-fluid w-100" alt="TradersFind" 
     (click)="this.bannerService.increaseCount(bannerTop.id,'banner')"> 
    </a>-->
+   <link rel="stylesheet" href="/assets/css/banner.css" />
    <owl-carousel-o [options]="customOptionsSm" *ngIf="carouselLoaded">
 
       <ng-template carouselSlide *ngFor="let b of this.AllGuestBannersTemp">

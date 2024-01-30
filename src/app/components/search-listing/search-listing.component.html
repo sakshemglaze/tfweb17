@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="/assets/css/search.css" />
 <app-header-sub></app-header-sub>
 <section class="container-fluid mt-1">
   <div class="row hidden-content">
@@ -10,7 +10,7 @@
 </section>
 
 <section class="p-2">
-  <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+  <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb" *ngIf="products">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/">TradersFind</a></li>
       <li class="breadcrumb-item" *ngIf="industryDetails"><a
@@ -21,7 +21,7 @@
           [href]="getCategoryUrl(categoryDetails.categoryName, categoryDetails.id)">{{categoryDetails.categoryName}}</a>
       </li>
 
-      <li class="breadcrumb-item active fwbold text-capitalize " aria-current="page">
+      <li class="breadcrumb-item active fwbold text-capitalize " aria-current="page" >
         {{this.searchText}} <span *ngIf="location !== 'null'"> &nbsp;>&nbsp; {{location}} </span>
       </li>
     </ol>
@@ -84,10 +84,10 @@
           </div>
         </div>
       </div>
-
+<!--
       <div class="sticky-top" style="top:12%;"> <a href="https://wa.link/hy8kan" title="TradersFind" target="_blank">
         <img src="assets/images/poster1.webp" class="img-fluid mt-4 w-100" alt="Poster" /></a>
-      </div>
+      </div>-->
     </div>
 
     <div class="col-lg-9 col-xxl-10 home-cleaning-Bg">
@@ -120,10 +120,7 @@
             currentPage: page,
             totalItems: totalLength
           } -->
-          
-            
-          
-
+  
         <div *ngFor="let productsub of productsgroup | keyvalue; let ii = index;" class="row gy-4">
         <app-product-card *ngFor="
         let products of productsub.value | keyvalue; let j = index trackBy: trackBy" [products]="products.value" class="col-lg-6"> </app-product-card>
