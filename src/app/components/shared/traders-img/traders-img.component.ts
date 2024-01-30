@@ -27,7 +27,7 @@ export class TradersImgComponent {
   ) { }
 
   ngOnInit() {
-    //console.log(this.imageContent);
+    console.log(this.imageContent);
     if (this.id) {
       if(this.imageContent === null ) {
        // console.log("without API")

@@ -880,13 +880,13 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
  
  getCategory(id: any) {
    this._apiSharedService
-     .getCategoryById(id, {
+     .getCategoryByIdNa(id, {
        size: 200,
        sort: 'categoryName',
      })
      .subscribe((res) => {
       // console.log(res);
-       this.categoryDetails = res;
+       this.categoryDetails = res[0];
        this.getIndustry(this.categoryDetails.title);
        // this.all_categories = res.productsCategories;
        //console.log(this.all_categories);
@@ -899,7 +899,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
  getIndustry(id: any) {
 
    this._apiSharedService
-     .getIndustryById(id, {
+     .getIndustryByIdNa(id, {
        size: 200,
        sort: 'industryName'
      })
@@ -909,7 +909,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
       
 
        //console.log(res);
-       this.industryDetails = res;
+       this.industryDetails = res[0];
 
 
        // this.all_categories = res.productsCategories;
