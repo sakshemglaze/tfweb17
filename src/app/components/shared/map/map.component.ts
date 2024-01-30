@@ -23,7 +23,7 @@ export class MapComponent {
   }
 
   mapUrl() {
-    console.log(this.latitude);
+    //console.log(this.latitude);
     if (this.longitude || this.latitude) {
       return this.sanitizer.bypassSecurityTrustResourceUrl(
         //"https://www.google.com/maps/embed/v1/place?key=AIzaSyBoW5BAu13UnkjreNCSned2Ln1TOB5nJAM&"

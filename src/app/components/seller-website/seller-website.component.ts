@@ -112,15 +112,15 @@ export class SellerWebsiteComponent implements OnInit {
         //return;
         this.router.navigateByUrl('not-found');
       }
-      console.log( this.route.snapshot.paramMap.get("sellerCompanyName"));
-      console.log(this.route.snapshot.paramMap.get("sellerUrl"));
-      console.log("-------"+this.sellerCompanyName)
+      //console.log( this.route.snapshot.paramMap.get("sellerCompanyName"));
+      //console.log(this.route.snapshot.paramMap.get("sellerUrl"));
+      //console.log("-------"+this.sellerCompanyName)
       this._apiSharedService
         .getSellerByCompanyName(this.sellerCompanyName)
         .subscribe((res: string | any[]) => {
-          console.log(res);
+          //console.log(res);
           this.seller = res && res.length > 0 ? res[0] : null;
-          console.log(this.mapUrl);
+          //console.log(this.mapUrl);
           if (!this.seller) this.router.navigateByUrl('not-found');
           this.sellerPackageType = this.sellerUtils.getSellerType(this.seller);
           this.seoService.setSellerSeo(this.seller);
