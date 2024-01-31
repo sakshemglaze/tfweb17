@@ -181,13 +181,11 @@ export class HomeComponent implements OnInit,AfterViewInit{
         //console.log(res);
         this.homeBanners = res;
       });
-      //console.log(this.storageService.getItem('login'))
-      this._apiSharedService.getBannerByKeyword("","Header Middle").subscribe(res=>{
+    
+      //this._apiSharedService.getBannerByKeyword("","Header Middle").subscribe(res=>{
         //console.log(res)
-        this.homeMidelBanner=res
-      })
-      //console.log(this.requirementService.productSellerForm);
-      
+       // this.homeMidelBanner=res
+       //})      
   }
 
   ngAfterViewInit(): void {

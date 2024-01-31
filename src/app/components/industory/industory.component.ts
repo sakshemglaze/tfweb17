@@ -1,5 +1,5 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, Inject, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, OnInit, PLATFORM_ID, Renderer2, makeStateKey } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ApiSharedService } from '../../services/api-shared.service';
 import { ImageService } from '../../services/image.service';
@@ -15,7 +15,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { IndustoryModule } from './industory.module';
 import { MessageService } from 'primeng/api';
+import { TransferState } from '@angular/core'
+import { Observable,of } from 'rxjs';
 
+const DATA_KEY = makeStateKey<any>('my-data');
 @Component({
   selector: 'app-industory',
   standalone: true,
@@ -78,7 +81,8 @@ export class IndustoryComponent implements OnInit, AfterViewInit {
     private _urlservice: UrlService,
     public requirementService: PostRequirementServiceService,
     @Inject(PLATFORM_ID) private platformId: any,
-    private renderer: Renderer2, private el: ElementRef
+    private renderer: Renderer2, private el: ElementRef,
+    private transferState:TransferState
   ) { }
 
   ngOnInit(): void {
@@ -88,8 +92,19 @@ export class IndustoryComponent implements OnInit, AfterViewInit {
       ? (this.page = this.route.snapshot.queryParamMap.get("page"))
       : (this.page = 1);
     //console.log(this.page);
-    this.getPoppularCategories();
-   
+    //this.getPoppularCategories();
+    const storeData = this.transferState.get(makeStateKey<any>('my-data'),null);
+    console.log(storeData);
+    if (storeData) {
+      this.transferState.remove(makeStateKey<any>('my-data'));
+      this.popular_categories = storeData;
+      console.log('store data')
+    } else {
+      this.getPoppularCategories();
+      this.transferState.set(makeStateKey<any>('my-data'),this.popular_categories);
+      console.log(storeData);
+      console.log('first time')
+    }
   }
 
    ngAfterViewInit(): void {
@@ -100,6 +115,7 @@ export class IndustoryComponent implements OnInit, AfterViewInit {
     } 
   }
   
+ 
   /*getAllCategories() {
     this._apiSharedService
       .getAllProductCategoriesIdName(0, 10000)
@@ -115,7 +131,7 @@ export class IndustoryComponent implements OnInit, AfterViewInit {
       .subscribe(
         (res) => {
           this.popular_categories = res.body;
-          console.log(res.body);
+          //console.log(res.body);
           //console.log(this.popular_categories);
           this.totalLength = res.headers.get("x-total-count");
           this.popular_categories = this.popular_categories.filter(

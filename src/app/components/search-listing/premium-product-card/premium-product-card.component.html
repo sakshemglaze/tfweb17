@@ -13,7 +13,7 @@
                                       product && product.images && product.images.length > 0
                                         ? product.images[0].id
                                         : null" [prodName]="product.altText ? product.altText : product.productName" [imageContent]="product && product.images && 
-                                      product.images[0].imageContent === null? null: ''"
+                                      (product.images[0].imageContent === null || product.images[0].imageContent === undefined)? null: ''"
                               target="_blank" [class]="'rounded-10 me-md-4 mb-3 mb-md-0 '" ></app-traders-img>
                               <span *ngIf="product.price && (product.maxPrice==null || product.maxPrice=='' )">
                                 <strong>Price:</strong> {{product.price}}</span>
@@ -179,7 +179,7 @@
                                       sProduct && sProduct.images && sProduct.images.length > 0
                                         ? sProduct.images[0].id
                                         : null" [prodName]="sProduct.altText ? sProduct.altText : sProduct.productName" [imageContent]="sProduct && sProduct.images && 
-                                      sProduct.images[0].imageContent === null? null: ''" target="_blank"
+                                      (sProduct.images[0].imageContent === null || sProduct.images[0].imageContent === undefined)? null: ''" target="_blank"
                                         class="pic-100px" width="100px" height="100px"> </app-traders-img>                                        
   
                                           <div class="ms-3 small">

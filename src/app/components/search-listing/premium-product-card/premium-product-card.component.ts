@@ -66,7 +66,7 @@ export class PremiumProductCardComponent {
     ) { }
   ngOnInit(): void{
     this._apiSharedService
-      .getRelatedProductsByProductId(this.product.id,{ page: 0, size: 12 })
+      .getRelatedProductsByProductId(this.product.id,{ page: 0, size: 6 })
       .subscribe((res: {body: { products:any; }; } ) => {
         this.sellerProduct = res.body.products; 
         //this.sellerProduct = this.sellerProduct.length > 3 ? this.sellerProduct.slice(0,3) : this.sellerProduct;

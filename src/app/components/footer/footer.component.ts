@@ -2,11 +2,12 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { FooterSmallComponent } from './footer-small/footer-small.component';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CarouselModule,NgOptimizedImage,CommonModule,RouterLink ],
+  imports: [CarouselModule,NgOptimizedImage,CommonModule,RouterLink,FooterSmallComponent ],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })
