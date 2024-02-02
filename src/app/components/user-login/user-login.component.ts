@@ -87,7 +87,7 @@ export class UserLoginComponent implements OnInit {
       otp: [null, [Validators.required, Validators.maxLength(6)]],
     });*/
     this.loginMethod = this.loginMethods.EMAIL;
-    console.log(this.isVerification);
+    //console.log(this.isVerification);
     this.loginEmailFormGroup = this._formBuilder.group({
       loginmode:['password'],
       email: ['', [Validators.required]],
@@ -95,9 +95,9 @@ export class UserLoginComponent implements OnInit {
       countryCode:['+971',[Validators.required]]
     });
     
-    gapi.load('auth2', () => {
-      gapi.auth2.init({ client_id:'227820764854-0h1n442j6v4lm07nj7i5kimp8t7vv22m.apps.googleusercontent.com',});
-    });
+    //gapi.load('auth2', () => {
+    //  gapi.auth2.init({ client_id:'227820764854-0h1n442j6v4lm07nj7i5kimp8t7vv22m.apps.googleusercontent.com',});
+    //});
   
   
   }

@@ -135,7 +135,7 @@ export class ProductDetailsComponent implements OnInit {
      this.authservice.loggedInUserDetails
      ? this.authservice.loggedInUserDetails.id
      : null
-     console.log( this.authservice.loggedInUserDetails);
+     //console.log( this.authservice.loggedInUserDetails);
     this.prodId = this.route.snapshot.paramMap.get("prodId");
     //console.log("URL "+this.prodUrl);
     
@@ -147,13 +147,14 @@ export class ProductDetailsComponent implements OnInit {
       .subscribe(
         (res) => {
           this.prodDetails = res;
-          console.log(res);
+          //console.log(res);
           if (
             this.prodDetails &&
             this.prodDetails.seller &&
             this.prodDetails.seller.sellerBusinessHours
           ) {
-            console.log("----------------")
+            //console.log("----------------")
+            //console.log(this.prodDetails);
             let businessHours =
               this.prodDetails.seller.sellerBusinessHours.split("@@@");
             if (

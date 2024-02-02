@@ -29,7 +29,7 @@ export class TradersImgComponent {
   ngOnInit() {
     //console.log(this.imageContent);
     if (this.id) {
-      if(this.imageContent === null || this.imageContent === undefined ) {
+      if(this.imageContent == null || this.imageContent == undefined ) {
        // console.log("without API")
         //console.log(this.id);
         this.imageContent = TRADERSFIND.IMAGE_URL + this.id + ".webp";

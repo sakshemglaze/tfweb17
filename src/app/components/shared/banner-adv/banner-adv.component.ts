@@ -70,7 +70,8 @@ export class BannerAdvComponent implements OnInit, AfterViewInit {
           this.AllGuestBannersTemp = banner;
           //console.log(this.AllGuestBannersTemp);
           this.bannerTop = this.AllGuestBannersTemp[0];
-        }
+        } 
+
       });
     }
 

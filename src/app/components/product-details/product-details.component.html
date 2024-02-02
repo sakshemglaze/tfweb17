@@ -26,7 +26,8 @@
                 data-allowfullscreen="true" data-height="auto" data-ratio="800/600">
                 <app-traders-img [id]="prodDetails && prodDetails.images && prodDetails.images.length > 0
                                       ? prodDetails.images[0].id
-                                      : null"
+                                      : null" [imageContent]="prodDetails && prodDetails.images && prodDetails.images.length > 0 && 
+                                      (prodDetails.images[0].imageContentContentType === null) ? null: ''"
                   [prodName]="prodDetails.altText ? prodDetails.altText : prodDetails.productName" target="_blank"
                   [class]="'img-fluid'" width="60" height="60"></app-traders-img>
 
@@ -307,7 +308,7 @@
             <span class="mb-0 fwbold">Send Enquiry to Supplier</span>>
           </div>
           <div class="card-body px-md-5 pt-4 pb-5">
-            <h3 class="fs-4">TO: {{prodDetails.sellerCompanyName}}</h3>
+            <h3 class="fs-4">TO: {{prodDetails?prodDetails.sellerCompanyName:'TradersFind'}}</h3>
             <hr class="mt-4" />
             <div class="form-group mt-4">
               <label for="description" class="form-label">Describe in few words *</label>
