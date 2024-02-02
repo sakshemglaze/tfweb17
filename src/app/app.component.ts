@@ -11,6 +11,7 @@ import { PrimengModule } from './modules/primeng/primeng.module';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { SearchListingComponent } from './components/search-listing/search-listing.component';
 //import { provideAnimations } from '@angular/platform-browser/animations';
 //import { ReactiveFormsModule } from '@angular/forms';
 

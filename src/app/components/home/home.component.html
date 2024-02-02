@@ -10,14 +10,28 @@
     <div class="col-lg-7 border_img">
       <!-- banner -->
 
-      <owl-carousel-o [options]="customOptionsSm">
-          <ng-template carouselSlide *ngFor="let b of homeBanners">
+      <!-- <owl-carousel-o [options]="customOptionsSm">
+        <ng-container *ngFor="let b of homeBanners" >
+          <ng-template carouselSlide >
             <a [href]="b && b.link ? b.link : '/'" target="_blank">
               <app-traders-img  [width]="'100'" [id]="b.image ? b.image.id : null" [imageContent]="b.image && !b.image.imageContentContentType? null:b.image.imageContentContentType" ></app-traders-img>
-              <!--<img [src]="b.image ? b.image.id : null" class="img-fluid" alt="TradersFind" Rel="Nofollow" /> --> 
+             
             </a>
           </ng-template>
-      </owl-carousel-o>
+        </ng-container>
+      </owl-carousel-o> -->
+      <div id="carouselExampleSlidesOnly" class="carousel slide"  data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="hover" data-mouse-drag="true" data-bs-wrap="true">
+        
+        <div class="carousel-inner">
+            <div class="carousel-item" *ngFor="let b of homeBanners; let i = index" [class.active]="i === 0">
+                <a [href]="b && b.link ? b.link : '/'">
+                    <app-traders-img [width]="'100'" [id]="b.image ? b.image.id : null" [imageContent]="b.image?.imageContentContentType"></app-traders-img>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+    
     </div>
     <div class="col">
       <div class="swiper2 new_img ">
@@ -44,125 +58,209 @@
 
 <section class="my-2  about_text" >
   <h2 class="border-center text-center mb-4">ABOUT TRADERSFIND </h2>
-
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-12">
-        <owl-carousel-o [options]="customOptionsSm">
-          
-            <ng-template carouselSlide>
-              <div class="text-center">
-                <h4 class="text-red">UAE’s Largest Online B2B Portal & Business Directory in UAE</h4>
-                <p class="my-4">Welcome to TradersFind, the UAE’s Largest Online B2B portal & business directory in UAE. 
-                  As a comprehensive B2B marketplace for buyers and sellers in UAE, we are here to revolutionize the way businesses connect, 
-                  collaborate, and succeed in the global marketplace. With a deep understanding of the challenges faced by traders and a passion 
-                  for empowering businesses, TradersFind is your go-to destination for finding the right products, connecting with trusted suppliers, 
-                  and driving your business forward.
-                </p>
-                
-                <button class="btn-primary-gradiant rounded-2" routerLink="/about-us">LEARN MORE ABOUT US</button>
-
+      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="hover" data-mouse-drag="true">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="col-sm-12 col-md-6 col-lg-12">
+              <div class="card mx-1">
+                <div class="card-img card-img-top">
+                  <div class="card-img-container">
+                    <h4 class="text-red">UAE’s Largest Online B2B Portal & Business Directory in UAE</h4>
+                    <p class="hello my-4">Welcome to TradersFind, the UAE’s Largest Online B2B portal & business directory in UAE. 
+                      As a comprehensive B2B marketplace for buyers and sellers in UAE, we are here to revolutionize the way businesses connect, 
+                      collaborate, and succeed in the global marketplace. With a deep understanding of the challenges faced by traders and a passion 
+                      for empowering businesses, TradersFind is your go-to destination for finding the right products, connecting with trusted suppliers, 
+                      and driving your business forward.
+                    </p>
+                  
+                  </div>
+                </div>
               </div>
-            </ng-template>
-            <ng-template carouselSlide>
-              <div class="text-center">
-                <h4 class="text-red">Connecting Businesses Across UAE: A Powerful B2B Marketplace</h4>
-                <p class="my-4">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="col-sm-12 col-md-6 col-lg-12">
+              <div class="card mx-1">
+                <div class="card-img card-img-top">
+                  <div class="card-img-container">
+                    <h4 class="text-red">Connecting Businesses Across UAE: A Powerful B2B Marketplace</h4>
+                <p class="hello my-4">
                   TradersFind is more than just a directory of UAE companies; it is a powerful online B2B marketplace in UAE  
                   where businesses can source products, connect with suppliers, and expand their networks. We provide an easy to 
                   use platform that connects buyers and sellers, importers and exporters, manufacturers and suppliers, retailers, 
                   and service providers in UAE within a single marketplace. Whether you are a local business looking for suppliers 
                   in UAE or an international company seeking trade opportunities in UAE’s thriving market, TradersFind is your gateway to expand your business in UAE.
                 </p>
-                <button class="btn-primary-gradiant rounded-2" routerLink="/about-us">LEARN MORE ABOUT US</button>
+               
+                  </div>
+                </div>
+          
               </div>
-            </ng-template>
-            <ng-template carouselSlide>
-              <div class="text-center">
-                <h4 class="text-red">Your Comprehensive Business Directory in UAE</h4>
-                <p class="my-4">
-                  With our extensive list of companies in UAE, including manufacturers, suppliers, and service providers, 
-                  we enable businesses to find reliable and trustworthy partners to meet their specific needs. Whether you're a startup, 
-                  a small or medium-sized enterprise, or a large corporation, our platform provides the resources and opportunities 
-                  you need to thrive in the competitive market. Our business directory of UAE companies is updated at regular intervals to ensure 
-                  that you have access to the most relevant and up-to-date information.
-                </p>
-                <button class="btn-primary-gradiant rounded-2" routerLink="/about-us">LEARN MORE ABOUT US</button>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="col-sm-12 col-md-6 col-lg-12">
+              <div class="card mx-1">
+                <div class="card-img">
+                  <div class="card-img-container">
+                    <h4 class="text-red">Your Comprehensive Business Directory in UAE</h4>
+                    <p class="hello my-4">
+                      With our extensive list of companies in UAE, including manufacturers, suppliers, and service providers, 
+                      we enable businesses to find reliable and trustworthy partners to meet their specific needs. Whether you're a startup, 
+                      a small or medium-sized enterprise, or a large corporation, our platform provides the resources and opportunities 
+                      you need to thrive in the competitive market. Our business directory of UAE companies is updated at regular intervals to ensure 
+                      that you have access to the most relevant and up-to-date information.
+                    </p>
+                  </div>
+                </div>
               </div>
-            </ng-template>
-            <ng-template carouselSlide>
-              <div class="text-center">
-                <h4 class="text-red">Connect with Verified Suppliers and Buyers in UAE</h4>
-                <p class="my-4">
-                  At TradersFind, we prioritize quality and trust. We understand that the success of your business depends on the reliability of your partners. 
-                  That's why we have implemented a rigorous verification process to ensure that all the verified suppliers and 
-                  buyers on our platform meet the highest standards of quality, authenticity, and ethical practices. 
-                  When you connect with a verified  supplier or buyer through TradersFind, you can have confidence in the credibility and reliability of your business partners.
-                </p>
-                <button class="btn-primary-gradiant rounded-2" routerLink="/about-us">LEARN MORE ABOUT US</button>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="col-sm-12 col-md-6 col-lg-12">
+              <div class="card mx-1">
+                <div class="card-img">
+                  <div class="card-img-container">
+                    <h4 class="text-red">Connect with Verified Suppliers and Buyers in UAE</h4>
+                    <p class="hello my-4">
+                      At TradersFind, we prioritize quality and trust. We understand that the success of your business depends on the reliability of your partners. 
+                      That's why we have implemented a rigorous verification process to ensure that all the verified suppliers and 
+                      buyers on our platform meet the highest standards of quality, authenticity, and ethical practices. 
+                      When you connect with a verified  supplier or buyer through TradersFind, you can have confidence in the credibility and reliability of your business partners.
+                    </p>
+                  </div>
+                </div>
               </div>
-            </ng-template>
-            <ng-template carouselSlide>
-              <div class="text-center">
-                <h4 class="text-red">Expand Your Reach and Boost Visibility</h4>
-                <p class="my-4">
-                  At TradersFind, we understand the importance of accessibility and convenience in the digital age. 
-                  Our online marketplace provides a platform for businesses to display their products and services, 
-                  allowing them to reach a wider audience. Our efficient interface allows free business listings that increase 
-                  their visibility among potential customers without hurting their pockets.
-                </p>
-                <button class="btn-primary-gradiant rounded-2" routerLink="/about-us">LEARN MORE ABOUT US</button>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="col-sm-12 col-md-6 col-lg-12">
+              <div class="card mx-1">
+                <div class="card-img">
+                  <div class="card-img-container">
+                    <h4 class="text-red">Expand Your Reach and Boost Visibility</h4>
+                    <p class="hello my-4">
+                      At TradersFind, we understand the importance of accessibility and convenience in the digital age. 
+                      Our online marketplace provides a platform for businesses to display their products and services, 
+                      allowing them to reach a wider audience. Our efficient interface allows free business listings that increase 
+                      their visibility among potential customers without hurting their pockets.
+                    </p>
+                  </div>
+                </div>
               </div>
-            </ng-template>
-            <ng-template carouselSlide>
-              <div class="text-center">
-                <h4 class="text-red">Find Everything You Need at One Place:</h4>
-                <p class="my-4">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="col-sm-12 col-md-6 col-lg-12">
+              <div class="card mx-1">
+                <div class="card-img">
+                  <div class="card-img-container">
+                    <h4 class="text-red">Find Everything You Need at One Place:</h4>
+                <p class="hello my-4">
                   TradersFind offers a comprehensive platform where you can find everything you need in one place. 
                   Our extensive product categories cover a wide range of industries, ensuring that you can find the 
                   right products for your business requirements. Whether you are searching for electronics, machinery, 
                   textiles, or raw materials, our platform has a diverse selection to cater to your needs. TradersFind 
                   is a place where you can connect with suppliers at one click.
                 </p>
-                <button class="btn-primary-gradiant rounded-2" routerLink="/about-us">LEARN MORE ABOUT US</button>
+                  </div>
+                </div>
               </div>
-            </ng-template>
-            <ng-template carouselSlide>
-              <div class="text-center">
-                <h4 class="text-red">Get Started with TradersFind Today: Your Gateway to Success</h4>
-                <p class="my-4">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="col-sm-12 col-md-6 col-lg-12">
+              <div class="card mx-1">
+                <div class="card-img">
+                  <div class="card-img-container">
+                    <h4 class="text-red">Get Started with TradersFind Today: Your Gateway to Success</h4>
+                <p class="hello my-4">
                   Get Started with TradersFind, UAE’s leading B2B website connecting buyers with sellers. 
                   Discover a vast network of trusted and verified suppliers, manufacturers, and service providers in UAE. 
                   Join now to expand your business reach, explore new opportunities, and take your business to new heights. 
                   One Click 3 options to fulfill all your requirements. Option 1: Click to Call, Option 2: Click to Connect on Whatsapp, Option 3: Click to Send your Requirement.
                 </p>
-                <button class="btn-primary-gradiant rounded-2" routerLink="/about-us">LEARN MORE ABOUT US</button>
+                  </div>
+                </div>
               </div>
-            </ng-template>
-
-        
-        </owl-carousel-o>
+            </div>
+          </div>
+        </div>
+        <div class="text-red">
+          <button class="btn-primary-gradiant rounded-2" routerLink="/about-us">LEARN MORE ABOUT US</button>
+      </div>
+       
       </div>
     </div>
   </div>
+  <div id="visible" class="d-none d-md-block"></div>
 </section>
 
-<section class="container-fluid border_img bg-grey mt-5 mb-5">
-
+<!-- <section class="container-fluid border_img bg-grey mt-5 mb-5">
   <div class="row gy-4">
-    
-      <owl-carousel-o [options]="customOptionsCities">
-      
-          <ng-template carouselSlide *ngFor="let item of homeMidelBanner">
-            <div>
-            <a [href]=item.link target="_blank"><app-traders-img [width]="100"  [id]="item.image.id ? item.image.id : null" [imageContent]="item.image.imageContentContentType?item.image.imageContentContentType: null" ></app-traders-img></a>
-          
+    <div class="container-fluid">
+      <div class="row">
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="hover" data-mouse-drag="true">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="card mx-1">
+                  <div class="card-img card-img-top">
+                    <div class="card-img-container">
+                      <img src="assets/images/brands/101.png">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="card mx-1">
+                  <div class="card-img card-img-top">
+                    <div class="card-img-container">
+                      <img src="assets/images/brands/102.png">
+                    </div>
+                  </div>
+            
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="card mx-1">
+                  <div class="card-img">
+                    <div class="card-img-container">
+                      <img src="assets/images/brands/103.png">
+                    </div>
+                  </div>
+                
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="card mx-1">
+                  <div class="card-img">
+                    <div class="card-img-container">
+                      <img  src="assets/images/brands/104.png">
+                    </div>
+                  </div>
+                
+                </div>
+              </div>
+            </div>
           </div>
-          </ng-template>
-        
-      </owl-carousel-o>  
-  </div> 
-</section>
+        </div>
+      </div>
+    </div>
+    <div id="visible" class="d-none d-md-block"></div>
+    
+    
+  </div>
+</section> -->
+
 
 <section class="easysource my-4 py-2">
   <div class="container">
@@ -266,68 +364,120 @@
 
 <section class="bg-grey bg-grey_22 p-4 my-5">
   <h3 class="border-center text-center mb-4">FIND SELLERS FROM TOP EMIRATES </h3>
-
-  <owl-carousel-o [options]="customOptionsCities">
-    
-      <ng-template carouselSlide>
-        <div class="position-relative bg-transparent swiper2 p-2">
-          <img ngSrc="assets/images/c1.png" width="229" height="88" alt="" class="w-100 img-fluid" />
-          <a href="/search/dubai?field=bkeyword">
-            <h4>DUBAI</h4>
-          </a>
+  <div class="container-fluid">
+    <div class="row">
+      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="hover" data-mouse-drag="true">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+              <div class="card mx-1">
+                <div class="card-img card-img-top">
+                  <div class="position-relative bg-transparent swiper2 p-2">
+                    <img ngSrc="assets/images/c1.png" width="229" height="88" alt="" class="w-100 img-fluid" />
+                    <a href="/search/dubai?field=bkeyword">
+                      <h4>DUBAI</h4>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+              <div class="card mx-1">
+                <div class="card-img card-img-top">
+                  <div class="position-relative bg-transparent swiper2 p-2">
+                    <img ngSrc="assets/images/c2.png" width="209" height="80" alt="" class="w-100 img-fluid" />
+                    <a href="/search/abu-dhabi?field=bkeyword">
+                      <h4>ABU DHABI</h4>
+                    </a>
+                  </div>
+                </div>
+          
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+              <div class="card mx-1">
+                <div class="card-img">
+                  <div class="position-relative bg-transparent swiper2 p-2">
+                    <img ngSrc="assets/images/c3.png" width="209" height="80" alt="" class="w-100 img-fluid" />
+                    <a href="/search/sharjah?field=bkeyword">
+                      <h4>SHARJAH</h4>
+                    </a>
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+              <div class="card mx-1">
+                <div class="card-img">
+                  <div class="position-relative bg-transparent swiper2 p-2">
+                    <img ngSrc="assets/images/c4.png" width="209" height="80" alt="" class="w-100 img-fluid" />
+                    <a href="/search/ajman?field=bkeyword">
+                      <h4>AJMAN</h4>
+                    </a>
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+              <div class="card mx-1">
+                <div class="card-img">
+                  <div class="position-relative bg-transparent swiper2 p-2">
+                    <img ngSrc="assets/images/c5.png" width="209" height="80" alt="" class="w-100 img-fluid" />
+                    <a href="/search/fujairah?field=bkeyword">
+                      <h4>FUJAIRAH</h4>
+                    </a>
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+              <div class="card mx-1">
+                <div class="card-img">
+                  <div class="position-relative bg-transparent swiper2 p-2">
+                    <img ngSrc="assets/images/c1.png" width="209" height="80" alt="" class="w-100 img-fluid" />
+                    <a href="/search/ras-al-khaimah?field=bkeyword">
+                      <h4>RAS AL KHAIMAH</h4>
+                    </a>
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+              <div class="card mx-1">
+                <div class="card-img">
+                  <div class="position-relative bg-transparent swiper2 p-2">
+                    <img ngSrc="assets/images/c3.png" width="209" height="80" alt="" class="w-100 img-fluid" />
+                    <a href="/search/umm-al-quwain?field=bkeyword">
+                      <h4>UMM AL QUWAIN</h4>
+                    </a>
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
         </div>
-      </ng-template>
-      <ng-template carouselSlide>
-        <div class="position-relative bg-transparent swiper2 p-2">
-          <img ngSrc="assets/images/c2.png" width="209" height="80" alt="" class="w-100 img-fluid" />
-          <a href="/search/abu-dhabi?field=bkeyword">
-            <h4>ABU DHABI</h4>
-          </a>
-        </div>
-      </ng-template>
-      <ng-template carouselSlide>
-        <div class="position-relative bg-transparent swiper2 p-2">
-          <img ngSrc="assets/images/c3.png" width="209" height="80" alt="" class="w-100 img-fluid" />
-          <a href="/search/sharjah?field=bkeyword">
-            <h4>SHARJAH</h4>
-          </a>
-        </div>
-      </ng-template>
-      <ng-template carouselSlide>
-        <div class="position-relative bg-transparent swiper2 p-2">
-          <img ngSrc="assets/images/c4.png" width="209" height="80" alt="" class="w-100 img-fluid" />
-          <a href="/search/ajman?field=bkeyword">
-            <h4>AJMAN</h4>
-          </a>
-        </div>
-      </ng-template>
-      <ng-template carouselSlide>
-        <div class="position-relative bg-transparent swiper2 p-2">
-          <img ngSrc="assets/images/c5.png" width="209" height="80" alt="" class="w-100 img-fluid" />
-          <a href="/search/fujairah?field=bkeyword">
-            <h4>FUJAIRAH</h4>
-          </a>
-        </div>
-      </ng-template>
-      <ng-template carouselSlide>
-        <div class="position-relative bg-transparent swiper2 p-2">
-          <img ngSrc="assets/images/c1.png" width="209" height="80" alt="" class="w-100 img-fluid" />
-          <a href="/search/ras-al-khaimah?field=bkeyword">
-            <h4>RAS AL KHAIMAH</h4>
-          </a>
-        </div>
-      </ng-template>
-      <ng-template carouselSlide>
-        <div class="position-relative bg-transparent swiper2 p-2">
-          <img ngSrc="assets/images/c3.png" width="209" height="80" alt="" class="w-100 img-fluid" />
-          <a href="/search/umm-al-quwain?field=bkeyword">
-            <h4>UMM AL QUWAIN</h4>
-          </a>
-        </div>
-      </ng-template>
-
-  
-  </owl-carousel-o>
+      </div>
+    </div>
+  </div>
+  <div id="visible" class="d-none d-md-block"></div>
+ 
 </section>
 
 <section>
@@ -340,30 +490,63 @@
     EXPLORE PREMIUM SELLERS
   </h3>
    
-  <owl-carousel-o [options]="customOptionsCities4">
-   
-      <ng-template carouselSlide>
-        <div class="p-2">
-          <span class=""><img ngSrc="assets/images/brands/101.png" width="302" height="159" class="img-fluid" alt=""></span>
-        </div>
-      </ng-template>
-      <ng-template carouselSlide>
-        <div class="p-2">
-          <span class=""><img ngSrc="assets/images/brands/102.png" width="302" height="159" class="img-fluid" alt=""></span>
-        </div>
-      </ng-template>
-      <ng-template carouselSlide>
-        <div class="p-2">
-          <span class=""><img ngSrc="assets/images/brands/103.png" width="302" height="159" class="img-fluid" alt=""></span>
-        </div>
-      </ng-template>
-      <ng-template carouselSlide>
-        <div class="p-2">
-          <span class=""><img ngSrc="assets/images/brands/104.png" width="302" height="159" class="img-fluid" alt=""></span>
-        </div>
-      </ng-template>
   
-  </owl-carousel-o>
+<div class="container-fluid">
+  <div class="row">
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="hover" data-mouse-drag="true">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="card mx-1">
+              <div class="card-img card-img-top">
+                <div class="card-img-container">
+                  <img src="assets/images/brands/101.png">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="card mx-1">
+              <div class="card-img card-img-top">
+                <div class="card-img-container">
+                  <img src="assets/images/brands/102.png">
+                </div>
+              </div>
+        
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="card mx-1">
+              <div class="card-img">
+                <div class="card-img-container">
+                  <img src="assets/images/brands/103.png">
+                </div>
+              </div>
+            
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="card mx-1">
+              <div class="card-img">
+                <div class="card-img-container">
+                  <img  src="assets/images/brands/104.png">
+                </div>
+              </div>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="visible" class="d-none d-md-block"></div>
 
 
 
@@ -373,70 +556,78 @@
   <h3 class="border-center text-center mb-5">
     WHAT OUR HAPPY CLIENTS SAY ABOUT US
   </h3>
-  <div class="container">
-
-    <owl-carousel-o [options]="customOptionsCities3">
+  
+    <div class="container">
+      <div class="row">
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="hover" data-mouse-drag="true" data-bs-wrap="true">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="card ml15">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-3">
+                        <img ngSrc="assets/images/client.png" class="img-fluid w-100" alt="" width="165" height="162">
+                      </div>
+                      <div class="col-9">
+                        <h4>Mr. Imtiaz</h4>
+                        <div class="d-flex gap-4 align-items-center mb-3">
+                          <img ngSrc="assets/images/location-2.png" alt="" width="25" height="28">
+                          <address class="mb-0"> UAE, Dubai</address>
+                          <div class="clientTime">8 Months</div>
     
-        <ng-template carouselSlide>
-            <div class="card ml15">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-3">
-                    <img ngSrc="assets/images/client.png" class="img-fluid w-100" alt="" width="165" height="162">
-                  </div>
-                  <div class="col-9">
-                    <h4>Mr. Imtiaz</h4>
-                    <div class="d-flex gap-4 align-items-center mb-3">
-                      <img ngSrc="assets/images/location-2.png" alt="" width="25" height="28">
-                      <address class="mb-0"> UAE, Dubai</address>
-                      <div class="clientTime">8 Months</div>
-
-                    </div>
-                    <p>
-                      Highly recommend this website as its user friendly, I feel so much ease while finding sellers for my
-                      requirement. It saves a lot of time and I find sellers easily.
-                    </p>
-                    <div class="d-flex gap-4">
-                      <!--<button class="theme-btn-2">Explore Catalog</button>
-              <button class="theme-btn-2">View Interview</button> -->
+                        </div>
+                        <p>
+                          Highly recommend this website as its user friendly, I feel so much ease while finding sellers for my
+                          requirement. It saves a lot of time and I find sellers easily.
+                        </p>
+                        <div class="d-flex gap-4">
+                          <!--<button class="theme-btn-2">Explore Catalog</button>
+                  <button class="theme-btn-2">View Interview</button> -->
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-        </ng-template>
-        <ng-template carouselSlide>
-          <div class="card ml15">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-3">
-                  <img ngSrc="assets/images/client.png" class="img-fluid w-100" alt="" width="165" height="162">
-                </div>
-                <div class="col-9">
-                  <h4>Mr. Ahmed Ali</h4>
-                  <div class="d-flex gap-4 align-items-center mb-3">
-                    <img ngSrc="assets/images/location-2.png" alt="" width="25" height="28">
-                    <address class="mb-0"> UAE, Abu Dhabi</address>
-                    <div class="clientTime">3 Months</div>
-
-                  </div>
-                  <p>
-                    The website is informative and helps you to connect with suppliers sitting across the country through
-                    just one click and fulfil your business needs. <br>
-                  </p>
-                  <div class="d-flex gap-4">
-
+            <div class="carousel-item">
+              <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="card ml15">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-3">
+                        <img ngSrc="assets/images/client.png" class="img-fluid w-100" alt="" width="165" height="162">
+                      </div>
+                      <div class="col-9">
+                        <h4>Mr. Imtiaz</h4>
+                        <div class="d-flex gap-4 align-items-center mb-3">
+                          <img ngSrc="assets/images/location-2.png" alt="" width="25" height="28">
+                          <address class="mb-0"> UAE, Dubai</address>
+                          <div class="clientTime">8 Months</div>
+    
+                        </div>
+                        <p>
+                          Highly recommend this website as its user friendly, I feel so much ease while finding sellers for my
+                          requirement. It saves a lot of time and I find sellers easily.
+                        </p>
+                        <div class="d-flex gap-4">
+                          <!--<button class="theme-btn-2">Explore Catalog</button>
+                  <button class="theme-btn-2">View Interview</button> -->
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+    
 
-        </ng-template>
-     
-    </owl-carousel-o>
-  </div>
+  
 </section>
 
 <section class="bg-grey bg-grey_22 p-4 my-5 logo_slider">
@@ -480,50 +671,104 @@
     </div>
   </div>-->
 
+  <div class="container-fluid">
+    <div class="row">
+      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="hover" data-mouse-drag="true">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+              <div class="card mx-1">
+                <div class="card-img card-img-top">
+                  <div class="card-img-container">
+                    <span class="brand-box brand-box2">
+                      <img ngSrc="assets/images/brands/1.png" width="180" height="48" class=""
+                           alt="" />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+              <div class="card mx-1">
+                <div class="card-img card-img-top">
+                  <div class="card-img-container">
+                    <span class="brand-box brand-box2">
+                      <img ngSrc="assets/images/brands/2.png" width="185" height="124" class=""
+                           alt="" />
+                    </span>
+                  </div>
+                </div>
+          
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+              <div class="card mx-1">
+                <div class="card-img">
+                  <div class="card-img-container">
+                    <img ngSrc="assets/images/brands/3.png" width="185" height="124" class=""
+                    alt="" />
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+              <div class="card mx-1">
+                <div class="card-img">
+                  <div class="card-img-container">
+                    <span class="brand-box brand-box2">
+                      <img ngSrc="assets/images/brands/4.png" width="185" height="124" class=""
+                           alt="" />
+                    </span>
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+              <div class="card mx-1">
+                <div class="card-img">
+                  <div class="card-img-container">
+                    <span class="brand-box brand-box2">
+                      <img ngSrc="assets/images/brands/5.png" width="185" height="124" class=""
+                           alt="" />
+                    </span>
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+              <div class="card mx-1">
+                <div class="card-img">
+                  <div class="card-img-container">
+                    <span class="brand-box brand-box2">
+                      <img ngSrc="assets/images/brands/6.png" width="185" height="124" class=""
+                           alt="" />
+                    </span>
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="visible" class="d-none d-md-block"></div>
 
-
-  <owl-carousel-o [options]="customOptionsCities2">
-    
-      <ng-template carouselSlide>
-        <span class="brand-box brand-box2">
-          <img ngSrc="assets/images/brands/1.png" width="180" height="48" class=""
-               alt="" />
-        </span>
-      </ng-template>
-      <ng-template carouselSlide>
-        <span class="brand-box brand-box2">
-          <img ngSrc="assets/images/brands/2.png" width="185" height="124" class=""
-               alt="" />
-        </span>
-      </ng-template>
-      <ng-template carouselSlide>
-        <span class="brand-box brand-box2">
-          <img ngSrc="assets/images/brands/3.png" width="185" height="124" class=""
-               alt="" />
-        </span>
-      </ng-template>
-      <ng-template carouselSlide>
-        <span class="brand-box brand-box2">
-          <img ngSrc="assets/images/brands/4.png" width="185" height="124" class=""
-               alt="" />
-        </span>
-      </ng-template>
-      <ng-template carouselSlide>
-        <span class="brand-box brand-box2">
-          <img ngSrc="assets/images/brands/5.png" width="185" height="124" class=""
-               alt="" />
-        </span>
-      </ng-template>
-      <ng-template carouselSlide>
-        <span class="brand-box brand-box2">
-          <img ngSrc="assets/images/brands/6.png" width="185" height="124" class=""
-               alt="" />
-        </span>
-      </ng-template>
-   
-  </owl-carousel-o>
-
-
+  
 
 </section>
 <p-toast position="top-right"></p-toast>

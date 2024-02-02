@@ -45,24 +45,21 @@ export class BannerAdvComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     //console.log(this.carouselLoaded);
-  }
-
-  ngAfterViewInit() {
     if (this.image && this.image != "na") {
       this.getImageContent({ image: this.image });
     } else {
       this.getAllBannerByPageName();
     }
-    this.carouselLoaded = true;
-    const hiddenContent = this.el.nativeElement.querySelector('.hidden-content');
-    if (hiddenContent) {
-      this.renderer.removeClass(hiddenContent, 'hidden-content');
-      this.cdr.detectChanges();
-    }
+    
 
+    
+  }
+
+  ngAfterViewInit() {
+ 
     //console.log(this.carouselLoaded);
   }
-      
+ 
   getAllBannerByPageName() {
     this._apiSharedService.getBannerByKeyword(this.category,this.bannerPosition).subscribe((banner) => {
         if (banner) {

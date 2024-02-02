@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { CarouselModule, OwlOptions,  } from 'ngx-owl-carousel-o';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NgbModal,} from '@ng-bootstrap/ng-bootstrap';
+import { CarouselModule, OwlOptions  } from 'ngx-owl-carousel-o';
 import { ApiSharedService } from '../../services/api-shared.service';
 
 
@@ -18,19 +18,19 @@ import { OtpComponent } from '../dialog/otp/otp.component';
 import { HomeBlogComponent } from './home-blog/home-blog.component';
 import { TradersImgComponent } from '../shared/traders-img/traders-img.component';
 import { PrimengModule } from '../../modules/primeng/primeng.module';
-import { state, style, trigger } from '@angular/animations';
 import { RouterLink } from '@angular/router';
-import { NoopAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';
+import {makeStateKey, StateKey, TransferState} from '@angular/core'
+import { BannerAdvComponent } from '../shared/banner-adv/banner-adv.component';
 
 
-
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-home',
   standalone: true,
  
-  imports: [HeaderComponent,HomeSearchComponent,ToastModule,NgOptimizedImage,OtpComponent,PrimengModule,HomeBlogComponent,HomeIndustryComponent,CarouselModule,CommonModule,FormsModule,ReactiveFormsModule,TradersImgComponent,RouterLink],
+  imports: [HeaderComponent,HomeSearchComponent,ToastModule,NgOptimizedImage,OtpComponent,PrimengModule,HomeBlogComponent,HomeIndustryComponent,CarouselModule,CommonModule,FormsModule,ReactiveFormsModule,TradersImgComponent,RouterLink ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
  
@@ -41,10 +41,12 @@ export class HomeComponent implements OnInit,AfterViewInit{
   isApiAlreadyCalled: any;
   homeBanners: any;
   homeMidelBanner:any;
+  
+  
   customOptionsSm: OwlOptions = {
     loop: true,
     mouseDrag: true,
-    touchDrag: true,
+    touchDrag: false,
     pullDrag: true,
     dots: true,
     navSpeed: 1000,
@@ -163,6 +165,7 @@ export class HomeComponent implements OnInit,AfterViewInit{
       },
     },
   };
+  
 
   constructor( public requirementService: PostRequirementServiceService, 
     private _apiSharedService: ApiSharedService, 
@@ -171,9 +174,7 @@ export class HomeComponent implements OnInit,AfterViewInit{
     private modalS:NgbModal, private el:ElementRef)
      { }
   ngOnInit(): void {
-    //window.scrollTo(0, 0);
     
-    //this.modalS.open(LoadpComponent, { size: 'lg', centered: true });
     this.requirementService.initializeRequirementForm();
     this._apiSharedService
       .getAllHeaderBanner()
@@ -182,20 +183,25 @@ export class HomeComponent implements OnInit,AfterViewInit{
         this.homeBanners = res;
       });
       //console.log(this.storageService.getItem('login'))
-      this._apiSharedService.getBannerByKeyword("","Header Middle").subscribe(res=>{
-        //console.log(res)
-        this.homeMidelBanner=res
-      })
+      // this._apiSharedService.getBannerByKeyword("","Header Middle").subscribe(res=>{
+      //   //console.log(res)
+      //   this.homeMidelBanner=res
+      // })
       //console.log(this.requirementService.productSellerForm);
       
   }
 
+
+ 
   ngAfterViewInit(): void {
-    //this.modalS.dismissAll();
-          //Remove the CSS class to display the content on the client side
-    const hiddenContent = this.el.nativeElement.querySelector('.hidden-content');
-    //const hiddenContent = this.el.nativeElement.querySelectorAll('.hidden-content');
-    if (hiddenContent) {    hiddenContent.classList.remove('hidden-content');   }
-    //hiddenContent.forEach((hiddenContent: HTMLElement) => { hiddenContent.removeAttribute('hidden');          });
+   
+    this.modalS.dismissAll();
+          // Remove the CSS class to display the content on the client side
+   const hiddenContent = document.querySelector('.hidden-content');
+    if (hiddenContent) {
+      hiddenContent.classList.remove('hidden-content');
+    }         
   }
+
+
 }

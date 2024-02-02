@@ -2,15 +2,24 @@
     <img *ngIf="bannerTop && bannerTop.imageContent" [src] = bannerTop.imageContent class="img-fluid w-100" alt="TradersFind" 
     (click)="this.bannerService.increaseCount(bannerTop.id,'banner')"> 
    </a>-->
-   <owl-carousel-o [options]="customOptionsSm" *ngIf="carouselLoaded">
+ 
 
-      <ng-template carouselSlide *ngFor="let b of this.AllGuestBannersTemp">
-        <!--<span *ngFor="let b of this.AllGuestBannersTemp">-->
-        <a [href]="b && b.link ? b.link : '/'" target="_blank">
-          <app-traders-img [width]="'100'" [id]="b.image ? b.image.id : null" [imageContent]="b.image && b.image.imageContentContentType? b.image.imageContentContentType : null" ></app-traders-img>
-        </a>
-      <!--</span>-->
-      </ng-template>
-
-</owl-carousel-o>
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        
+  <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let b of this.AllGuestBannersTemp; let i = index" [class.active]="i === 0">
+          <a [href]="b && b.link ? b.link : '/'">
+              <app-traders-img [width]="'100'" [id]="b.image ? b.image.id : null" [imageContent]="b.image?.imageContentContentType"></app-traders-img>
+          </a>
+      </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next" >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 <hr style="margin: 0.5rem 0;border: 1px solid #000">

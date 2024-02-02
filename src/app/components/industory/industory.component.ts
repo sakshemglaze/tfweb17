@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { IndustoryModule } from './industory.module';
 import { MessageService } from 'primeng/api';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-industory',
@@ -76,13 +77,14 @@ export class IndustoryComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     private _urlservice: UrlService,
     public requirementService: PostRequirementServiceService,
+    private modalS:NgbModal,
     @Inject(PLATFORM_ID) private platformId: any,
-    private renderer: Renderer2, private el: ElementRef
+   
   ) { }
 
   ngOnInit(): void {
     this.requirementService.initializeRequirementForm();
-    window.scrollTo(0,0) ;
+   
     this.route.snapshot.queryParamMap.get("page")
       ? (this.page = this.route.snapshot.queryParamMap.get("page"))
       : (this.page = 1);
@@ -93,11 +95,12 @@ export class IndustoryComponent implements OnInit, AfterViewInit {
 
    ngAfterViewInit(): void {
      // Remove the CSS class to display the content on the client side
-     const hiddenContent = this.el.nativeElement.querySelector('.hidden-content');
-     if (hiddenContent) {
-       this.renderer.removeClass(hiddenContent, 'hidden-content');
-       console.log("hello");
-     }
+     this.modalS.dismissAll();
+          // Remove the CSS class to display the content on the client side
+   const hiddenContent = document.querySelector('.hidden-content');
+    if (hiddenContent) {
+      hiddenContent.classList.remove('hidden-content');
+    } 
   }
   
   /*getAllCategories() {
