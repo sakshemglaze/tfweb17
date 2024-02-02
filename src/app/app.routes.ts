@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { PostBuyRequirementsComponent } from './components/post-buy-requirements/post-buy-requirements.component';
+import { BannerAdvComponent } from './components/shared/banner-adv/banner-adv.component';
+import { SearchListingComponent } from './components/search-listing/search-listing.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -85,13 +87,10 @@ export const routes: Routes = [
           (m) => m.SearchListingModule
         ),
     },
-    {
-      path: 'category',
-      loadChildren: () =>
-        import('./components/search-listing/search-listing.module').then(
-          (m) => m.SearchListingModule
-        ),
-    },
+   
+    { path: 'category/:scatName', component: SearchListingComponent },
+    { path: 'category/:scatName/:subCategoryId', component: SearchListingComponent },  
+    { path: 'category/:scatName/:location/:subCategoryId', component: SearchListingComponent },
     {
       path: 'seller',
       loadChildren: () =>
@@ -177,10 +176,14 @@ export const routes: Routes = [
         import('./components/notfound/notfound.module').then(
           (m) => m.NotfoundModule
         ),
+    }, {
+      path:'heelo-banner',
+      component:BannerAdvComponent
     },
   
     {
       path: '**', redirectTo: '/not-found'
     },
+   
   
   ];

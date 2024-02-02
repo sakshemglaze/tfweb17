@@ -1,3 +1,45 @@
+/* Add some styles for touch devices */
+.text-red{
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    /* Customize for desktop */
+    .carousel-inner .row {
+        display: flex;
+    }
+    .carousel-inner .col {
+        flex: 0 0 25%; /* Adjust based on the number of items you want to show */
+    }
+    
+}
+
+
+.card { overflow: hidden; border: none;}
+.card .card-img { height: auto;width: 100%;}
+.card .card-img-container img {width: 100%; margin: 0px; }
+
+@media (max-width: 767px) {
+  .carousel-inner .carousel-item > div {display: none;}
+  .carousel-inner .carousel-item > div:first-child {display: block;}
+  .carousel-inner .carousel-item > div .card-img-container img { max-width: 100%; }
+  .hello{
+    height: 200px;
+}
+}
+
+@media (min-width: 768px) {
+  .carousel-inner .carousel-item-end.active,
+  .carousel-inner .carousel-item-next { transform: translateX(25%); }
+  .carousel-inner .carousel-item-start.active,
+  .carousel-inner .carousel-item-prev {transform: translateX(-25%);}
+  .carousel-inner .carousel-item.active,
+  .carousel-inner .carousel-item-next,
+  .carousel-inner .carousel-item-prev {display: flex;}
+  .carousel-inner .carousel-item-end,
+  .carousel-inner .carousel-item-start { transform: translateX(0);}
+}
+
 .select2-container {
     box-sizing: border-box;
     display: inline-block;

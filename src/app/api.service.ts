@@ -12,7 +12,7 @@ export class ApiService {
   baseurl = 'https://api.tradersfind.com/';
   //baseurl = 'http://94.100.26.172:8080/';
 
-  //baseurl = 'http://localhost:8080/';
+ // baseurl = 'http://localhost:8080/';
 
   smsurl = "http://mshastra.com/sendurl.aspx?user=20093656&pwd=uurgir&senderid=MBISMS&Countrycode=All";
 

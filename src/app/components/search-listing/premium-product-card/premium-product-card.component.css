@@ -1,0 +1,7 @@
+.carousel-item {
+    display: flex;
+    justify-content: space-between;
+  }
+  .carousel-item img {
+    flex: 0 0 30%; /* Adjust the width of each item as needed */
+  }

@@ -12,7 +12,17 @@
     }
 }
 /* your-component.component.css */
-.hidden-content {
-    display: none;
-  }
-  
+
+  /* Custom CSS to change the color of carousel control buttons to black */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black; /* Change the background color */
+    color: white; /* Change the text color */
+}
+
+
+
+
+
+
+
