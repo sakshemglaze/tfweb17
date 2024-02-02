@@ -61,9 +61,14 @@ export class BannerAdvComponent implements OnInit, AfterViewInit {
       this.cdr.detectChanges();
     }
 
+    
+  }
+
+  ngAfterViewInit() {
+ 
     //console.log(this.carouselLoaded);
   }
-      
+ 
   getAllBannerByPageName() {
     this._apiSharedService.getBannerByKeyword(this.category,this.bannerPosition).subscribe((banner) => {
         if (banner) {

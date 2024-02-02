@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { IndustoryModule } from './industory.module';
 import { MessageService } from 'primeng/api';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TransferState } from '@angular/core'
 import { Observable,of } from 'rxjs';
 
@@ -80,6 +81,7 @@ export class IndustoryComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     private _urlservice: UrlService,
     public requirementService: PostRequirementServiceService,
+    private modalS:NgbModal,
     @Inject(PLATFORM_ID) private platformId: any,
     private renderer: Renderer2, private el: ElementRef,
     private transferState:TransferState
@@ -87,7 +89,7 @@ export class IndustoryComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.requirementService.initializeRequirementForm();
-    window.scrollTo(0,0) ;
+   
     this.route.snapshot.queryParamMap.get("page")
       ? (this.page = this.route.snapshot.queryParamMap.get("page"))
       : (this.page = 1);

@@ -15,16 +15,12 @@ import { AmIVisibleDirective } from '../../am-ivisible.directive';
 import { PremiumProductCardModule } from './premium-product-card/premium-product-card.module';
 import { MessageService } from 'primeng/api';
 
-const routes: Routes = [
-  { path: ':scatName', component: SearchListingComponent },
-  { path: ':scatName/:subCategoryId', component: SearchListingComponent },  
-  { path: ':scatName/:location/:subCategoryId', component: SearchListingComponent },
-];
+
 
 @NgModule(
   {
   providers: [MessageService],
   declarations: [ ],
-  imports: [CommonModule,RouterModule.forChild(routes)],
+  imports: [CommonModule,],
 })
 export class SearchListingModule { }
