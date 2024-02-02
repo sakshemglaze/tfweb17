@@ -27,15 +27,15 @@ export class TradersImgComponent {
   ) { }
 
   ngOnInit() {
-    //console.log("Image Component");
+    //console.log(this.imageContent);
     if (this.id) {
-      if(this.imageContent === null) {
-        //console.log("without API")
+      if(this.imageContent === null || this.imageContent === undefined ) {
+       // console.log("without API")
         //console.log(this.id);
         this.imageContent = TRADERSFIND.IMAGE_URL + this.id + ".webp";
         //console.log(this.imageContent);
       } else {
-        //console.log("API " + this.id); 
+        console.log("API " + this.id); 
       this._apiSharedService.getImageContent(this.id).subscribe(
         (res) => {
           if (res.imageContent && res.imageContentContentType) {

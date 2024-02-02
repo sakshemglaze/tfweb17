@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="/assets/css/sellweb.css" />
 <app-header-sub></app-header-sub>
 
 <section class="p-3">
@@ -7,7 +7,7 @@
       <li class="breadcrumb-item"><a href="/">TradersFind</a></li>
 
       <li class="breadcrumb-item active fwbold" aria-current="page">
-        {{ seller.sellerCompanyName }}
+        {{ seller?seller.sellerCompanyName:'' }}
       </li>
     </ol>
   </nav>
@@ -23,33 +23,33 @@
               <div class="d-flex flex-wrap flex-md-nowrap h-100 align-items-center">
                 <div class="">
                   <div class="card-body card-body3">
-
+                    <span *ngIf="seller">
                     <span *ngIf="seller.logo">
                       <app-traders-img [id]="seller && seller.logo? seller.logo.id : null" width="100%" height="100%"
                         [class]=""></app-traders-img> </span>
-                    <app-logo [name]="seller.sellerCompanyName" *ngIf="!seller.logo"></app-logo>
+                    <app-logo [name]="seller?seller.sellerCompanyName:'Traders Find'" *ngIf="!seller.logo"></app-logo>
 
-
+                      </span>
                   </div>
                 </div>
 
                 <div class="text-white lh-sm ms-md-3">
-                  <h1 class="text-uppercase fwbold text-black fs-4">{{ seller.sellerCompanyName }}</h1>
+                  <h1 class="text-uppercase fwbold text-black fs-4">{{seller?seller.sellerCompanyName:"TF"}}</h1>
                   <div class="d-flex align-items-start mt-3">
                     <img src="assets/images/location3.png" width="28" alt="" />
-                    <p class="mb-0 ms-2 text-black">
+                    <p class="mb-0 ms-2 text-black"><span *ngIf="seller">
                       {{seller.address}}, {{seller.city}}<br />
-                      {{seller.sellerState}}, {{seller.country}}
+                      {{seller.sellerState}}, {{seller.country}} </span>
                     </p>
                   </div>
-                  <div class="d-flex mt-3 gap-3">
+                  <div class="d-flex mt-3 gap-3" *ngIf="seller">
                     <div *ngIf="seller.isPreffered">
                       <div class="d-flex align-items-center">
                         <img src="assets/images/crown.png" alt="Premium Seller" width="30" />
                         <span class="ms-2 fwbold text-black">Premium Seller </span>
                       </div>
                     </div>
-                    <div class="d-flex align-items-center" *ngIf="seller.isVerifiedSeller">
+                    <div class="d-flex align-items-center" *ngIf="seller && seller.isVerifiedSeller">
                       <img src="assets/images/verified2.png" alt="Verified Seller"
                         width="70" /><app-ratings></app-ratings>
                     </div>
@@ -60,7 +60,7 @@
             </div>
             <div class="col-lg-5">
               <div class="row gy-2">
-                <div class="col-lg-12 text-center">
+                <div class="col-lg-12 text-center" *ngIf="seller">
 
                   <a *ngIf="
                                       seller.sellerVirtualContactPhone &&
@@ -81,7 +81,7 @@
                     }}
                   </a>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" *ngIf="seller">
                   <a target="_blank" [href]="this.urlService.getProductToWhatsapp('', seller.id, seller)"
                     class="whatsappbtn btn py-2 btn-sm w-100">
                     <!--<a target="_blank" href="https://api.whatsapp.com/send?phone=971569773623&text=Browsed TradersFind" class="whatsappbtn btn py-2 btn-sm w-100">-->
@@ -95,12 +95,12 @@
                     <img src="assets/images/mail-solid.png" alt="" /> Send Inquiry
                   </button>
                 </div>
-                <div class="col-12">
+                <div class="col-12" >
                   <a href="#reviews">
-                    <app-ratings [rate]="seller.sellerRating"></app-ratings>
+                    <app-ratings [rate]="seller?seller.sellerRating:'0'"></app-ratings>
                   </a>
                 </div>
-                <div class="col-12">
+                <div class="col-12" *ngIf="seller">
                   <ul class="d-flex gap-2 justify-content-center mt-0">
 
                     <li>
@@ -152,7 +152,7 @@
           </button>
         </li>
       </ul>
-      <div class="tab-content" id="pills-tabContent">
+      <div class="tab-content" id="pills-tabContent" *ngIf="seller">
         <div class="tab-pane fade show active fs-5 text-center" id="pills-seller" role="tabpanel"
           aria-labelledby="pills-product-tab" tabindex="0">
           <h2 class="fwbold mt-5 fs-3 mb-5 border-center text-center">
@@ -176,8 +176,8 @@
                 <div class="text-start lh-sm">
                   <h3 class="text-black-50 mb-0 fs-4 fwbold">Nature of Business</h3>
                   <span class="mb-0 fs-5">
-                    {{
-                    seller.sellerCompanyType
+                    {{seller?
+                    seller.sellerCompanyType:''
                     }}
                   </span>
                 </div>
@@ -190,8 +190,8 @@
                 <div class="text-start lh-sm">
                   <h3 class="text-black-50 mb-0 fs-4 fwbold">Year of Establishment</h3>
                   <!--<h3 class="mb-0 fs-5">-->
-                  {{
-                  seller.sellerInceptionYear
+                  {{seller?
+                  seller.sellerInceptionYear:''
                   }}
                 </div>
               </div>
@@ -200,7 +200,7 @@
               <!--*ngIf="seller.sellerWebsite && seller.sellerWebsite != ''">-->
               <div class="d-flex align-items-center justify-content-md-center">
                 <img src="assets/images/icon__3.png" alt="" class="me-3" />
-                <div class="text-start lh-sm">
+                <div class="text-start lh-sm" *ngIf="seller">
                   <a [href]="seller.sellerWebsite" target="_blank">
                     <h3 class="text-black-50 mb-0 fs-4 fwbold" style="text-transform: capitalize;">{{sellerCompanyName}}
                       Website </h3>
@@ -212,7 +212,7 @@
             <div class="col-lg-3">
               <div class="d-flex align-items-center justify-content-md-center">
                 <img src="assets/images/icon__4.png" alt="" class="me-3" />
-                <div class="text-start lh-sm">
+                <div class="text-start lh-sm" *ngIf="seller">
                   <h3 class="text-black-50 mb-0 fs-4 fwbold">Working Days</h3>
                   {{ seller.sellerBusinessHours.split("@@@").join(" ") }}
                 </div>
@@ -486,3 +486,4 @@
     </div>
   </div>
 </section>
+<app-footer-small></app-footer-small>

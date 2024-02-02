@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/assets/css/searchprem.css" />
 <div class="bg-gradiant rounded-20 position-relative shadow-sm mb-4">
   <div class="premium_listing">
     <img src="assets/images/verifiedw2.png" alt="verified_image" width="80" height="30" />
@@ -13,36 +14,34 @@
               <app-traders-img [id]="
                                       product && product.images && product.images.length > 0
                                         ? product.images[0].id
-                                        : null" [prodName]="product.altText ? product.altText : product.productName"
-                [imageContent]="product && product.images && 
-                                      product.images[0].imageContent === null? null: ''" target="_blank"
-                [class]="'rounded-10 me-md-4 mb-3 mb-md-0 '"></app-traders-img>
-              <span *ngIf="product.price && (product.maxPrice==null || product.maxPrice=='' )">
-                <strong>Price:</strong> {{product.price}}</span>
-              <span *ngIf="product.maxPrice && (product.price == null || product.price == '')"><strong>Price:</strong>
-                {{product.maxPrice}}</span>
-              <span
-                *ngIf="product.price && product.price != '' && product.maxPrice && product.maxPrice != ''"><strong>Price:</strong>
-                {{product.price}} - {{product.maxPrice}}</span>
-              <span *ngIf="product.currency && (product.price || product.maxPrice)">{{product.currency}} / Piece</span>
-            </div>
-            <div class="text-white lh-sm ms-md-2">
-              <h2 class="text-uppercase fwbold fs-5">
-                {{
-                product.productName.length > 100
-                ? product.productName.substring(0, 100)
-                : product.productName
-                }}<span *ngIf="product.productName.length > 100">...</span>
-              </h2>
-
-              <div class="">
-                <ul class="mt-2 small ">
-                  <li *ngFor="let spec of $any(specList(product.specifications) | slice:0:3); let i=index;">
-                    <span><b>{{spec.SpecificationName}}</b> : {{spec.SpecValue}}</span>
-                  </li>
-                </ul>
-              </div>
-
+                                        : null" [prodName]="product.altText ? product.altText : product.productName" [imageContent]="product && product.images && 
+                                      (product.images[0].imageContent === null || product.images[0].imageContent === undefined)? null: ''"
+                              target="_blank" [class]="'rounded-10 me-md-4 mb-3 mb-md-0 '" ></app-traders-img>
+                              <span *ngIf="product.price && (product.maxPrice==null || product.maxPrice=='' )">
+                                <strong>Price:</strong> {{product.price}}</span>
+                                <span *ngIf="product.maxPrice && (product.price == null || product.price == '')"><strong>Price:</strong>
+                                {{product.maxPrice}}</span>
+                                <span *ngIf="product.price && product.price != '' && product.maxPrice && product.maxPrice != ''"><strong>Price:</strong>
+                                {{product.price}} - {{product.maxPrice}}</span>
+                                <span *ngIf="product.currency && (product.price || product.maxPrice)">{{product.currency}} / Piece</span>
+                          </div>
+                          <div class="text-white lh-sm ms-md-2">
+                              <h2 class="text-uppercase fwbold fs-5">
+                                  {{
+                                  product.productName.length > 100
+                                  ? product.productName.substring(0, 100)
+                                  : product.productName
+                                  }}<span *ngIf="product.productName.length > 100">...</span>
+                              </h2>
+                                                              
+                             <div class="">
+                                <ul class="mt-2 small ">
+                                <li
+                                    *ngFor="let spec of $any(specList(product.specifications) | slice:0:3); let i=index;">
+                                    <span ><b>{{spec.SpecificationName}}</b> : {{spec.SpecValue}}</span>
+                                </li>
+                               </ul>
+                             </div>
               <div class="two-line-content mt-3" *ngIf="product.productDescription">
                 <p class="about_text  about_text2" style="margin: auto;"><b>Description:
                   </b>{{product.productDescription}}
@@ -179,40 +178,16 @@
               <div class="row gy-4">
 
                 <owl-carousel-o [options]="carouselPremium">
-                                
-                  <ng-template carouselSlide *ngFor ="let sProduct of sellerProduct; let i = index"> 
-                <div class="col-lg-12">
-                    <div class="d-flex align-items-center">
-                      <app-traders-img [id]="
-                    sProduct && sProduct.images && sProduct.images.length > 0
-                      ? sProduct.images[0].id
-                      : null" [prodName]="sProduct.altText ? sProduct.altText : sProduct.productName" [imageContent]="sProduct && sProduct.images && 
-                    sProduct.images[0].imageContent === null? null: ''" target="_blank"
-                      class="pic-100px" width="100px" height="100px"> </app-traders-img>                                        
-
-                        <div class="ms-3 small">
-                            <h5 class="fwbold"><small>
-                              <a [href]="this.urlService.getProductUrl(sProduct.productName, sProduct.id)
-                            " target="_blank" title="{{ sProduct.productName}}" class="mt-4 text-blue d-block small">
-                            {{sProduct.productName}} </a></small></h5>
-                        
-                            <span *ngIf=" sProduct.price && (sProduct.maxPrice==null || sProduct.maxPrice=='' )">
-                              <strong>Price:</strong> {{sProduct.price}}</span>
-                              <span *ngIf="sProduct.maxPrice && (sProduct.price == null || sProduct.price == '')"><strong>Price:</strong>
-                              {{sProduct.maxPrice}}</span>
-                              <span *ngIf="sProduct.price && sProduct.price != '' && sProduct.maxPrice && sProduct.maxPrice != ''"><strong>Price:</strong>
-                              {{sProduct.price}} - {{sProduct.maxPrice}}</span>
-                              <span *ngIf="sProduct.currency">{{sProduct.currency}} / Piece</span>
-                            <a [href]="this.urlService.getProductUrl(sProduct.productName, sProduct.id)
-                            " target="_blank" title="{{ sProduct.productName}}" class="mt-4 text-blue d-block small">
-                           View More </a>
-                            
-                        </div>
-                    </div>
-                </div>
-          </ng-template>
-  
-  </owl-carousel-o>
+                                    <ng-template carouselSlide *ngFor ="let sProduct of sellerProduct; let i = index"> 
+                                  <div class="col-lg-12">
+                                      <div class="d-flex align-items-center">
+                                        <app-traders-img [id]="
+                                      sProduct && sProduct.images && sProduct.images.length > 0
+                                        ? sProduct.images[0].id
+                                        : null" [prodName]="sProduct.altText ? sProduct.altText : sProduct.productName" [imageContent]="sProduct && sProduct.images && 
+                                      (sProduct.images[0].imageContent === null || sProduct.images[0].imageContent === undefined)? null: ''" target="_blank"
+                                        class="pic-100px" width="100px" height="100px"> </app-traders-img>                                        
+                                        </owl-carousel-o>
 
               
               </div>

@@ -22,11 +22,11 @@ import { TradersImgComponent } from '../shared/traders-img/traders-img.component
 import { RatingsComponent } from '../shared/ratings/ratings.component';
 import { LogoComponent } from '../shared/logo/logo.component';
 import { MessageService } from 'primeng/api';
-
+import { FooterSmallComponent } from '../footer/footer-small/footer-small.component';
 @Component({
   selector: 'app-seller-website',
   standalone: true,
-  imports: [CommonModule,LoadpComponent,ReactiveFormsModule,OtpComponent, HeaderSubComponent, TradersImgComponent, RatingsComponent,LogoComponent,MapComponent],
+  imports: [FooterSmallComponent,CommonModule,LoadpComponent,ReactiveFormsModule,OtpComponent, HeaderSubComponent, TradersImgComponent, RatingsComponent,LogoComponent,MapComponent],
   providers:[PostRequirementServiceService,MessageService],
   templateUrl: './seller-website.component.html',
   styleUrl: './seller-website.component.css'
@@ -112,15 +112,15 @@ export class SellerWebsiteComponent implements OnInit {
         //return;
         this.router.navigateByUrl('not-found');
       }
-      console.log( this.route.snapshot.paramMap.get("sellerCompanyName"));
-      console.log(this.route.snapshot.paramMap.get("sellerUrl"));
-      console.log("-------"+this.sellerCompanyName)
+      //console.log( this.route.snapshot.paramMap.get("sellerCompanyName"));
+      //console.log(this.route.snapshot.paramMap.get("sellerUrl"));
+      //console.log("-------"+this.sellerCompanyName)
       this._apiSharedService
         .getSellerByCompanyName(this.sellerCompanyName)
         .subscribe((res: string | any[]) => {
-          console.log(res);
+          //console.log(res);
           this.seller = res && res.length > 0 ? res[0] : null;
-          console.log(this.mapUrl);
+          //console.log(this.mapUrl);
           if (!this.seller) this.router.navigateByUrl('not-found');
           this.sellerPackageType = this.sellerUtils.getSellerType(this.seller);
           this.seoService.setSellerSeo(this.seller);

@@ -26,21 +26,20 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 import { PostRequirementServiceService } from '../../services/post-requirement-service.service';
 import { ProductCardModule } from './product-card/product-card.module';
-
-
+import { FooterSmallComponent } from '../footer/footer-small/footer-small.component';
 //import { provideClientHydration } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-search-listing',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, OtpComponent, FormsModule, HeaderSubComponent, TradersImgComponent,
-    NgxPaginationModule,
-    ProductCardComponent, PremiumProductCardComponent, CarouselModule,
-    // InfiniteScrollModule,
-    BannerAdvComponent, PostRequestComponent
-    , KeyValuePipe],
-  providers: [PostRequirementServiceService, MessageService],
-
+  imports: [FooterSmallComponent,CommonModule,ReactiveFormsModule,OtpComponent,FormsModule, HeaderSubComponent, TradersImgComponent, 
+     NgxPaginationModule,
+      ProductCardComponent, PremiumProductCardComponent, CarouselModule, 
+     // InfiniteScrollModule,
+       BannerAdvComponent,PostRequestComponent
+     ,KeyValuePipe], 
+     providers:[PostRequirementServiceService,MessageService],
+    
   templateUrl: './search-listing.component.html',
   styleUrl: './search-listing.component.css'
 })

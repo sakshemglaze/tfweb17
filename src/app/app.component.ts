@@ -15,9 +15,6 @@ import { SearchListingComponent } from './components/search-listing/search-listi
 //import { provideAnimations } from '@angular/platform-browser/animations';
 //import { ReactiveFormsModule } from '@angular/forms';
 
-
-
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -51,23 +48,23 @@ export class AppComponent {
      //   content:
      //     "Tradersfind UAE, online Tradersfind, business Tradersfind, UAE B2B Marketplace, B2B Portal, Tradersfind directory, UAE Tradersfind, UAE exporters directory, UAE manufacturers directory, UAE suppliers directory, Import Export UAE, Importers UAE, Buy Trade Leads, UAE business directory, online business listings, local business listings, UAE local Business directory, UAE Tradersfind, local businesses, online Business information, UAE business companies, b2b website, online directory",
      // },
-     // { name: "robots", content: "index, follow" },
+      { name: "robots", content: "index, follow" },
       { name: "author", content: "Tradersfind" },
-     // { name: "viewport", content: "width=device-width, initial-scale=1" },
-     // { charset: "UTF-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { charset: "UTF-8" },
       { name: "language", content: "English" },
       { name: "revisit-after", content: "1 days" },
-      //{
-      //  name: "title",
-      //  content: "Tradersfind UAE | B2B Portal | Business Directory In UAE",
-      //},
+      {
+        name: "title",
+        content: "UAE Largest Online B2B Portal - TradersFind",
+      },
       //{
        // name: "description",
        // content:
        //   "Tradersfind UAE is the leading B2B Portal & Business Directory In UAE. A Platform for Supplier & Buyer to fulfill their product & service requirement.",
       //},
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@etisalatyp" },
+      //{ name: "twitter:card", content: "summary" },
+      //{ name: "twitter:site", content: "@etisalatyp" },
       {
         name: "twitter:title",
         content:
@@ -103,6 +100,7 @@ export class AppComponent {
         content: "https://tradersfind.com/assets/images/YP-logo.png",
       },
     ]);
+    
     // if(isPlatformBrowser(this.platformId)){
     //   var that = this;
     //   setTimeout(() => {

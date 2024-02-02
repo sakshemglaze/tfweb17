@@ -11,7 +11,7 @@ import { HeaderComponent } from '../header/header.component';
 import { HomeSearchComponent } from './home-search/home-search.component';
 import { HomeIndustryComponent } from './home-industry/home-industry.component';
 import { BannerServiceService } from '../../services/banner-service.service';
-
+import { FooterComponent } from '../footer/footer.component';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OtpComponent } from '../dialog/otp/otp.component';
@@ -29,8 +29,8 @@ declare var bootstrap: any;
 @Component({
   selector: 'app-home',
   standalone: true,
- 
-  imports: [HeaderComponent,HomeSearchComponent,ToastModule,NgOptimizedImage,OtpComponent,PrimengModule,HomeBlogComponent,HomeIndustryComponent,CarouselModule,CommonModule,FormsModule,ReactiveFormsModule,TradersImgComponent,RouterLink ],
+
+  imports: [FooterComponent,HeaderComponent,HomeSearchComponent,ToastModule,NgOptimizedImage,OtpComponent,PrimengModule,HomeBlogComponent,HomeIndustryComponent,CarouselModule,CommonModule,FormsModule,ReactiveFormsModule,TradersImgComponent,RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
  
@@ -182,13 +182,11 @@ export class HomeComponent implements OnInit,AfterViewInit{
         //console.log(res);
         this.homeBanners = res;
       });
-      //console.log(this.storageService.getItem('login'))
-      // this._apiSharedService.getBannerByKeyword("","Header Middle").subscribe(res=>{
-      //   //console.log(res)
-      //   this.homeMidelBanner=res
-      // })
-      //console.log(this.requirementService.productSellerForm);
-      
+    
+    //this._apiSharedService.getBannerByKeyword("","Header Middle").subscribe(res=>{
+        //console.log(res)
+       // this.homeMidelBanner=res
+       //})      
   }
 
 

@@ -16,7 +16,7 @@ export class CanonicalService {
     const canURL = url.join(':');
     
     let links = this.dom.getElementsByTagName("link")
-    links[4].setAttribute('href', canURL);
+    links[1].setAttribute('href', canURL);
    
   }
 }

@@ -44,13 +44,22 @@ export class BannerAdvComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit() {
-    //console.log(this.carouselLoaded);
     if (this.image && this.image != "na") {
       this.getImageContent({ image: this.image });
     } else {
       this.getAllBannerByPageName();
     }
-    
+    //console.log(this.carouselLoaded);
+  }
+
+  ngAfterViewInit() {
+   
+    this.carouselLoaded = true;
+    const hiddenContent = document.querySelector('.hidden-content');
+    if (hiddenContent) {
+      this.renderer.removeClass(hiddenContent, 'hidden-content');
+      this.cdr.detectChanges();
+    }
 
     
   }
@@ -64,42 +73,11 @@ export class BannerAdvComponent implements OnInit, AfterViewInit {
     this._apiSharedService.getBannerByKeyword(this.category,this.bannerPosition).subscribe((banner) => {
         if (banner) {
           this.AllGuestBannersTemp = banner;
-         // console.log(this.AllGuestBannersTemp);
+          //console.log(this.AllGuestBannersTemp);
           this.bannerTop = this.AllGuestBannersTemp[0];
         }
       });
-    /*  
-    this._apiSharedService
-      .getBannerByPageName(this.bannerPosition)
-      .subscribe((res) => {
-        if (this.renderServerSide) {
-          this.getImageContent(res[this.bannerPosition]);
-        } else {
-          if (isPlatformBrowser(this.platformId)) {
-            this.getImageContent(res[this.bannerPosition]);
-          }
-        }
-      });
-      console.log(this.bannerPosition);
-       this._apiSharedService
-      .getBannerByKeyword(this.bannerPosition)
-      .subscribe((res) => {
-        console.log('image api')
-        console.log(res)
-       console.log(res[0].image.id)
-       if(res[0].image.imageContent === null){
-        "https://doc.tradersfind.com/images/" +res[0].image.id + ".webp";
-       } else {
-        if (this.renderServerSide) {
-          this.getImageContent(res[0]);
-        } else {
-          if (isPlatformBrowser(this.platformId)) {
-            this.getImageContent(res[0]);
-          }
-        }}
-        console.log(this.getImageContent(res[0]));
-      });*/
-  }
+    }
 
   getImageContent(item:any) {
     if (item && item.image) {

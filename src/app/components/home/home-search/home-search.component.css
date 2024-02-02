@@ -60,3 +60,32 @@
 .search-result li:hover {
     background-color: #f1f1f1;
 }
+
+.select2-container {
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    vertical-align: middle;
+  }
+  
+  .select2-container .select2-search--inline {
+    float: left;
+  }
+  
+  .select2-dropdown {
+    background-color: white;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    left: -100000px;
+    width: 100%;
+    z-index: 1051;
+  }
+  
+  .select2-search--dropdown {
+    display: block;
+    padding: 4px;
+  }

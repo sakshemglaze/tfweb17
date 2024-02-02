@@ -8,11 +8,11 @@ import { CommonModule } from '@angular/common';
 import { HeaderSubComponent } from '../../header-sub/header-sub.component';
 import { TradersImgComponent } from '../../shared/traders-img/traders-img.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { FooterComponent } from '../../footer/footer.component';
 @Component({
   selector: 'app-blog',
   standalone: true,
-  imports: [CommonModule,HeaderSubComponent,TradersImgComponent,NgxPaginationModule],
+  imports: [FooterComponent,CommonModule,HeaderSubComponent,TradersImgComponent,NgxPaginationModule],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.css'
 })

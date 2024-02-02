@@ -10,11 +10,11 @@ import { HeaderSubComponent } from '../header-sub/header-sub.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MessageService } from 'primeng/api';
 import { PostRequirementServiceService } from '../../services/post-requirement-service.service';
-
+import { FooterComponent } from '../footer/footer.component';
 @Component({
   selector: 'app-browse-sellers',
   standalone: true,
-  imports: [CommonModule,NgxPaginationModule, HeaderSubComponent,TradersImgComponent],
+  imports: [FooterComponent,CommonModule,NgxPaginationModule, HeaderSubComponent,TradersImgComponent],
   providers:[PostRequirementServiceService,MessageService],
   templateUrl: './browse-sellers.component.html',
   styleUrl: './browse-sellers.component.css'

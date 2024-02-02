@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/assets/css/searchcard.css" />
 <ng-container>
     <div carouselSlide *ngFor="let product of products">
         <!--? '3px solid #ddd': isTitaniumPackageProduct? '4px solid #ddd': '1px solid #ddd'-->
@@ -29,8 +30,8 @@
                                    <div class="border-end p-3 pt-5 h-100 border_img border_img2 ">
                                      <app-traders-img [id]="
                                 product && product.images && product.images.length > 0
-                                  ? product.images[0].id: null" [imageContent]="product && product.images && product.images.lenght > 0 &&  
-                                  product.images[0].imageContent === null? null: ''"
+                                  ? product.images[0].id: null" [imageContent]="product && product.images && product.images.length > 0 &&  
+                                  (product.images[0].imageContent === null || product.images[0].imageContent === undefined)? null: ''"
                                             [prodName]="product.altText ? product.altText : product.productName"
                                             target="_blank" [class]="'img-fluid'"></app-traders-img> 
                                         <div class="d-flex mt-3 d-center">

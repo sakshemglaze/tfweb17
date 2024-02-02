@@ -12,7 +12,7 @@ import { SellYourProductsModule } from '../sell-your-products/sell-your-products
 import { UserRegistrationModule } from './user-registration.module';
 import { HeaderSubComponent } from '../header-sub/header-sub.component';
 import { SellYourProductsComponent } from '../sell-your-products/sell-your-products.component';
-
+import { FooterComponent } from '../footer/footer.component';
 export interface ICountryAndCode {
   code: string;
   name: string;
@@ -27,7 +27,7 @@ export interface ICountryAndCode {
     SellYourProductsComponent,
     FormsModule,
     ReactiveFormsModule,
-    
+    FooterComponent,
   ],providers:[MessageService],
   templateUrl: './user-registration.component.html',
   styleUrl: './user-registration.component.css'

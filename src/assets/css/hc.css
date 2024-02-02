@@ -1,0 +1,174 @@
+@font-face {
+  font-family: "Calibri";
+  src: url("/assets/fonts/Calibri.woff2") format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Calibrib";
+  src: url("/assets/fonts/Calibri.woff2") format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Calibril";
+  src: url("/assets/fonts/Calibri.woff2") format('woff');
+  font-display: swap;
+}
+
+body {
+  font-size: 15px;
+  background: #f8f8f8;
+  font-family: "Calibri";
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+}
+
+a:hover {
+  color: #873636;
+}
+
+.categories {
+  padding: 15px;
+}
+
+.rounded-10 {
+  border-radius: 10px;
+}
+
+.categories ul {
+  margin-top: 10px;
+}
+
+.categories ul li {
+  position: relative;
+  margin: 5px 0;
+}
+
+.categories ul li.has-category:after {
+  content: "";
+  width: 7px;
+  height: 10px;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  position: absolute;
+  transform: translate(0px, -50%) rotate(45deg);
+  right: 4px;
+  top: 50%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman';
+}
+
+.categories ul li ul {
+  position: absolute;
+  display: none;
+  left: 100%;
+  background-color: white;
+  min-width: 200px;
+  margin: 0;
+  top: 0;
+  box-shadow: 2.6px 1.5px 5px rgb(0 0 0 / 30%);
+  border-radius: 19px;
+  padding: 8px;
+  z-index: 10000;
+}
+
+.card-shadow {
+  box-shadow: 2.6px 1.5px 5px rgb(0 0 0 / 30%);
+}
+
+.categories ul li ul li {
+  margin: 0;
+}
+
+.categories ul li ul li a {
+  display: block;
+  padding: 5px 15px;
+}
+
+.categories ul li:hover ul {
+  display: block;
+}
+
+.categories ul li:last-child {
+  margin-bottom: 0px !important;
+}
+
+.rounded-20 {
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.shadow2 {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 3px 4.85px 0.15px rgba(0, 0, 0, 0.25);
+}
+
+.d-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mb-10 {
+  margin-bottom: 80px;
+}
+
+.card-body3 {
+  background: #fff;
+  border-radius: 10px;
+}
+
+.card-body3 img {
+  width: 100px;
+}
+
+.card-body2 {
+  text-align: left;
+}
+
+@media (max-width: 480px) {
+  h3,  h4,  h5,  h6 {
+    font-size: 18px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  h2[_ngcontent-serverApp-c43] {
+    font-size: 34px !important;
+    padding: 42px 16px !important;
+  }
+}
+
+.categories ul li a {
+  display: block;
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .has-category {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .has-category {
+    font-size: 18px;
+  }
+}

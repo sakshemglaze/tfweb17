@@ -1,0 +1,122 @@
+@font-face {
+  font-family: "Calibri";
+  src: url("/assets/fonts/Calibri.woff2") format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Calibrib";
+  src: url("/assets/fonts/Calibri.woff2") format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Calibril";
+  src: url("/assets/fonts/Calibri.woff2") format('woff');
+  font-display: swap;
+}
+
+body {
+  font-size: 15px;
+  background: #f8f8f8;
+  font-family: "Calibri";
+}
+
+.fwbold {
+  font-family: "Calibri";
+  font-weight: bold;
+}
+
+.bg-gradiant {
+  background-image: -moz-linear-gradient(-40deg, rgb(189, 56, 56) 0%, rgb(13, 88, 140) 100%);
+  background-image: -webkit-linear-gradient(-40deg, rgb(189, 56, 56) 0%, rgb(13, 88, 140) 100%);
+  background-image: -ms-linear-gradient(-40deg, rgb(189, 56, 56) 0%, rgb(13, 88, 140) 100%);
+}
+
+.end-8 {
+  right: 8px;
+}
+
+.pb100 {
+  padding-bottom: 100px;
+}
+
+h3.fwbold {
+  margin-top: 15px;
+}
+
+.bg-gradiant1 {
+  background: linear-gradient(-90deg, rgba(13, 88, 140, 1) 30%, rgba(13, 88, 140, 1) 0%, rgba(189, 56, 56, 1) 100%, rgba(189, 56, 56, 1) 100%);
+}
+
+.bg-gradiant2 {
+  background: #f8f8f8;
+}
+
+.bg1 {
+  background: #f9e0e6;
+}
+
+.bg2 {
+  background: #daffd6;
+}
+
+.bg3 {
+  background: #f8fac9;
+}
+
+.bg4 {
+  background: #f92186;
+}
+
+.bg5 {
+  background: #38ed22;
+}
+
+.bg6 {
+  background: #c1c60a;
+}
+
+.bg7 {
+  background: #f8f8f8;
+}
+
+.bg8 {
+  background: #e3dfe0;
+}
+
+.bg9 {
+  background: #dfdfdf;
+}
+
+.card-body3 {
+  background: #fff;
+  border-radius: 10px;
+}
+
+.card-body3 img {
+  width: 100px;
+}
+
+.card-body2 {
+  text-align: left;
+}
+
+@media (max-width: 480px) {
+  h3,  h4,  h5,  h6 {
+    font-size: 18px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .mt10 {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  h2[_ngcontent-serverApp-c43] {
+    font-size: 34px !important;
+    padding: 42px 16px !important;
+  }
+}

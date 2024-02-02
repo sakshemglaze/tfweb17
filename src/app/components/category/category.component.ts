@@ -12,11 +12,11 @@ import { LoadpComponent } from '../shared/loadp/loadp.component';
 import { HeaderSubComponent } from '../header-sub/header-sub.component';
 import { TradersImgComponent } from '../shared/traders-img/traders-img.component';
 import { BannerAdvComponent } from '../shared/banner-adv/banner-adv.component';
-
+import { FooterComponent } from '../footer/footer.component';
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule,OtpComponent,LoadpComponent, HeaderSubComponent, TradersImgComponent,BannerAdvComponent],
+  imports: [FooterComponent,CommonModule,ReactiveFormsModule,OtpComponent,LoadpComponent, HeaderSubComponent, TradersImgComponent,BannerAdvComponent],
   providers:[PostRequirementServiceService],
   templateUrl: './category.component.html',
   styleUrl: './category.component.css'

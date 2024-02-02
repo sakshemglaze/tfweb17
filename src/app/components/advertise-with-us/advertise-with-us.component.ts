@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { HeaderSubComponent } from '../header-sub/header-sub.component';
-
+import { FooterComponent } from '../footer/footer.component';
 @Component({
   selector: 'app-advertise-with-us',
   standalone: true,
-  imports: [HeaderSubComponent],
+  imports: [HeaderSubComponent,FooterComponent],
   templateUrl: './advertise-with-us.component.html',
   styleUrl: './advertise-with-us.component.css'
 })

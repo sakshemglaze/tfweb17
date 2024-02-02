@@ -14,7 +14,7 @@ import { PostRequirementServiceService } from '../../services/post-requirement-s
 import { UrlService } from '../../services/url.service';
 import { PostRequirementComponent } from '../dialog/post-requirement/post-requirement.component';
 import { ProductService } from '../../services/product.service';
-
+import { FooterComponent } from '../footer/footer.component';
 import { MaskingService } from '../../services/masking.service';
 import { BannerServiceService } from '../../services/banner-service.service';
 import { HeaderSubComponent } from '../header-sub/header-sub.component';
@@ -29,7 +29,7 @@ import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [CommonModule,
+  imports: [CommonModule, FooterComponent,
     ReactiveFormsModule,MoreProductsComponent, HeaderSubComponent,LoadpComponent, TradersImgComponent, RatingsComponent,OtpComponent, BannerAdvComponent,],
   
   providers:[PostRequirementServiceService,MessageService],
