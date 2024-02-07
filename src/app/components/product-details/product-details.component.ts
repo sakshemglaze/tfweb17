@@ -101,7 +101,7 @@ export class ProductDetailsComponent implements OnInit {
       enquirerEmail: new FormControl('', [Validators.required, Validators.email]),
       mobileNo:new FormControl('',[Validators.required]),
       checkbox:new FormControl(false,[Validators.required]),
-      noCode:new FormControl('+91',Validators.required),
+      noCode:new FormControl('+971',Validators.required),
     });
 
   }

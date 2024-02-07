@@ -18,10 +18,12 @@ export class ProductService {
   ) { }
 
   setSeoAttributes(product: any) {
+    console.log(product);
     let seo = new Seo({
       title: product.metaTitle && product.metaTitle != '' ? product.metaTitle : product.productName,
-      metaTitle: product.metaTitle && product.metaTitle != '' ? product.metaTitle : product.productName,
-      metaDescription: product.metaDescription && product.metaDescription != '' ? product.metaDescription : product.productDescription,
+      metaTitle: product.metaTitle && product.metaTitle != '' ? product.metaTitle : product.productName + ' in ' + product.seller.state + ' - ' + product.sellerCompanyName,
+      metaDescription: product.metaDescription && product.metaDescription != '' ? product.metaDescription : product.sellerCompanyName + ' - Offering ' + product.productName + ' in '
+      + product.seller.state + '. Get the best quality at the best price.',
       metaKeywords: product.metaKeywords && product.metaKeywords != '' ? product.metaKeywords.join(',') : null,
       fbTitle: product.fbTitle && product.fbTitle != '' ? product.fbTitle : product.productName,
       fbDescription: product.fbDescription && product.fbDescription != '' ? product.fbDescription : product.productDescription,
