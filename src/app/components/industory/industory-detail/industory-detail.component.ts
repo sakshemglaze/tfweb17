@@ -68,10 +68,10 @@ export class IndustoryDetailComponent implements AfterViewInit {
         sort: 'industryName'
       })
       .subscribe((res) => {
-        this.industryDetails = res[0];
+        this.industryDetails = res;
         console.log(res);
-          if(res[0].metaTitle && res[0].metaTitle != null) {
-          this.seoService.setIndustrySeo(res[0]);
+          if(res.metaTitle && res.metaTitle != null) {
+          this.seoService.setIndustrySeo(res);
         }
       });
   }

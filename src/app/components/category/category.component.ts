@@ -107,7 +107,7 @@ export class CategoryComponent implements OnInit{
       })
       .subscribe((res) => {
         console.log(res);
-        this.industryDetails = res[0];
+        this.industryDetails = res;
 
         // this.all_categories = res.productsCategories;
         //console.log(this.all_categories);
