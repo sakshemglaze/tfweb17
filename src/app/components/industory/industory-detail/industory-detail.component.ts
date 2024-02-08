@@ -70,8 +70,8 @@ export class IndustoryDetailComponent implements AfterViewInit {
       .subscribe((res) => {
         this.industryDetails = res[0];
         console.log(res);
-          if(res.metaTitle && res.metaTitle != null) {
-          this.seoService.setIndustrySeo(res);
+          if(res[0].metaTitle && res[0].metaTitle != null) {
+          this.seoService.setIndustrySeo(res[0]);
         }
       });
   }

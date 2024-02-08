@@ -426,7 +426,7 @@ export class SeoService {
   }
 
   setIndustrySeo(category: any) {
-    //console.log("Industry SEO -"+category);
+   // console.log("Industry SEO -"+category);
     let seo = new Seo({
       title:
         category.metaTitle && category.metaTitle != ""
@@ -490,6 +490,7 @@ export class SeoService {
           ? category.twitterSite
           : null,
     });
+   
     this.setSeoAttributes(seo);
   }
 

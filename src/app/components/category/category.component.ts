@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { ApiSharedService } from '../../services/api-shared.service';
 import { ActivatedRoute } from '@angular/router';
@@ -21,7 +21,7 @@ import { FooterComponent } from '../footer/footer.component';
   templateUrl: './category.component.html',
   styleUrl: './category.component.css'
 })
-export class CategoryComponent {
+export class CategoryComponent implements OnInit{
   popular_categories: any[] = [];
   popular_subcategories: any[] = [];
   all_categories: any[] = [];
@@ -107,7 +107,7 @@ export class CategoryComponent {
       })
       .subscribe((res) => {
         console.log(res);
-        this.industryDetails = res;
+        this.industryDetails = res[0];
 
         // this.all_categories = res.productsCategories;
         //console.log(this.all_categories);

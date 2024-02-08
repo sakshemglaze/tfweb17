@@ -190,11 +190,12 @@ export class ApiSharedService {
   }
 
   public getIndustryById(id: any, queryparams: any): Observable<any> {
-    return this._apiService.get(INDUSTRY.ALL_INDUSTRIES + '/' + id, false, queryparams);
+    return this._apiService.get('api/industries-new' + '/' + id, false, queryparams);
   }
   public getIndustryByIdNa(id:any,queryparams:any){
     return this._apiService.get("api/industries-na"+'/'+id, false,queryparams);
   }
+  
 
   public getAllCategories(size: any, sortby: any): Observable<any> {
     return this._apiService.get(

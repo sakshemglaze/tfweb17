@@ -17,6 +17,7 @@ import { IndustoryModule } from './industory.module';
 import { MessageService } from 'primeng/api';
 import { TransferState } from '@angular/core'
 import { Observable,of } from 'rxjs';
+import { Meta, Title } from '@angular/platform-browser';
 
 const DATA_KEY = makeStateKey<any>('my-data');
 @Component({
@@ -77,6 +78,7 @@ export class IndustoryComponent implements OnInit, AfterViewInit {
     private _apiSharedService: ApiSharedService,
     private imageService: ImageService,
     private _router: Router,
+    private meta: Meta, private titleService: Title,
     private route: ActivatedRoute,
     private _urlservice: UrlService,
     public requirementService: PostRequirementServiceService,
@@ -86,6 +88,8 @@ export class IndustoryComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle("Browse Sellers from UAE's Largest Online B2B Portal");
+    this.updateMetaDescription("Browse Sellers products and services on the UAE's Largest Online B2B Portal. Connect with leading sellers for successful business deals on TradersFind    ");
     this.requirementService.initializeRequirementForm();
     window.scrollTo(0,0) ;
     this.route.snapshot.queryParamMap.get("page")
@@ -114,7 +118,10 @@ export class IndustoryComponent implements OnInit, AfterViewInit {
       hiddenContent.classList.remove('hidden-content');
     } 
   }
-  
+  updateMetaDescription(description: string) {
+    // Update the meta description
+    this.meta.updateTag({ name: 'description', content: description });
+  }
  
   /*getAllCategories() {
     this._apiSharedService
@@ -131,7 +138,7 @@ export class IndustoryComponent implements OnInit, AfterViewInit {
       .subscribe(
         (res) => {
           this.popular_categories = res.body;
-          //console.log(res.body);
+          console.log(res.body);
           //console.log(this.popular_categories);
           this.totalLength = res.headers.get("x-total-count");
           this.popular_categories = this.popular_categories.filter(

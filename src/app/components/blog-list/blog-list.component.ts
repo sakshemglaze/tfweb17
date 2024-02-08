@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiSharedService } from '../../services/api-shared.service';
 import { UrlService } from '../../services/url.service';
 import { CommonModule, DatePipe } from '@angular/common';
@@ -8,6 +8,7 @@ import { TradersImgComponent } from '../shared/traders-img/traders-img.component
 import { BannerAdvComponent } from '../shared/banner-adv/banner-adv.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FooterComponent } from '../footer/footer.component';
+import { Meta, Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-blog-list',
   standalone: true,
@@ -16,7 +17,7 @@ import { FooterComponent } from '../footer/footer.component';
   templateUrl: './blog-list.component.html',
   styleUrl: './blog-list.component.css'
 })
-export class BlogListComponent {
+export class BlogListComponent implements OnInit{
   
   blogList: any[] = [];
   selyear: any;
@@ -57,11 +58,16 @@ export class BlogListComponent {
     public urlService: UrlService,
     public datepipe: DatePipe,
     private imageService: ImageService,
+    private meta:Meta,
+    private titleSetvice:Title
     //private seoService: SeoService,
   ) { }
 
   ngOnInit(): void {
 
+    this.titleSetvice.setTitle("UAE B2B Marketing Blogs to Read in 2024")
+    this.setTitle("UAE B2B Marketing Blogs to Read in 2024");
+    this.setDescription("UAE B2B Marketing Blogs to Read in 2024. Best Business Blog on business topics including: management, marketing, education, technology, innovation and more.")
     this.onChangeFilter();
     
     this.apiService.getBlogCategories().subscribe({
@@ -80,6 +86,18 @@ export class BlogListComponent {
       }
     });
 
+  }
+  setTitle(title:string){
+    this.meta.updateTag({
+      name:"title",
+      content:title
+    })
+  }
+  setDescription(description:string){
+this.meta.updateTag({
+  name:"description",
+  content:description
+})
   }
 
   ngAfterViewInit(): void {

@@ -25,7 +25,9 @@ export const routes: Routes = [
     },
     {
       path: 'post-buy-requirements',
-      loadChildren: () => import('./components/post-buy-requirements/post-buy-requirements.module').then(m=>m.PostBuyRequirementsModule)
+      loadChildren: () => 
+      import('./components/post-buy-requirements/post-buy-requirements.module').then(
+        m=>m.PostBuyRequirementsModule)
     },
     {
       path: 'advertise-with-us',
@@ -150,6 +152,7 @@ export const routes: Routes = [
     },
     {
       path: 'term-and-conditions',
+     
       loadChildren: () =>
         import('./components/termandc/termandc.module').then(
           (m) => m.TermandcModule

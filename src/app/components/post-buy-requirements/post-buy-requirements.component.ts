@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
 import { PostRequirementServiceService } from '../../services/post-requirement-service.service';
 import { ValidatorService } from '../../services/validator.service';
@@ -12,6 +12,7 @@ import { state, style } from '@angular/animations';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { FooterComponent } from '../footer/footer.component';
+import { Meta, Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-post-buy-requirements',
   standalone: true,
@@ -25,16 +26,21 @@ import { FooterComponent } from '../footer/footer.component';
   templateUrl: './post-buy-requirements.component.html',
   styleUrl: './post-buy-requirements.component.css'
 })
-export class PostBuyRequirementsComponent {
+export class PostBuyRequirementsComponent implements OnInit{
   @Input() product: any;
   mobileno: any
   constructor(
     public validatorService: ValidatorService,
     public requirementService: PostRequirementServiceService,
+    private meta:Meta,
+    private titleService:Title,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
 
+ this.titleService.setTitle("Post Buy Requirement Free");
+ this.setTitle("Post Buy Requirement Free");
+ this.setDescription("Post Buy Requirement Free - Just fill the simple form to post your buying requirement to get immediate responses from verified suppliers all over the UAE.")
     if (this.requirementService.dialogInputData) return;
     if (this.requirementService.productSellerForm && ((this.requirementService.productSellerForm.controls['product'] && this.requirementService.productSellerForm.controls['product'].value) || (this.requirementService.productSellerForm.controls['productName'] && this.requirementService.productSellerForm.controls['productName'].value))) return;
     if (this.product) {
@@ -61,6 +67,18 @@ export class PostBuyRequirementsComponent {
       this.requirementService.initializeRequirementForm();
     }
 
+  }
+  setDescription(description:string){
+    this.meta.updateTag({
+      name:'description',
+      content:description
+    })
+  }
+  setTitle(title:string){
+    this.meta.updateTag({
+      name:'title',
+      content:title
+    })
   }
 
   ngAfterViewInit() {

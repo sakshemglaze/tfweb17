@@ -13,6 +13,7 @@ import { UserRegistrationModule } from './user-registration.module';
 import { HeaderSubComponent } from '../header-sub/header-sub.component';
 import { SellYourProductsComponent } from '../sell-your-products/sell-your-products.component';
 import { FooterComponent } from '../footer/footer.component';
+import { Meta, Title } from '@angular/platform-browser';
 export interface ICountryAndCode {
   code: string;
   name: string;
@@ -41,6 +42,8 @@ export class UserRegistrationComponent implements OnInit {
   constructor(private router: Router, private messageService: MessageService, 
     private _apiSharedService: ApiSharedService, private formBuilder: FormBuilder, 
     private validatorService: ValidatorService,
+    private meta:Meta,
+    private titelService:Title,
     modalS:NgbModal) { }
 
   scrollToTop() {
@@ -54,6 +57,9 @@ export class UserRegistrationComponent implements OnInit {
     this.userType = 'Seller';
     this._apiSharedService.getCountryCodes().subscribe(res => {
       this.countries = res;
+      this.titelService.setTitle("Register Your Company Free: Quick & Easy Process");
+      this.setTitle("Register Your Company Free: Quick & Easy Process")
+      this.setDescription("Take the first step in starting your business by registering your company for free. Quick, hassle-free process to get you up and running!");
 
     },
       error => {
@@ -77,8 +83,18 @@ export class UserRegistrationComponent implements OnInit {
     });
 
   }
-
-
+  setDescription(description:string){
+    this.meta.updateTag({
+      name:'description',
+      content:description
+    })
+  }
+  setTitle(title:string){
+    this.meta.updateTag({
+      name:'title',
+      content:title
+    })
+  }
   checkUserExists(login: any, loginType: any, formcontrol: any) {
 
     if (this.memberInformationFormGroup.invalid) {

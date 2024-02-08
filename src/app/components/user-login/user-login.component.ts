@@ -18,6 +18,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { MessagesModule } from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
+import { Meta, Title } from '@angular/platform-browser';
 
 export function countdownConfigFactory() {
   return { 
@@ -73,6 +74,8 @@ export class UserLoginComponent implements OnInit {
     private _apiSharedService: ApiSharedService, 
     private storageService: StorageService,
     public ypAuthService:AuthService,
+    private meta:Meta,
+    private titleService:Title,
    // private authService:SocialAuthService,
     public requirementService:LoginDialogService,
     private modalS:NgbModal,
@@ -81,6 +84,9 @@ export class UserLoginComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle("Login - To Manage your Account on TradersFind.com");
+    this.setDescription("Login - To Manage your Account Information on TradersFind.com");
+    this.setTitle("Login - To Manage your Account on TradersFind.com");
     window.scrollTo(0,0);
     this.requirementService1.initializeRequirementForm();
     /*this.otpVerifyFormGroup = this._formBuilder.group({
@@ -100,6 +106,18 @@ export class UserLoginComponent implements OnInit {
     //});
   
   
+  }
+  setTitle(title:string){
+    this.meta.updateTag({
+      name:'title',
+      content:title
+    })
+  }
+  setDescription(description:string){
+        this.meta.updateTag({
+          name:'description',
+          content:description
+        })
   }
   public get loginMethods(): typeof LOGIN_METHOD {
     return LOGIN_METHOD;
