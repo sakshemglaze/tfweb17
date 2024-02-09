@@ -51,13 +51,13 @@ export class SendFeedbackComponent implements OnInit{
    this.setDescription("Share your valuable feedback through our TradersFind feedback form to enhance the trading experience. Your input makes a difference!")
   }
 setDescription(description:string){
-this.meta.addTag({
+this.meta.updateTag({
   name:'description',
   content:description
 })
 }
 setTitle(title:string){
-  this.meta.addTag({
+  this.meta.updateTag({
     name:'title',
     content:title
   })
