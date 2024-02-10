@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { ApiSharedService } from '../../services/api-shared.service';
 import { ActivatedRoute } from '@angular/router';
@@ -32,6 +32,10 @@ export class CategoryComponent implements OnInit{
   categoryName: any;
   categoryDetails: any;
   industryDetails: any;
+
+  isLoading: boolean = false;
+  loadedProducts: any[] = [];
+  pageSize: number = 2;
 
   alphabets = [
     'ALL',
@@ -79,15 +83,17 @@ export class CategoryComponent implements OnInit{
     this.requirementService.initializeRequirementForm();
     this.categoryId = this.route.snapshot.paramMap.get('categoryid');
     this.categoryName = this.route.snapshot.paramMap.get('categoryname');
-    //if (this.categoryName) {
-      //this.categoryName = this.route.snapshot.paramMap.get('categoryname').split('-').join(' ');
-    //}
     if (this.categoryId) {
       this.getAllSubcategories();
     } else {
       this.getPoppularCategories();
       this.getAllCategories();
     }
+    this.loadInitialProducts();
+  }
+
+  loadInitialProducts() {
+    this.loadedProducts = this.popular_categories.slice(0, this.pageSize);
   }
 
   ngAfterViewInit(): void {
@@ -213,6 +219,24 @@ export class CategoryComponent implements OnInit{
 
   getIndustryUrl(indName: string, id: any) {
     return '/industry/' + indName.toLowerCase().replace(/&|\,|\s/g, '-').replace(/-+/g,"-") + '/' + id;
+  }
+  @HostListener('window:scroll', ['$event'])
+  
+  loadMoreProducts() {
+    const startIndex = this.loadedProducts.length;
+    const endIndex = startIndex + this.pageSize;
+    this.loadedProducts = [...this.loadedProducts, ...this.popular_categories.slice(startIndex, endIndex)];
+  }
+
+  onScroll(event: any) {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !this.isLoading) {
+      this.isLoading = true;
+      this.loadMoreProducts();
+      // Simulate async loading with timeout
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 1000);
+    }
   }
 
 }

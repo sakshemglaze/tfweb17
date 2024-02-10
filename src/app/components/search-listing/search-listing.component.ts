@@ -23,11 +23,8 @@ import { BannerAdvComponent } from '../shared/banner-adv/banner-adv.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostRequestComponent } from '../shared/post-request/post-request.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { state, style } from '@angular/animations';
 import { PostRequirementServiceService } from '../../services/post-requirement-service.service';
-import { ProductCardModule } from './product-card/product-card.module';
 import { FooterSmallComponent } from '../footer/footer-small/footer-small.component';
-//import { provideClientHydration } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-search-listing',
@@ -46,14 +43,6 @@ import { FooterSmallComponent } from '../footer/footer-small/footer-small.compon
 export class SearchListingComponent implements OnInit, AfterViewInit {
   canonicalUrl: string = "http://www.tradersfind.com/";
 
-  a:any=0;
-  b:any=0;
-  c:any=0;
-  d:any=0;
-  e:any=0;
-  f:any=0;
-  g:any=0;
-
   loltu=0;
 
  _boxcheck:any=false
@@ -71,7 +60,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
  packageProducts: any;
  sponsoredProduct: any;
  filters: any;
- size = 12;
+ size = 7;
  totalLength = 0;
  filterDto: any;
  filterState: any;
@@ -96,24 +85,10 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
  distance = 2;
  showMore: boolean = true;
  shortDesc: any = 400;
- ctr: any = 12;
+ ctr: any = 7;
  itr: number=0;
  kv: number = 0;
  data: any;
- // customOptionsSm: OwlOptions = {
- //   loop: true,
- //   mouseDrag: true,
- //   touchDrag: true,
- //   pullDrag: true,
- //   dots: false,
- //   navSpeed: 1000,
- //   autoWidth: true,
- //   autoplay: true,
- //   autoplayTimeout: 5000,
- //   autoplayHoverPause: true,
- //   items: 1,
- //   nav: false,
- // };
 
  //@ViewChild("childFilter") childFilter: any;
  @ViewChild('loadingRef') loadingRef!: ElementRef;
@@ -140,27 +115,12 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
  ) { }
 
  async ngOnInit(): Promise<void> {
-   //const load = this.modalS.open(LoadpComponent, {centered: true })
-   //load.componentInstance.frm = "search";
-   
-   // if (this.deviceService.isMobile()) {
-   //   this.shortDesc = 100;
-   // } else if (this.deviceService.isTablet()) {
-   //   this.shortDesc = 300;
-   // } else {
-   //   this.shortDesc = 500;
-   // }
-  
    this._router.routeReuseStrategy.shouldReuseRoute = function () {
      return false;
    };
    this.selectedFilters = this.storageService.getItem(
      StorageService.SELECTED_FILTERS
    );
-   //this.homeSearchService.searchResults = null;
-   // this.route.snapshot.queryParamMap.get("page")
-   //   ? (this.page = this.route.snapshot.queryParamMap.get("page"))
-   //   : (this.page = 1);
    this.page = 1;
    if (isPlatformBrowser(this.platformId)) window.scrollTo(0, 0);
 
@@ -236,8 +196,6 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
    if (hiddenContent) {
      hiddenContent.classList.remove('hidden-content');
    }
-   //this.modalS.dismissAll();
-   // if(this.selectedFilters) this.childFilter.selectedFilters = this.selectedFilters;
 
  }
 

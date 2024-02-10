@@ -86,7 +86,7 @@ export class BrowseSellersComponent {
     this.route.snapshot.queryParamMap.get("page")
       ? (this.page = this.route.snapshot.queryParamMap.get("page"))
       : (this.page = 1);
-    console.log(this.page);
+    //console.log(this.page);
     this.getPoppularCategories();
   }
 
@@ -106,7 +106,7 @@ export class BrowseSellersComponent {
       .subscribe(
         (res) => {
           this.popular_categories = res.body;
-          console.log(res.body);
+          //console.log(res.body);
           //this.restCategories = res.productsCategories;
           //console.log(this.popular_categories);
           this.totalLength = res.headers.get("x-total-count");

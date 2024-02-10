@@ -7,7 +7,6 @@ import { CanonicalService } from './services/canonical.service';
 import { HomeSearchService } from './services/home-search.service';
 import { StorageService } from './services/storage.service';
 import { HttpClientModule } from '@angular/common/http';
-import { PrimengModule } from './modules/primeng/primeng.module';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
