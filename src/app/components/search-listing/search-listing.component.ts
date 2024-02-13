@@ -25,11 +25,12 @@ import { PostRequestComponent } from '../shared/post-request/post-request.compon
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PostRequirementServiceService } from '../../services/post-requirement-service.service';
 import { FooterSmallComponent } from '../footer/footer-small/footer-small.component';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-search-listing',
   standalone: true,
-  imports: [FooterSmallComponent,CommonModule,ReactiveFormsModule,OtpComponent,FormsModule, HeaderSubComponent, TradersImgComponent, 
+  imports: [FooterSmallComponent,CommonModule,ToastModule,ReactiveFormsModule,OtpComponent,FormsModule, HeaderSubComponent, TradersImgComponent, 
      NgxPaginationModule,
       ProductCardComponent, PremiumProductCardComponent, CarouselModule, 
      // InfiniteScrollModule,
@@ -110,7 +111,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
    private _urlservice: UrlService,
    //public deviceService: DeviceDetectorService,
    private modalS:NgbModal,
-   //private messageService: MessageService
+   private messageService: MessageService
    // private _infiniteScrollModule:InfiniteScrollModule
  ) { }
 
@@ -790,7 +791,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
          this.sponsoredProduct = res.body.sponsoredProduct;
 
          this.totalLength = res.headers.get("x-total-count");
-          this.loltu=res.headers.get("text-yuo");
+          
          // console.log(this.loltu)
          //console.log(this.totalLength)
          //console.log(this.totalLength);
@@ -924,10 +925,10 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
    this.productsgroup = [];
    if (isPlatformBrowser(this.platformId)) window.scrollTo(0, 0);
    }else{
-     // this.messageService.add({
-     //   severity: "error",
-     //   summary: "chose any filter",
-     // });
+     this.messageService.add({
+       severity: "error",
+       summary: "chose any filter",
+     });
      
    }
    this.productsgroup1 = "hello";
