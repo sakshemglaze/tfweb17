@@ -221,7 +221,6 @@ export class CategoryComponent implements OnInit{
     return '/industry/' + indName.toLowerCase().replace(/&|\,|\s/g, '-').replace(/-+/g,"-") + '/' + id;
   }
   @HostListener('window:scroll', ['$event'])
-  
   loadMoreProducts() {
     const startIndex = this.loadedProducts.length;
     const endIndex = startIndex + this.pageSize;
