@@ -156,7 +156,7 @@ export class ApiSharedService {
     );
   }
 
-  public getProductDetails(prodId: any, userId: any): Observable<any> {
+  public getProductDetails(prodId: any, userId: any,userName:any): Observable<any> {
     let token = this.storageService.getItem(StorageService.USER_ACCESS_TOKEN);
     if (userId && token) {
       return this._apiService.get<any>(
@@ -166,8 +166,9 @@ export class ApiSharedService {
         true
       );
     } else {
+      console.log("else")
       return this._apiService.get<any>(
-        PRODUCT.PRODUCT_GUEST_DETAILS + prodId,
+        PRODUCT.PRODUCT_GUEST_DETAILS + prodId +'/'+userName,
         false,
         null,
         false

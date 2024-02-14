@@ -36,12 +36,12 @@
               </div>
               <div class="col-md-6">
                 <div class="mb-3">
-                  <label>Unit</label>
-                  <select formControlName="quantityUnit" class="form-control" placeholder="eg:  Dozen,  Piece(s),  Tonr">
-                    <option *ngFor="let unit of this.requirementService.units" value="{{unit}}">{{unit}}</option>
+                  <label for="quantityUnit">Unit</label>
+                  <select id="quantityUnit" formControlName="quantityUnit" class="form-control" placeholder="eg: Dozen, Piece(s), Tonr">
+                      <option *ngFor="let unit of this.requirementService.units" [value]="unit">{{unit}}</option>
                   </select>
-  
-                </div>
+              </div>
+              
               </div>
             </div>
             <textarea name="" class="form-control" id="" cols="30" rows="3" placeholder="Product Description: "
@@ -62,7 +62,8 @@
             <div class="row mt-1">
               <div class="col-lg-6">
                 <div class="input-group">
-                  <select formControlName="countryCode" class="form-control mxw-50">
+                  <label for="moNumber">.</label>
+                  <select id="moNumber" formControlName="countryCode" class="form-control mxw-50">
 
                     <!--<ng-container *ngFor="let opt of this.requirementService.countries">
                        <ng-container *ngIf="opt.code === '+971' || opt.code === '+91'">

@@ -46,12 +46,17 @@
                         <app-traders-img [id]="cat.image ? cat.image.id : null" class="me-3 rounded-10 img-fluid"
                             height="70" width="70" alt=""></app-traders-img>
 
-                        <ul class="list-style-disc ms-4">
-                            <li *ngFor="let subcat of $any(findActive(cat.productsSubcategories) | slice : 0 : 5)"><a
-                                    [href]="getSubCatUrl(subcat.id, cat.categoryName, subcat.subCategoryName)">
-                                    {{subcat.subCategoryName}}</a></li>
-                            <a [href]="getUrl(cat.id, cat.categoryName)"> + View All</a>
-                        </ul>
+                            <ul class="list-style-disc ms-4">
+                              <li *ngFor="let subcat of $any(findActive(cat.productsSubcategories) | slice : 0 : 5)">
+                                  <a [href]="getSubCatUrl(subcat.id, cat.categoryName, subcat.subCategoryName)">
+                                      {{subcat.subCategoryName}}
+                                  </a>
+                              </li>
+                              <li>
+                                  <a [href]="getUrl(cat.id, cat.categoryName)"> + View All</a>
+                              </li>
+                          </ul>
+                          
                     </div>
                 </div>
             </div>
@@ -94,9 +99,9 @@
                       <input type="text" formControlName="enquirerEmail" class="form-control" placeholder="Email ID" />
                     </div>
                     <div class="col-lg-6">
-                      <label for="" class="form-label  fs-4">Mobile Number *</label>
+                      <label for="dropdown123" class="form-label  fs-4">Mobile Number *</label>
                       <div class="input-group">
-                        <select formControlName="noCode" class="form-control mxw-50">
+                        <select id="dropdown123" formControlName="noCode" class="form-control mxw-50">
                           <option *ngFor="let opt of this.requirementService.countries"
                             value="{{opt.code}}">{{ opt.code }}- {{ opt.name }}
                           </option>

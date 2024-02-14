@@ -13,6 +13,7 @@
       <!-- banner -->
 
       <owl-carousel-o [options]="customOptionsSm">
+      
           <ng-template carouselSlide *ngFor="let b of homeBanners">
             <a [href]="b && b.link ? b.link : '/'" target="_blank">
               <app-traders-img  [width]="'100'" [id]="b.image ? b.image.id : null" [imageContent]="b.image && !b.image.imageContentContentType? null:b.image.imageContentContentType" ></app-traders-img>

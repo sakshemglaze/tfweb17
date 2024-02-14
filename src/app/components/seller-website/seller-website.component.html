@@ -96,26 +96,27 @@
                     <img src="assets/images/mail-solid.png" alt="" /> Send Inquiry
                   </button>
                 </div>
-                <div class="col-12" >
-                  <a href="#reviews">
-                    <app-ratings [rate]="seller?seller.sellerRating:'0'"></app-ratings>
+                <div class="col-12">
+                  <a href="#reviews" aria-label="Go to Reviews">
+                      <app-ratings [rate]="seller ? seller.sellerRating : '0'"></app-ratings>
                   </a>
-                </div>
+              </div>
                 <div class="col-12" *ngIf="seller">
                   <ul class="d-flex gap-2 justify-content-center mt-0">
 
                     <li>
-                      <a *ngIf="seller.twitterLink && seller.twitterLink != ''" [href]="seller.twitterLink">
+                      <a *ngIf="seller.twitterLink && seller.twitterLink != ''" [href]="seller.twitterLink" aria-label="Twitter">
                         <img src="assets/images/twitter.webp" width="40" alt="" />
                       </a>
                     </li>
                     <li>
-                      <a *ngIf="seller.facebookLink && seller.facebookLink != ''" [href]="seller.facebookLink">
-                        <img src="assets/images/facebook.webp" width="40" alt="" />
+                      <a *ngIf="seller.facebookLink && seller.facebookLink != ''" [href]="seller.facebookLink" aria-label="Facebook">
+                          <img src="assets/images/facebook.webp" width="40" alt="" />
                       </a>
-                    </li>
+                  </li>
+                  
                     <li>
-                      <a *ngIf="seller.instagramLink && seller.instagramLink != ''" [href]="seller.instagramLink">
+                      <a *ngIf="seller.instagramLink && seller.instagramLink != ''" [href]="seller.instagramLink" aria-label="Instagram">
                         <img src="assets/images/instagram.webp" width="40" alt="" />
                       </a>
                     </li>
@@ -129,30 +130,34 @@
     </div>
 
     <div class="col-lg-12">
-      <ul class="nav nav-pills tabbedpanel tabbedpanel3 tabssizesm justify-content-center" id="pills-tab"
-        role="tablist">
-        <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="pills-seller-tab" data-bs-toggle="pill" data-bs-target="#pills-seller"
-            type="button" role="tab">
-            <img src="assets/images/seller_icon1.png" alt="" />
-            SELLER PROFILE
-          </button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="pills-products-tab" data-bs-toggle="pill" data-bs-target="#pills-products"
-            type="button" role="tab">
-            <img src="assets/images/seller_icon2.png" alt="" /> PRODUCTS &
-            SERVICES
-          </button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
-            type="button" role="tab">
-            <img src="assets/images/seller_icon3.png" height="48" alt="" />
-            CONTACT DETAILS
-          </button>
-        </li>
-      </ul>
+      <!-- List of navigation items -->
+<ul class="nav nav-pills tabbedpanel tabbedpanel3 tabssizesm justify-content-center" id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <!-- Navigation button for "Seller Profile" -->
+    <button class="nav-link active" id="pills-seller-tab" data-bs-toggle="pill" data-bs-target="#pills-seller"
+      type="button" role="tab" aria-controls="pills-seller" aria-selected="true">
+      <img src="assets/images/seller_icon1.png" alt="" aria-hidden="true">
+      <span >Seller Profile</span>
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <!-- Navigation button for "Products & Services" -->
+    <button class="nav-link" id="pills-products-tab" data-bs-toggle="pill" data-bs-target="#pills-products"
+      type="button" role="tab" aria-controls="pills-products" aria-selected="false">
+      <img src="assets/images/seller_icon2.png" alt="" aria-hidden="true">
+      <span >Products & Services</span>
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <!-- Navigation button for "Contact Details" -->
+    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
+      type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
+      <img src="assets/images/seller_icon3.png" height="48" alt="" aria-hidden="true">
+      <span >Contact Details</span>
+    </button>
+  </li>
+</ul>
+
       <div class="tab-content" id="pills-tabContent" *ngIf="seller">
         <div class="tab-pane fade show active fs-5 text-center" id="pills-seller" role="tabpanel"
           aria-labelledby="pills-product-tab" tabindex="0">

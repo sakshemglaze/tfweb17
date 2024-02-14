@@ -47,6 +47,7 @@ export class ProductDetailsComponent implements OnInit {
   public prodDetails: any;      
   prodSpecs: any;
   prodId: any;
+  prodIdqwew:any
   productCaraoselOptions: OwlOptions | undefined;
   ProductLinkCount = 4;
   sellerDetails: any;
@@ -137,11 +138,12 @@ export class ProductDetailsComponent implements OnInit {
      : null
      //console.log( this.authservice.loggedInUserDetails);
     this.prodId = this.route.snapshot.paramMap.get("prodId");
-    //console.log("URL "+this.prodUrl);
+    this.prodIdqwew=this.route.snapshot.paramMap.get("prodName");
+    console.log("URL "+this.prodIdqwew);
     
     this._apiSharedService
       .getProductDetails(
-        this.prodId, null
+        this.prodId, null,this.prodIdqwew
 
       )
       .subscribe(
