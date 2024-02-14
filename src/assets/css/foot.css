@@ -435,4 +435,8 @@ a:hover {
     font-size: 34px !important;
     padding: 42px 16px !important;
   }
+  
+  .logo_slider .owl-carousel .owl-item img {
+    width: auto;
+  }
 }
