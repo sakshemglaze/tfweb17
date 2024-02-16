@@ -82,19 +82,19 @@
 
                                     <div class="two-lines small">
                                         <ul class="two-line-containers" role="list">
-                                            <ng-container *ngIf="product.productDescription; else withoutDescription">
-                                                <li *ngFor="let spec of $any(specList(product.specifications) | slice:0:2); let i=index;" role="listitem" tabindex="0">
-                                                    <span><b>{{spec.SpecificationName}} :</b> {{spec.SpecValue}}</span>
-                                                </li>
-                                            </ng-container>
-                                            <ng-template #withoutDescription>
+                                            <ng-container > <!--*ngIf="product.productDescription; else withoutDescription"-->
                                                 <li *ngFor="let spec of $any(specList(product.specifications) | slice:0:4); let i=index;" role="listitem" tabindex="0">
                                                     <span><b>{{spec.SpecificationName}} :</b> {{spec.SpecValue}}</span>
                                                 </li>
-                                            </ng-template>
+                                            </ng-container>
+                                            <!--<ng-template #withoutDescription>
+                                                <li *ngFor="let spec of $any(specList(product.specifications) | slice:0:4); let i=index;" role="listitem" tabindex="0">
+                                                    <span><b>{{spec.SpecificationName}} :</b> {{spec.SpecValue}}</span>
+                                                </li>
+                                            </ng-template>-->
                                         </ul>
                                     </div>
-                                    
+                                    <!--
                                     <br>
                                     <div class="two-lines small">
                                         <span *ngIf="product.productDescription">
@@ -103,7 +103,7 @@
                                             </p>
                                         </span>
 
-                                    </div>
+                                    </div> -->
                                     <a [href]="
                                     this.urlService.getProductUrl(product.productName, product.id)
                                       "target="_blank" title="{{ product.sellerCompanyName }}"
