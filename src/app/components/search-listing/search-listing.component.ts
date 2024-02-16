@@ -183,6 +183,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
      this.keyword = this.searchText;
      this.homeSearchService.searchText = this.searchText;
    }
+   
    this.searchProducts(this.selectedFilters);
 
    //console.log(this.productsgroup);
@@ -260,12 +261,6 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
      this.filterDto = {};
    }
    if (filters && this.location == 'null') {
-     //console.log(filters.subCategories)
-     //this.mynewsearckText=filters.subCategories
-    
-     //this.searchText = filters.subCategories.join('');
-   
-    // console.log(this.mynewsearckText);
      payload = {
        searchText: decodeURIComponent(this.searchText),
        searchTextType: this.searchTextType,
@@ -304,10 +299,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
        .getSubcategoryById(this.subcategoryId)
        .subscribe((res) => {
          this.subcategoryDetails = res;
-        // console.log(this.subcategoryDetails);
 
-         //have to code
-           
          this.getCategory(this.subcategoryDetails.title);
 
          // this.keywordDescription = res.categoryDescriptionPage;
