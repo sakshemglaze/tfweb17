@@ -142,7 +142,7 @@
       <!-- <pagination-controls id="search_listing_pagination" (pageChange)="getNext($event)" [responsive]="true"
         [maxSize]="20"></pagination-controls> -->
 
-      <div *ngIf="this.subcategoryDetails && products" class="col-md-12 col-sm-12 col-xs-12 no-padding-yp search-product-detail">
+      <div *ngIf="this.isView == true" class="col-md-12 col-sm-12 col-xs-12 no-padding-yp search-product-detail">
         <p class="search-product-text" [innerHTML]="this.keywordDescription">
         </p>
       </div>
