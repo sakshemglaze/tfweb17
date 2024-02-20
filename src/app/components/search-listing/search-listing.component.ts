@@ -61,7 +61,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
  packageProducts: any;
  sponsoredProduct: any;
  filters: any;
- size = 7;
+ size = 6;
  totalLength = 0;
  filterDto: any;
  filterState: any;
@@ -94,6 +94,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
  //@ViewChild("childFilter") childFilter: any;
  @ViewChild('loadingRef') loadingRef!: ElementRef;
  @ViewChild('loadnextRef') loadnextRef!: ElementRef;
+isView: any;
 
  constructor(
    private route: ActivatedRoute,
@@ -198,7 +199,7 @@ export class SearchListingComponent implements OnInit, AfterViewInit {
    if (hiddenContent) {
      hiddenContent.classList.remove('hidden-content');
    }
-
+    this.isView=true;
  }
 
  havetosearch(fetchData: boolean) {
