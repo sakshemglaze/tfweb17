@@ -10,7 +10,23 @@
 </section>
 
 <section class="p-2">
+  <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb" *ngIf="products">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">TradersFind</a></li>
+      <li class="breadcrumb-item" *ngIf="industryDetails"><a
+          [href]="getIndustryUrl(industryDetails.industryName, industryDetails.id)">{{industryDetails.industryName}}</a>
+      </li>
 
+      <li class="breadcrumb-item" *ngIf="categoryDetails"><a
+          [href]="getCategoryUrl(categoryDetails.categoryName, categoryDetails.id)">{{categoryDetails.categoryName}}</a>
+      </li>
+
+      <li class="breadcrumb-item active fwbold text-capitalize " aria-current="page" >
+        {{this.searchText}} <span *ngIf="location !== 'null'"> &nbsp;>&nbsp; {{location}} </span>
+      </li>
+    </ol>
+  </nav>
+  
   <div style="text-align: center;">
     <h1 class="me-2 fwbold  text-capitalize mb-0">{{this.searchText}}
       <span *ngIf="location=='null'"> in UAE</span>
@@ -30,22 +46,7 @@
           this.showMore1 ? '... View more' : 'View less' }} </a> </b></span>
   </div>
   <br>
-  <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb" *ngIf="products">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="/">TradersFind</a></li>
-      <li class="breadcrumb-item" *ngIf="industryDetails"><a
-          [href]="getIndustryUrl(industryDetails.industryName, industryDetails.id)">{{industryDetails.industryName}}</a>
-      </li>
-
-      <li class="breadcrumb-item" *ngIf="categoryDetails"><a
-          [href]="getCategoryUrl(categoryDetails.categoryName, categoryDetails.id)">{{categoryDetails.categoryName}}</a>
-      </li>
-
-      <li class="breadcrumb-item active fwbold text-capitalize " aria-current="page" >
-        {{this.searchText}} <span *ngIf="location !== 'null'"> &nbsp;>&nbsp; {{location}} </span>
-      </li>
-    </ol>
-  </nav>
+ 
 </section>
 
 <section class="container-fluid mt-2">
