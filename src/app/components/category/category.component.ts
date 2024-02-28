@@ -112,7 +112,7 @@ export class CategoryComponent implements OnInit{
         sort: 'industryName'
       })
       .subscribe((res) => {
-        console.log(res);
+        //console.log(res);
         this.industryDetails = res;
 
         // this.all_categories = res.productsCategories;
@@ -174,6 +174,7 @@ export class CategoryComponent implements OnInit{
       .subscribe((res) => {
         this.categoryDetails = res;
         if (res.title)
+        console.log(res);
           this.getIndustry(res.title);
         this.imageService.getImageContent(this.categoryDetails.image);
         this.tempAllSubcategories = res.productsSubcategories;

@@ -625,6 +625,7 @@ export class ApiSharedService {
   }
 
   public getSellerByCompanyName(companyName: any): Observable<any> {
+    console.log(SELLER.BY_COMPANY_NAME + companyName);
     return this._apiService.get(SELLER.BY_COMPANY_NAME + companyName);
   }
 

@@ -149,7 +149,7 @@ export class ProductDetailsComponent implements OnInit {
       .subscribe(
         (res) => {
           this.prodDetails = res;
-          //console.log(res);
+          console.log(res);
           if (
             this.prodDetails &&
             this.prodDetails.seller &&

@@ -118,7 +118,7 @@ export class SellerWebsiteComponent implements OnInit {
       this._apiSharedService
         .getSellerByCompanyName(this.sellerCompanyName)
         .subscribe((res: string | any[]) => {
-          //console.log(res);
+          console.log(res);
           this.seller = res && res.length > 0 ? res[0] : null;
           //console.log(this.mapUrl);
           if (!this.seller) this.router.navigateByUrl('not-found');

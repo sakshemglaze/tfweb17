@@ -38,6 +38,7 @@ export class MoreProductsComponent {
         .getRelatedProductsByProductId(this.productId, { page: 0, size: 6 })
         .subscribe(
           (res: { body: { products: any; }; }) => {
+            console.log(res);
             this.products = res.body.products;
             this.products = this.products.length > 4 ? this.products.slice(0, 4) : this.products;
           },
