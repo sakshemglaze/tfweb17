@@ -24,7 +24,7 @@ export class ProductService {
       metaTitle: product.metaTitle && product.metaTitle != '' ? product.metaTitle : product.productName + ' in ' + product.seller.state + ' - ' + product.sellerCompanyName,
       metaDescription: product.metaDescription && product.metaDescription != '' ? product.metaDescription : product.sellerCompanyName + ' - Offering ' + product.productName + ' in '
       + product.seller.state + '. Get the best quality at the best price.',
-      metaKeywords: product.metaKeywords && product.metaKeywords != '' ? product.metaKeywords.join(',') : product.productName + ', ' + product.productName + ' in ' + product.seller.state + product.productName + ' in UAE',
+      metaKeywords: product.metaKeywords && product.metaKeywords != '' ? product.metaKeywords.join(',') : product.productName + ', ' + product.productName + ' in ' + product.seller.state + ', ' + product.productName + ' in UAE',
       fbTitle: product.fbTitle && product.fbTitle != '' ? product.fbTitle : product.productName,
       fbDescription: product.fbDescription && product.fbDescription != '' ? product.fbDescription : product.productDescription,
       fbImage: product.fbImage ? TRADERSFIND.BASE_URL + 'api/guest/imageContentDownload/' + product.fbImage.id : undefined,
