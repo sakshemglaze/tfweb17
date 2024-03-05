@@ -58,7 +58,7 @@ export class BlogComponent implements OnInit {
         if (element.image) {
           this.apiService.getImageContent(element.image.id).subscribe(img => {
             if (img.imageContent) {
-              element.image['imageContent'] = img.imageContentContentType + ',' + img.imageContent;
+              element.image['imageContent'] = 'data:image/jpeg;base64,' + img.imageContent;
             } else {
               element['imageContent'] = null;
             }
@@ -67,6 +67,7 @@ export class BlogComponent implements OnInit {
 
             });
         }
+        console.log(element.image['imageContent']);
       });
     },
       error => {

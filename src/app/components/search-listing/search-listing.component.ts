@@ -128,6 +128,7 @@ isView: any;
 
    //Conditions for subcategory products
    this.subcategoryId = this.route.snapshot.paramMap.get("subCategoryId");
+   console.log(this.subcategoryId);
    if (this.subcategoryId) {
      //      this.searchText = sub
      this.route.snapshot.paramMap.get("scatName") ? (this.searchText = this.route.snapshot.paramMap.get("scatName")?.split("-").join(" ")) : (this.searchText = null);
@@ -300,7 +301,7 @@ isView: any;
        .getSubcategoryById(this.subcategoryId)
        .subscribe((res) => {
          this.subcategoryDetails = res;
-
+        //console.log(this.subcategoryDetails.title);
          this.getCategory(this.subcategoryDetails.title);
 
          // this.keywordDescription = res.categoryDescriptionPage;
@@ -837,7 +838,7 @@ isView: any;
        sort: 'categoryName',
      })
      .subscribe((res) => {
-      // console.log(res);
+       //console.log(res);
        this.categoryDetails = res[0];
        this.getIndustry(this.categoryDetails.title);
        // this.all_categories = res.productsCategories;
@@ -857,7 +858,7 @@ isView: any;
      })
      .subscribe((res) => {
 
-       console.log(res);
+      // console.log(res);
       
 
        //console.log(res);

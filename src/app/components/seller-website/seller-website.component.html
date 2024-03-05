@@ -307,27 +307,34 @@
 
           <section class="gallery">
             <div class="container-fluid">
-              <div class="row">
-                <!-- Mixit Up Controls -->
+              <!--<div class="row">
+                // Mixit Up Controls
                 <div class="controls flex-wrap flex-md-nowrap">
                   <button type="button" class="control" data-filter="all">
                     All Products
                   </button>
 
                 </div>
-              </div>
+              </div>-->
 
               <div class="row">
                 <div class="fw mix-container home-gallery">
-
-                  <div class="mix valves" *ngFor="let product of this.nonFeaturedProducts; let i = index">
+                  
+                  <div class="mix valves cardproduct bg-white card-shadow rounded-10" *ngFor="let product of this.nonFeaturedProducts; let i = index">
                     <a [href]="this.urlService.getProductUrl(product.productName, product.id)" class="thumb-a">
                       <div class="item-hover">
                         <div class="hover-text">
                           <h3>{{product.productName}}</h3>
                         </div>
                       </div>
-                      <div class="item-img">
+                        
+                      <div class="border_img border_img2">
+                        <div style="margin: auto; display: table;">
+                                      <img src="assets/images/verified2.png" width="74" height="22" alt="Verified_Product"
+                                           *ngIf="this.product.seller && this.product.seller.isVerifiedSeller" style="float: left; width: 60px;">
+                                      <img src="\assets\images\Star_listing.png" width="80" height="22" alt="Start_Listing"
+                                           *ngIf="product.isFeatured" style="width: 70px; float: left; padding-left: 10px;">
+                                    </div>
                         <app-traders-img [id]="
                                          product && product.images && product.images.length>
                           0
@@ -337,14 +344,14 @@
                         </app-traders-img>
                         <!-- <img src="assets/images/products/valves.png" alt="" /> -->
                       </div>
-                    </a>
+                            </a>
 
-
+                    </div>
                   </div>
 
 
                 </div>
-              </div>
+
             </div>
           </section>
         </div>
