@@ -103,6 +103,7 @@ export class SellerWebsiteComponent implements OnInit {
    }
   
       if (this.sellerCompanyName) {
+        //console.log(this.sellerCompanyName);
         this.sellerCompanyName = this.sellerCompanyName.split("-").join(" ");
       } else {
         // this.messageService.add({
@@ -121,7 +122,7 @@ export class SellerWebsiteComponent implements OnInit {
           console.log(res);
           this.seller = res && res.length > 0 ? res[0] : null;
           //console.log(this.mapUrl);
-          if (!this.seller) this.router.navigateByUrl('not-found');
+          //if (!this.seller) this.router.navigateByUrl('not-found');
           this.sellerPackageType = this.sellerUtils.getSellerType(this.seller);
           this.seoService.setSellerSeo(this.seller);
           if (isPlatformBrowser(this.platformId)) {

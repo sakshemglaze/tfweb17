@@ -152,8 +152,8 @@ export enum BLINDKEYWORDS {
 
 export enum TRADERSFIND {
   BASE_URL = 'https://api.tradersfind.com/',
-  //IMAGE_URL = 'https://d1o1xqr29l8ebx.cloudfront.net/images/',
-  IMAGE_URL = 'https://doc.tradersfind.com/images/',
+  IMAGE_URL = 'https://d1o1xqr29l8ebx.cloudfront.net/images/',
+  //IMAGE_URL = 'https://doc.tradersfind.com/images/',
   //BASE_URL = 'http://209.182.237.239:8080/',
   WEBSITE_URL = 'https://tradersfind.com/',
   STATIC_IMG = 'https://d1o1xqr29l8ebx.cloudfront.net'
