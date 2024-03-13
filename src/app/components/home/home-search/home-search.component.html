@@ -26,13 +26,13 @@
 
                             <input #search autofocus type="text" class="form-control border-rounded-end"
                                 placeholder="What are you looking for.."
-                                (keyup.enter)="onSelectSearchText('search', '')" />
+                                (keyup.enter)="onSelectSearchText('bkeyword', '')" />
 
                             <div class="submit-button">
                                 <!-- <img src="assets/images/Voice-icon.png" alt="" class="me-lg-3 me-1 img-fluid"
                                     width="15" /> -->
                                 <button class="btn-primary-gradiant w-100 h-100 px-2 px-lg-5"
-                                    (click)="onSelectSearchText('search', '')">
+                                    (click)="onSelectSearchText('bkeyword', '')">
                                     <!-- <img ngSrc="assets/images/search-icon.png" width="18" class="me-lg-2" alt="" /> -->
                                     <div class="d-lg-inline">Search</div>
                                 </button>

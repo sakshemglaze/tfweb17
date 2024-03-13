@@ -44,7 +44,7 @@
                                     <div class="two-line-content mt-3" *ngIf="product.productDescription"><p class="about_text  about_text2" style="margin: auto;"><b>Description: </b>{{product.productDescription}} 
                                       </p></div>
                                       <a [href]="this.urlService.getProductUrl(product.productName, product.id)
-                                      " target="_blank" title="{{ product.seller.sellerCompanyName }}" class="fwbold d-block" style="padding-left: 82px; color: yellow;">
+                                      " target="_blank" title="{{ product.seller?product.seller.sellerCompanyName:'' }}" class="fwbold d-block" style="padding-left: 82px; color: yellow;">
                                       ...View more</a> 
 
                               <div class="text-white mt-3">
@@ -58,7 +58,7 @@
                                 
                               </div>
                               <div class="text-white mt-3">
-                                <span *ngIf="product.seller.Brands" class="single-line"><b>Brand : </b> {{product.seller.Brands}}<br> </span>
+                                <span *ngIf="product.seller && product.seller.Brands" class="single-line"><b>Brand : </b> {{product.seller.Brands}}<br> </span>
                               </div>
                               <div clas="text-white mt-3">
                                <!--<b>Other Category : </b>--> &nbsp;
@@ -81,13 +81,13 @@
                         
                    </span>
                         <h3 class="text-uppercase fwbold fs-6 mt-0"> <u><a [href]="
-                          this.urlService.getSellerUrl(product.seller.sellerUrl,product.seller.id)
-                        " target="_blank" class="text-white fs-5" title="{{ product.seller.sellerCompanyName }}">
+                          this.urlService.getSellerUrl(product.seller ? product.seller.sellerUrl:'',product.seller?product.seller.id:'')
+                        " target="_blank" class="text-white fs-5" title="{{product.seller?product.seller.sellerCompanyName:'' }}">
                               {{
-                              product.seller.sellerCompanyName.length > SAWidth
+                              product.seller? product.seller.sellerCompanyName.length > SAWidth
                               ? product.seller.sellerCompanyName.substring(0, SAWidth)
-                              : product.seller.sellerCompanyName
-                              }}<span *ngIf="product.seller.sellerCompanyName.length > SAWidth">...</span>
+                              : product.seller.sellerCompanyName:0
+                              }}<span *ngIf="product.seller?product.seller.sellerCompanyName.length:0 > SAWidth">...</span>
                           </a></u>
                       </h3>
                       <div class="row gx-3 mt-1 gy-4">
@@ -95,17 +95,17 @@
                               <div class="">
                                   <div class="card-body pt-0 text-center">
                                       <app-traders-img [id]="
-                                      product && product.seller.logo
+                                      product && product.seller && product.seller.logo
                                         ? product.seller.logo.id
                                         : null"
-                                          [prodName]="product.seller.sellerCompanyName ? product.seller.sellerCompanyName : product.productName"
+                                          [prodName]="product.seller && product.seller.sellerCompanyName ? product.seller.sellerCompanyName : product.productName"
                                           target="_blank" [class]="'img-fluid rounded-10'"></app-traders-img>
   
                                   </div>
                               </div>
                           </div>
                           <div class="col-6" style="vertical-align: middle;">
-                              <div class="grid2" style="line-height:30px">
+                              <div class="grid2" style="line-height:30px" *ngIf="product.seller">
                                   <img src="assets/images/location-white.png" alt="location" width="15" height="17" />
                                   <a [href]="
                                   this.urlService.getProductUrl(product.productName, product.id)
@@ -147,8 +147,7 @@
                                 this.urlService.getProductToWhatsapp(
                                   product.productName,
                                   product.id,
-                                  product.seller
-                                )
+                                  product.seller? product.seller:[]                                )
                               " target="_blank" class="whatsappbtn btn btn-sm w-100">
                               
                                   Connect on whatsapp

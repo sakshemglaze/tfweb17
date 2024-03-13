@@ -114,7 +114,7 @@
         </div>
       </div>
       <br />
-      <app-premium-product-card *ngIf="sponsoredProduct" [product]="sponsoredProduct"></app-premium-product-card>
+      <app-premium-product-card *ngIf="sponsoredProduct && sponsoredProduct.seller" [product]="sponsoredProduct"></app-premium-product-card>
 
       <!-- paginate
         : {
